@@ -223,6 +223,151 @@ body {
 .collapsible-body { display: none; }
 .collapsible-body.open { display: block; }
 
+/* === CALENDAR PICKER === */
+.calendar-picker-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+.calendar-input-row {
+  display: flex; gap: 8px; align-items: flex-end;
+}
+.calendar-input-row .form-group {
+  flex: 1; margin-bottom: 0;
+}
+.calendar-trigger {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.calendar-trigger:hover {
+  border-color: var(--border-hover);
+}
+.calendar-trigger.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+.calendar-trigger .cal-icon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.calendar-trigger .cal-text {
+  flex: 1; text-align: left;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.calendar-trigger .cal-text.placeholder {
+  color: var(--text-muted);
+}
+.calendar-popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 1000;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  padding: 16px;
+  width: 320px;
+  max-width: calc(100vw - 48px);
+  display: none;
+  font-size: 13px;
+}
+.calendar-popup.show { display: block; }
+.cal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.cal-nav-btn {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border); background: var(--bg-tertiary);
+  border-radius: var(--radius-sm); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); transition: var(--transition);
+  font-size: 16px; font-family: inherit;
+}
+.cal-nav-btn:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+.cal-month-label {
+  font-weight: 600; font-size: 14px; color: var(--text-primary);
+  min-width: 120px; text-align: center;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.cal-weekday {
+  text-align: center; font-size: 11px; font-weight: 600;
+  color: var(--text-muted); padding: 4px 0;
+}
+.cal-day {
+  text-align: center; padding: 8px 0;
+  font-size: 13px; cursor: pointer; border-radius: var(--radius-sm);
+  color: var(--text-primary); transition: var(--transition);
+  border: 1px solid transparent;
+}
+.cal-day:hover {
+  background: var(--accent-dim);
+}
+.cal-day.other-month {
+  color: var(--text-muted); opacity: 0.4;
+}
+.cal-day.today {
+  border-color: var(--accent);
+}
+.cal-day.selected {
+  background: var(--accent); color: #fff; font-weight: 600;
+}
+.cal-day.selected:hover {
+  background: var(--accent);
+}
+.cal-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.cal-today-btn {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 4px 12px;
+  border-radius: var(--radius-sm); cursor: pointer;
+  font-size: 12px; transition: var(--transition); font-family: inherit;
+}
+.cal-today-btn:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+.cal-close-btn {
+  background: transparent; border: none;
+  color: var(--text-muted); cursor: pointer;
+  font-size: 12px; font-family: inherit;
+}
+.cal-close-btn:hover { color: var(--text-primary); }
+
+/* Calendar responsive for iPad */
+@media (max-width: 1024px) {
+  .calendar-popup {
+    width: 340px;
+  }
+  .cal-day { padding: 10px 0; font-size: 14px; }
+  .cal-nav-btn { width: 32px; height: 32px; }
+}
+@media (max-width: 768px) {
+  .calendar-popup {
+    width: 100%;
+    left: 0;
+  }
+}
+
 /* === RIGHT PANEL === */
 .preview-header {
   padding: 16px 20px;
@@ -312,16 +457,43 @@ body {
   padding: 5px 14px; border: 1px solid var(--border); background: transparent;
   color: var(--text-secondary); border-radius: 20px; cursor: pointer;
   font-size: 13px; transition: var(--transition);
+  white-space: nowrap;
 }
 .filter-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
 .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 .filter-select {
-  padding: 5px 12px; border: 1px solid var(--border); background: var(--bg-tertiary);
+  padding: 6px 28px 6px 12px; border: 1px solid var(--border); background: var(--bg-tertiary);
   color: var(--text-secondary); border-radius: var(--radius-sm); cursor: pointer;
   font-size: 13px; outline: none;
+  min-width: 90px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  flex: 0 1 auto;
 }
 .filter-select:hover { border-color: var(--border-hover); }
-.filter-select option { background: var(--bg-secondary); }
+.filter-select option { background: var(--bg-secondary); color: var(--text-primary); padding: 4px; }
+
+/* iPad / tablet responsive */
+@media (max-width: 1024px) {
+  .filter-bar#tagFilter {
+    gap: 10px;
+  }
+  .filter-select {
+    min-width: 100px;
+    font-size: 14px;
+    padding: 8px 30px 8px 14px;
+  }
+}
+@media (max-width: 768px) {
+  .filter-bar#tagFilter .filter-select {
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -393,6 +565,31 @@ body {
       <div class="form-group">
         <label class="form-label">时间标签 <span class="hint">Date Label — 留空自动填充当前日期</span></label>
         <input type="text" class="form-input" id="vDateLabel" placeholder="MON · 28 · JULY" oninput="updatePreview()">
+      </div>
+
+      <div class="calendar-picker-wrapper">
+        <label class="form-label">日期选择 <span class="hint">Calendar — 点击选择日期自动填充下方字段</span></label>
+        <div class="calendar-trigger" id="calendarTrigger" onclick="toggleCalendar()">
+          <svg class="cal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span class="cal-text placeholder" id="calendarDisplayText">选择日期 / Select Date</span>
+        </div>
+        <div class="calendar-popup" id="calendarPopup">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="calNavMonth(-1)">&#9664;</button>
+            <span class="cal-month-label" id="calMonthLabel"></span>
+            <button class="cal-nav-btn" onclick="calNavMonth(1)">&#9654;</button>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="cal-footer">
+            <button class="cal-today-btn" onclick="calSelectToday()">今天 Today</button>
+            <button class="cal-close-btn" onclick="closeCalendar()">关闭 Close</button>
+          </div>
+        </div>
       </div>
 
       <div class="form-row">
@@ -1902,6 +2099,140 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2000);
 }
 
+// === CALENDAR ===
+const calDays = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+const calDaysShort = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+const calMonths = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+const calMonthsCN = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+let calCurrentDate = new Date();
+let calSelectedDate = null;
+
+function toggleCalendar() {
+  const popup = document.getElementById('calendarPopup');
+  const trigger = document.getElementById('calendarTrigger');
+  popup.classList.toggle('show');
+  trigger.classList.toggle('active');
+  if (popup.classList.contains('show')) {
+    renderCalendar();
+  }
+}
+
+function closeCalendar() {
+  document.getElementById('calendarPopup').classList.remove('show');
+  document.getElementById('calendarTrigger').classList.remove('active');
+}
+
+function calNavMonth(delta) {
+  calCurrentDate.setMonth(calCurrentDate.getMonth() + delta);
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const year = calCurrentDate.getFullYear();
+  const month = calCurrentDate.getMonth();
+  const monthLabel = document.getElementById('calMonthLabel');
+  monthLabel.textContent = `${year}年 ${calMonthsCN[month]} / ${calMonths[month]}`;
+
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+
+  // Weekday headers
+  calDaysShort.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-weekday';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+
+  // Calculate first day of month and days in month
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInPrevMonth = new Date(year, month, 0).getDate();
+  const today = new Date();
+
+  // Previous month's trailing days
+  for (let i = firstDay - 1; i >= 0; i--) {
+    const el = document.createElement('div');
+    el.className = 'cal-day other-month';
+    el.textContent = daysInPrevMonth - i;
+    grid.appendChild(el);
+  }
+
+  // Current month's days
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day';
+    el.textContent = d;
+    
+    // Check if today
+    if (year === today.getFullYear() && month === today.getMonth() && d === today.getDate()) {
+      el.classList.add('today');
+    }
+    
+    // Check if selected
+    if (calSelectedDate && year === calSelectedDate.getFullYear() && month === calSelectedDate.getMonth() && d === calSelectedDate.getDate()) {
+      el.classList.add('selected');
+    }
+    
+    el.onclick = ((day) => () => calSelectDate(year, month, day))(d);
+    grid.appendChild(el);
+  }
+
+  // Next month's leading days to fill the grid
+  const totalCells = firstDay + daysInMonth;
+  const remaining = (7 - (totalCells % 7)) % 7;
+  for (let d = 1; d <= remaining; d++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day other-month';
+    el.textContent = d;
+    grid.appendChild(el);
+  }
+}
+
+function calSelectDate(year, month, day) {
+  calSelectedDate = new Date(year, month, day);
+  const dateObj = calSelectedDate;
+  const weekday = calDays[dateObj.getDay()];
+  const dateNum = dateObj.getDate();
+  const monthName = calMonths[dateObj.getMonth()];
+
+  // Auto-fill the fields
+  document.getElementById('vWeekday').value = weekday;
+  document.getElementById('vDateNumber').value = dateNum;
+  document.getElementById('vMonth').value = monthName;
+  document.getElementById('vDateLabel').value = `${weekday.slice(0,3)} · ${dateNum} · ${monthName}`;
+
+  // Update display text
+  const displayText = document.getElementById('calendarDisplayText');
+  displayText.textContent = `${calMonthsCN[dateObj.getMonth()]}${dateNum}日 ${weekday}`;
+  displayText.classList.remove('placeholder');
+
+  // Update season based on month
+  const m = dateObj.getMonth() + 1;
+  const newSeason = m >= 3 && m <= 5 ? 'Spring' : m >= 6 && m <= 8 ? 'Summer' : m >= 9 && m <= 11 ? 'Autumn' : 'Winter';
+  selectSeason(newSeason);
+
+  updatePreview();
+  closeCalendar();
+}
+
+function calSelectToday() {
+  const today = new Date();
+  calCurrentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+  calSelectDate(today.getFullYear(), today.getMonth(), today.getDate());
+}
+
+// Close calendar when clicking outside
+document.addEventListener('click', function(e) {
+  const popup = document.getElementById('calendarPopup');
+  const trigger = document.getElementById('calendarTrigger');
+  if (popup && trigger && popup.classList.contains('show')) {
+    if (!popup.contains(e.target) && !trigger.contains(e.target)) {
+      closeCalendar();
+    }
+  }
+});
+
 // === RESET ===
 function resetAll() {
   selectedTemplate = null;
@@ -1914,6 +2245,13 @@ function resetAll() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
+  // Reset calendar display
+  calSelectedDate = null;
+  const calDisplay = document.getElementById('calendarDisplayText');
+  if (calDisplay) {
+    calDisplay.textContent = '选择日期 / Select Date';
+    calDisplay.classList.add('placeholder');
+  }
   document.getElementById('vCompanyEn').value = '';
   document.getElementById('vCompanyCn').value = '';
   document.getElementById('vContactAddress').value = '';
@@ -1944,10 +2282,19 @@ selectSeason(autoSeason);
 const now = new Date();
 const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
 const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+const monthsCN = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 document.getElementById('vWeekday').value = days[now.getDay()];
 document.getElementById('vDateNumber').value = now.getDate();
 document.getElementById('vMonth').value = months[now.getMonth()];
 document.getElementById('vDateLabel').value = `${days[now.getDay()].slice(0,3)} · ${now.getDate()} · ${months[now.getMonth()]}`;
+// Sync calendar display with auto-filled date
+calSelectedDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+calCurrentDate = new Date(now.getFullYear(), now.getMonth(), 1);
+const initCalDisplay = document.getElementById('calendarDisplayText');
+if (initCalDisplay) {
+  initCalDisplay.textContent = `${monthsCN[now.getMonth()]}${now.getDate()}日 ${days[now.getDay()]}`;
+  initCalDisplay.classList.remove('placeholder');
+}
 </script>
 </body>
 </html>
