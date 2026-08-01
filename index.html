@@ -391,7 +391,7 @@ body {
       <div class="collapsible-header" onclick="toggleCollapsible('companyBody', this)">
         <div class="section-title" style="margin-bottom:0;">
           <span class="section-num active">3</span>
-          企业信息 / Company Info <span class="hint" style="font-weight:400;">— 已预填默认值</span>
+          企业信息 / Company Info <span class="hint" style="font-weight:400;">— 随机生成（每次不同）</span>
         </div>
         <span class="arrow">▶</span>
       </div>
@@ -399,25 +399,25 @@ body {
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">公司名称 (EN)</label>
-            <input type="text" class="form-input" id="vCompanyEn" value="HUNTZ ENTERPRISES" oninput="updatePreview()">
+            <input type="text" class="form-input" id="vCompanyEn" oninput="updatePreview()">
           </div>
           <div class="form-group">
             <label class="form-label">公司名称 (CN)</label>
-            <input type="text" class="form-input" id="vCompanyCn" value="宏兹实业" oninput="updatePreview()">
+            <input type="text" class="form-input" id="vCompanyCn" oninput="updatePreview()">
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">地址</label>
-          <input type="text" class="form-input" id="vContactAddress" value="珠海市格力金琴健康港12栋" oninput="updatePreview()">
+          <input type="text" class="form-input" id="vContactAddress" oninput="updatePreview()">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">电话</label>
-            <input type="text" class="form-input" id="vContactPhone" value="0756-8639917" oninput="updatePreview()">
+            <input type="text" class="form-input" id="vContactPhone" oninput="updatePreview()">
           </div>
           <div class="form-group">
             <label class="form-label">邮箱</label>
-            <input type="text" class="form-input" id="vContactEmail" value="hello@yourcompany.com" oninput="updatePreview()">
+            <input type="text" class="form-input" id="vContactEmail" oninput="updatePreview()">
           </div>
         </div>
       </div>
@@ -749,6 +749,53 @@ NEGATIVE: No photography, no 3D render, no flat geometric illustration, no smoot
   }
 ];
 
+// === RANDOM COMPANY GENERATOR ===
+const COMPANY_POOLS = {
+  prefixCn: ['宏兹','华瑞','星辰','鼎丰','云图','光启','智远','德信','创联','汇通','天元','明德','嘉和','旭日','领越','卓尔','鹏程','泰安','新纪','融创'],
+  industry: ['实业','科技','传媒','设计','文化','数字','智能','创新','互联','数据'],
+  suffix: ['有限公司','集团有限公司'],
+  enWord1: ['HUNTZ','VANGUARD','APEX','NEXUS','ZENITH','CREST','NOVA','AXIS','ORBIT','FLUX','PRISM','HELIX','VERTEX','QUANTUM','SYNTAX','LUMEN','CASCADE','FOUNDRY','BEACON','STRATA'],
+  enWord2: ['ENTERPRISES','GROUP','LABS','STUDIO','DYNAMICS','VENTURES','COLLECTIVE','PARTNERS','WORKS','SYSTEMS'],
+  cities: ['珠海市','深圳市','广州市','杭州市','上海市','北京市','成都市','武汉市','苏州市','南京市','西安市','长沙市','重庆市','厦门市'],
+  buildings: ['格力金琴健康港','科技园','创新大厦','产业孵化园','数字谷','智慧城','创业广场','科技中心','商务广场','产业园','科创走廊','云计算基地'],
+  areaCodes: ['0756','0755','020','0571','021','010','028','027','0512','025','029','0731','023','0592'],
+  domains: ['company.com','enterprise.cn','studio.io','labs.tech','group.net','works.design','ventures.co']
+};
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randPhone() {
+  let n = '';
+  for (let i = 0; i < 7; i++) n += randInt(0, 9);
+  return n;
+}
+function generateRandomCompany() {
+  const prefix = pick(COMPANY_POOLS.prefixCn);
+  const industry = pick(COMPANY_POOLS.industry);
+  const suffix = pick(COMPANY_POOLS.suffix);
+  const en1 = pick(COMPANY_POOLS.enWord1);
+  const en2 = pick(COMPANY_POOLS.enWord2);
+  const city = pick(COMPANY_POOLS.cities);
+  const building = pick(COMPANY_POOLS.buildings);
+  const bldgNum = randInt(1, 20);
+  const areaCode = pick(COMPANY_POOLS.areaCodes);
+  const domain = pick(COMPANY_POOLS.domains);
+  const enLower = (en1 + en2).toLowerCase().replace(/\s/g, '');
+  return {
+    companyEn: en1 + ' ' + en2,
+    companyCn: prefix,
+    contactAddress: city + building + bldgNum + '栋',
+    contactPhone: areaCode + '-' + randPhone(),
+    contactEmail: 'hello@' + enLower + '.' + domain
+  };
+}
+function fillCompanyFields(c) {
+  document.getElementById('vCompanyEn').value = c.companyEn;
+  document.getElementById('vCompanyCn').value = c.companyCn;
+  document.getElementById('vContactAddress').value = c.contactAddress;
+  document.getElementById('vContactPhone').value = c.contactPhone;
+  document.getElementById('vContactEmail').value = c.contactEmail;
+}
+
 // === STATE ===
 let selectedTemplate = null;
 let selectedSeason = 'Summer';
@@ -818,11 +865,11 @@ function generatePrompt() {
     '{MAIN_TITLE}': val('vMainTitle') || '（请填写主标题）',
     '{SUBTITLE}': val('vSubtitle') || '（请填写副标题）',
     '{MAIN_VISUAL_DESC}': val('vMainVisualDesc') || '（请填写主视觉描述）',
-    '{COMPANY_EN}': val('vCompanyEn') || 'HUNTZ ENTERPRISES',
-    '{COMPANY_CN}': val('vCompanyCn') || '宏兹实业',
-    '{CONTACT_ADDRESS}': val('vContactAddress') || '珠海市格力金琴健康港12栋',
-    '{CONTACT_PHONE}': val('vContactPhone') || '0756-8639917',
-    '{CONTACT_EMAIL}': val('vContactEmail') || 'hello@yourcompany.com',
+    '{COMPANY_EN}': val('vCompanyEn') || generateRandomCompany().companyEn,
+    '{COMPANY_CN}': val('vCompanyCn') || generateRandomCompany().companyCn,
+    '{CONTACT_ADDRESS}': val('vContactAddress') || generateRandomCompany().contactAddress,
+    '{CONTACT_PHONE}': val('vContactPhone') || generateRandomCompany().contactPhone,
+    '{CONTACT_EMAIL}': val('vContactEmail') || generateRandomCompany().contactEmail,
     '{SOLAR_TERM}': val('vMainTitle') || '立秋',
   };
 
@@ -940,11 +987,12 @@ function resetAll() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  document.getElementById('vCompanyEn').value = 'HUNTZ ENTERPRISES';
-  document.getElementById('vCompanyCn').value = '宏兹实业';
-  document.getElementById('vContactAddress').value = '珠海市格力金琴健康港12栋';
-  document.getElementById('vContactPhone').value = '0756-8639917';
-  document.getElementById('vContactEmail').value = 'hello@yourcompany.com';
+  document.getElementById('vCompanyEn').value = '';
+  document.getElementById('vCompanyCn').value = '';
+  document.getElementById('vContactAddress').value = '';
+  document.getElementById('vContactPhone').value = '';
+  document.getElementById('vContactEmail').value = '';
+  fillCompanyFields(generateRandomCompany());
   document.getElementById('previewContent').innerHTML = `
     <div class="preview-empty">
       <div class="icon">📋</div>
@@ -956,6 +1004,9 @@ function resetAll() {
 
 // === INIT ===
 renderStyleGrid();
+
+// Generate random company info on load
+fillCompanyFields(generateRandomCompany());
 
 // Auto-detect season
 const month = new Date().getMonth() + 1;
