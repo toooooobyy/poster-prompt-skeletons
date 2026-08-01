@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster Prompt Generator — 海报提示词生成器</title>
+<style>
+:root {
+  --bg-primary: #0f1117;
+  --bg-secondary: #1a1d28;
+  --bg-tertiary: #242838;
+  --bg-card: #1e2130;
+  --border: #2d3148;
+  --border-hover: #4a5170;
+  --text-primary: #e8eaf0;
+  --text-secondary: #9ba3b8;
+  --text-muted: #6b7390;
+  --accent: #6c8eef;
+  --accent-hover: #8aa5f5;
+  --accent-dim: rgba(108,142,239,0.15);
+  --success: #4caf86;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --transition: 0.2s ease;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+/* === HEADER === */
+.header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header h1 {
+  font-size: 18px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px;
+}
+.header .logo-icon {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--accent), #a78bfa);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.header .subtitle { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+.header-actions { display: flex; gap: 10px; }
+.btn-reset {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 6px 14px;
+  border-radius: var(--radius-sm); cursor: pointer;
+  font-size: 13px; transition: var(--transition);
+}
+.btn-reset:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+/* === LAYOUT === */
+.main-container {
+  display: flex; gap: 0; height: calc(100vh - 61px);
+}
+.left-panel {
+  flex: 1; overflow-y: auto; padding: 24px;
+}
+.right-panel {
+  width: 460px; min-width: 460px;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: sticky; top: 61px;
+}
+@media (max-width: 1024px) {
+  .main-container { flex-direction: column; height: auto; }
+  .right-panel { width: 100%; min-width: 100%; position: relative; top: 0; }
+}
+
+/* === SECTIONS === */
+.section { margin-bottom: 32px; }
+.section-title {
+  font-size: 14px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--text-secondary);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.section-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent-dim); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+.section-num.active { background: var(--accent); color: #fff; }
+
+/* === STYLE GRID === */
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.style-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.style-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.style-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.style-card .card-num {
+  font-size: 11px; color: var(--text-muted);
+  font-weight: 700; margin-bottom: 4px;
+}
+.style-card .card-name {
+  font-size: 15px; font-weight: 600; margin-bottom: 4px;
+}
+.style-card .card-name-en {
+  font-size: 11px; color: var(--text-muted); margin-bottom: 8px;
+}
+.style-card .card-desc {
+  font-size: 12px; color: var(--text-secondary); line-height: 1.4;
+}
+.style-card .card-visual {
+  font-size: 11px; color: var(--accent);
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.style-card .checkmark {
+  position: absolute; top: 10px; right: 10px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: none; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+.style-card.selected .checkmark { display: flex; }
+
+/* === FORM === */
+.form-group { margin-bottom: 16px; }
+.form-label {
+  display: block; font-size: 13px; font-weight: 600;
+  margin-bottom: 6px; color: var(--text-primary);
+}
+.form-label .required { color: var(--accent); }
+.form-label .hint { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-left: 6px; }
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+.form-textarea { resize: vertical; min-height: 70px; }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+
+/* Season selector */
+.season-grid { display: flex; gap: 8px; }
+.season-btn {
+  flex: 1; padding: 8px 0;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer; font-size: 13px;
+  transition: var(--transition); text-align: center;
+}
+.season-btn:hover { border-color: var(--border-hover); }
+.season-btn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Toggle */
+.toggle-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.toggle-switch {
+  width: 36px; height: 20px;
+  background: var(--border); border-radius: 10px;
+  position: relative; cursor: pointer; transition: var(--transition);
+}
+.toggle-switch.on { background: var(--accent); }
+.toggle-switch::after {
+  content: ''; position: absolute;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; top: 2px; left: 2px;
+  transition: var(--transition);
+}
+.toggle-switch.on::after { left: 18px; }
+
+/* Collapsible */
+.collapsible-header {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; padding: 10px 0;
+}
+.collapsible-header .arrow { transition: var(--transition); }
+.collapsible-header.open .arrow { transform: rotate(90deg); }
+.collapsible-body { display: none; }
+.collapsible-body.open { display: block; }
+
+/* === RIGHT PANEL === */
+.preview-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.preview-header h2 { font-size: 14px; font-weight: 700; }
+.preview-meta { font-size: 11px; color: var(--text-muted); }
+.preview-content {
+  flex: 1; overflow-y: auto; padding: 16px 20px;
+}
+.preview-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%; color: var(--text-muted);
+  text-align: center; gap: 12px;
+}
+.preview-empty .icon { font-size: 48px; opacity: 0.3; }
+.preview-empty p { font-size: 14px; }
+.prompt-block {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px; line-height: 1.7;
+  white-space: pre-wrap; word-break: break-word;
+  color: var(--text-primary);
+  max-height: none;
+}
+.prompt-block .var-highlight {
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 1px 4px; border-radius: 3px;
+}
+.preview-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 10px;
+}
+.btn-copy {
+  flex: 1; background: var(--accent); color: #fff;
+  border: none; padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 14px; font-weight: 600;
+  transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-copy:hover { background: var(--accent-hover); }
+.btn-copy:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+.btn-copy.copied { background: var(--success); }
+.btn-download {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 10px 14px;
+  border-radius: var(--radius-sm); cursor: pointer;
+  font-size: 14px; transition: var(--transition);
+}
+.btn-download:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+/* Char count */
+.char-count {
+  font-size: 11px; color: var(--text-muted);
+  text-align: right; margin-top: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--success); color: #fff;
+  padding: 12px 24px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 500;
+  box-shadow: var(--shadow); z-index: 999;
+  transition: 0.3s ease; opacity: 0;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1><span class="logo-icon">P</span> Poster Prompt Generator <span class="subtitle">— 海报提示词生成器</span></h1>
+  </div>
+  <div class="header-actions">
+    <button class="btn-reset" onclick="resetAll()">重置</button>
+  </div>
+</div>
+
+<div class="main-container">
+  <!-- LEFT PANEL: INPUTS -->
+  <div class="left-panel">
+
+    <!-- STEP 1: Style Selection -->
+    <div class="section">
+      <div class="section-title">
+        <span class="section-num active">1</span>
+        选择风格模板 / Select Style
+      </div>
+      <div class="style-grid" id="styleGrid"></div>
+    </div>
+
+    <!-- STEP 2: Content Variables -->
+    <div class="section" id="contentSection" style="display:none;">
+      <div class="section-title">
+        <span class="section-num active">2</span>
+        填写内容变量 / Fill Content
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">时间标签 <span class="hint">Date Label — 留空自动填充当前日期</span></label>
+        <input type="text" class="form-input" id="vDateLabel" placeholder="MON · 28 · JULY" oninput="updatePreview()">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">星期 <span class="hint">Weekday</span></label>
+          <input type="text" class="form-input" id="vWeekday" placeholder="MONDAY" oninput="updatePreview()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">日期数字 <span class="hint">Date Number</span></label>
+          <input type="text" class="form-input" id="vDateNumber" placeholder="28" oninput="updatePreview()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">月份 <span class="hint">Month</span></label>
+          <input type="text" class="form-input" id="vMonth" placeholder="JULY" oninput="updatePreview()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">主标题 <span class="required">*</span> <span class="hint">Main Title — 4-8字</span></label>
+        <input type="text" class="form-input" id="vMainTitle" placeholder="秩序之美" oninput="updatePreview()">
+        <div class="char-count" id="titleCount">0 字</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">副标题 <span class="hint">Subtitle — 12-22字</span></label>
+        <input type="text" class="form-input" id="vSubtitle" placeholder="在严谨的结构中，发现自由的力量" oninput="updatePreview()">
+        <div class="char-count" id="subtitleCount">0 字</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">主视觉画面描述 <span class="required">*</span> <span class="hint">Main Visual Description</span></label>
+        <textarea class="form-textarea" id="vMainVisualDesc" placeholder="geometric architectural composition, rectangles and triangular blocks" oninput="updatePreview()"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">季节色系 <span class="hint">Season — 决定配色方案</span></label>
+        <div class="season-grid" id="seasonGrid">
+          <button class="season-btn" data-season="Spring" onclick="selectSeason('Spring')">春 Spring</button>
+          <button class="season-btn active" data-season="Summer" onclick="selectSeason('Summer')">夏 Summer</button>
+          <button class="season-btn" data-season="Autumn" onclick="selectSeason('Autumn')">秋 Autumn</button>
+          <button class="season-btn" data-season="Winter" onclick="selectSeason('Winter')">冬 Winter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Company Info -->
+    <div class="section" id="companySection" style="display:none;">
+      <div class="collapsible-header" onclick="toggleCollapsible('companyBody', this)">
+        <div class="section-title" style="margin-bottom:0;">
+          <span class="section-num active">3</span>
+          企业信息 / Company Info <span class="hint" style="font-weight:400;">— 已预填默认值</span>
+        </div>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="collapsible-body" id="companyBody">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">公司名称 (EN)</label>
+            <input type="text" class="form-input" id="vCompanyEn" value="HUNTZ ENTERPRISES" oninput="updatePreview()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">公司名称 (CN)</label>
+            <input type="text" class="form-input" id="vCompanyCn" value="宏兹实业" oninput="updatePreview()">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">地址</label>
+          <input type="text" class="form-input" id="vContactAddress" value="珠海市格力金琴健康港12栋" oninput="updatePreview()">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">电话</label>
+            <input type="text" class="form-input" id="vContactPhone" value="0756-8639917" oninput="updatePreview()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">邮箱</label>
+            <input type="text" class="form-input" id="vContactEmail" value="hello@yourcompany.com" oninput="updatePreview()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT PANEL: PREVIEW -->
+  <div class="right-panel">
+    <div class="preview-header">
+      <h2>Generated Prompt</h2>
+      <span class="preview-meta" id="previewMeta">— chars</span>
+    </div>
+    <div class="preview-content" id="previewContent">
+      <div class="preview-empty">
+        <div class="icon">📋</div>
+        <p>选择左侧风格模板并填写内容<br>prompt 将在此实时预览</p>
+      </div>
+    </div>
+    <div class="preview-footer">
+      <button class="btn-copy" id="btnCopy" disabled onclick="copyPrompt()">
+        <span>📋</span> 复制 Prompt
+      </button>
+      <button class="btn-download" id="btnDownload" onclick="downloadPrompt()">⬇</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">已复制到剪贴板</div>
+
+<script>
+// === TEMPLATE DATA ===
+const TEMPLATES = [
+  {
+    id: 'album-minimalist',
+    num: '01',
+    nameCn: '极素画册风',
+    nameEn: 'Album Minimalist',
+    desc: '低饱和度水墨风景、柔和纸张肌理、治愈素雅',
+    visual: 'Ink-wash landscape illustration',
+    seasons: {
+      Spring: { palette: 'pale bean-green, light gosling-yellow' },
+      Summer: { palette: 'misty teal #A3C1BD, pale lake-blue #9ABBD4' },
+      Autumn: { palette: 'warm coffee, ochre-rice' },
+      Winter: { palette: 'gray-blue, charcoal-cream-white' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — minimalist art-album style
+
+A 9:16 vertical poster in minimalist art-album style. Low saturation, faint paper texture, soft and elegant. Six fixed zones with safe margins.
+
+BASE: {SEASON} palette — base #F6F2EC, accent palette {PALETTE}.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: A small LOGO mark (concentric-circle line motif) beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in elegant serif (Cormorant Garamond style).
+- CENTER (large area): The main visual — an ink-wash landscape illustration: {MAIN_VISUAL_DESC}. Soft, low-saturation ink wash with faint paper texture. Gentle flat lighting, no strong contrast.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold serif Chinese (Noto Serif SC), subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+
+BACKGROUND: Cream-rice white (#F6F2EC) with faint paper grain.
+
+MOOD: Gentle, healing, refined, atmospheric. No promotional tone.
+
+STYLE REFERENCES: Muji catalog aesthetics, Japanese minimalist photography books, low-saturation ink-wash illustration, wabi-sabi.
+
+NEGATIVE: No photography, no 3D render, no high saturation, no strong contrast, no decorative arcs, no complex grid lines, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'geometric-composition',
+    num: '02',
+    nameCn: '几何构成风',
+    nameEn: 'Geometric Composition',
+    desc: '包豪斯美学、硬边块面、黑白强对比、零肌理',
+    visual: 'Geometric composition illustration',
+    seasons: {
+      Spring: { base: '#CFD0CE', accent: 'tender green', block: '#000000' },
+      Summer: { base: '#CFD0CE', accent: 'terracotta orange #C97B5A', block: '#000000' },
+      Autumn: { base: '#C8C4BC', accent: 'ochre', block: '#3A2A1A' },
+      Winter: { base: '#D4D4D4', accent: 'ice blue #7BA7C9', block: '#2A2A2A' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — geometric composition style, Bauhaus aesthetic
+
+A 9:16 vertical poster in strict Bauhaus geometric composition style. Absolutely flat, zero texture, zero gradient, zero shadow. The layout uses a rigid asymmetric grid with six fixed zones and a 1px bottom hairline spanning full width.
+
+BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}, block color {BLOCK_COLOR}.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: A square LOGO block (black background with a thin {ACCENT_COLOR} inner frame) next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
+- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized bold serif numeral "{DATE_NUMBER}" (Didot/Bodoni style, visually dominant), and the month "{MONTH}" below. A vertical 1px hairline runs through this column.
+- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Pure geometric composition: rectangles, triangles, straight-line divisions, hard edges, no curves, no rounded corners. Colors limited to {BASE_COLOR}, {ACCENT_COLOR}, {BLOCK_COLOR}, and pure black/white. No perspective, no realistic detail, no photography.
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (thin horizontal strokes, thick vertical strokes), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal 1px hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
+- FULL WIDTH BOTTOM: A single horizontal 1px hairline.
+
+MOOD: Rational, powerful, ordered. Bauhaus discipline. No promotional tone, no warmth, no softness.
+
+STYLE REFERENCES: Bauhaus poster design, Josef Müller-Brockmann grid systems, Swiss International Typographic Style, hard-edge geometric abstraction.
+
+NEGATIVE: No curves, no rounded corners, no gradients, no shadows, no drop shadows, no 3D effects, no photography, no ink wash, no watercolor, no organic shapes, no decorative ornament, no promotional text, no sale banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'warm-retro',
+    num: '03',
+    nameCn: '暖光复古风',
+    nameEn: 'Warm Retro',
+    desc: '做旧纸张质感、双层边框、大地色系扁平插画',
+    visual: 'Flat geometric illustration',
+    seasons: {
+      Spring: { base: '#F5F0E6', main: 'tender olive-green', accent: 'pale apricot' },
+      Summer: { base: '#F5F0E6', main: '#C67B4B', accent: '#8B8B5E' },
+      Autumn: { base: '#F5F0E6', main: 'ochre-brown', accent: 'caramel-orange' },
+      Winter: { base: '#F5F0E6', main: 'gray-brown', accent: 'warm-white' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — warm retro wabi-sabi style
+
+A 9:16 vertical poster in retro-warm wabi-sabi style. Aged-paper texture with fine noise grain and slight edge vignette. A global double-line nested border (outer coffee-brown 1px + inner pale-cream 1px, 8–12px gap). Six fixed zones.
+
+BASE: {SEASON} palette — base {BASE_COLOR}, main color {MAIN_COLOR}, accent {ACCENT_COLOR}.
+
+LAYOUT (top to bottom, all inside the double border):
+- TOP-CENTER: A small geometric LOGO symbol (hexagon outline).
+- UPPER AREA: Left side — weekday "{WEEKDAY}" + large serif date numeral "{DATE_NUMBER}" (Didot/Bodoni, strong stroke contrast). Right side — label "今日主题" + main title "{MAIN_TITLE}" in Song/Mincho (thin horizontal, thick vertical).
+- CENTER: The main visual — a flat geometric illustration: {MAIN_VISUAL_DESC}. A thin horizontal line above and below the illustration. Colors limited to {BASE_COLOR}, {MAIN_COLOR}, {ACCENT_COLOR}. No perspective, no realism.
+- BELOW MAIN VISUAL: Subtitle "{SUBTITLE}" in thin Song/kai type, poetic feel.
+- BOTTOM-LEFT: Three lines of plain contact text (no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+
+BACKGROUND: Aged yellow-cream paper ({BASE_COLOR}) with fine noise grain and slight edge vignette simulating old paper.
+
+MOOD: Warm, poetic, everyday, nostalgic. No cold rigidity, no promotional tone.
+
+STYLE REFERENCES: Vintage botanical book illustration, wabi-sabi aesthetics, muted earth-tone palettes, aged paper texture, flat geometric illustration.
+
+NEGATIVE: No photography, no 3D render, no ink wash, no cold gray tones, no high saturation, no gradient background, no missing double border, no arc decorations, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'light-shadow',
+    num: '04',
+    nameCn: '光影留白风',
+    nameEn: 'Light & Shadow',
+    desc: '建筑摄影、引线标注、色块介入、极大留白',
+    visual: 'Architectural photography',
+    seasons: {
+      Spring: { base: '#F5F3EF', block: 'tender-green' },
+      Summer: { base: '#F5F3EF', block: '#A8B4C4' },
+      Autumn: { base: '#F5F3EF', block: 'ochre-gray' },
+      Winter: { base: '#F5F3EF', block: 'ice-gray' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — light & shadow neo-minimalist architectural style
+
+A 9:16 vertical poster in neo-minimalist light & shadow style. No borders. Pure whitespace-driven layout (~35–40% blank). Six fixed zones.
+
+BASE: {SEASON} palette — base {BASE_COLOR}, intervention-block color {BLOCK_COLOR}.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: Company name "{COMPANY_EN}" in small sans-serif, left-aligned.
+- TOP-RIGHT: Date numeral "{DATE_NUMBER}" inside a 1px thin-line rounded-rectangle frame, right-aligned.
+- CENTER (offset left): The main visual — architectural/spatial photography: {MAIN_VISUAL_DESC}. Low saturation, low contrast, slight faded look. Must include one circular light spot as the sole highlight. The photo occupies ~55% of canvas, does NOT touch any edge (not full-bleed). May include 1–2 architectural leader-line annotations.
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold Song/large-title Song, subtitle "{SUBTITLE}" in thin sans-serif below, followed by a short hairline (not full-width). Three lines of plain contact text (no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: 1–2 low-saturation cold-color geometric blocks ({BLOCK_COLOR}) stacked, with a small 1:1 QR code placeholder (15–18% of zone width) and "扫码了解更多" beneath.
+
+BACKGROUND: Warm-tone cream/oat ({BASE_COLOR}) with fine paper noise.
+
+MOOD: Quiet, sophisticated, spatial, de-advertised. No promotional tone, no clutter.
+
+STYLE REFERENCES: Kinfolk magazine, architectural digest minimalism, faded-film photography, Hélène Binet architectural photography, Swiss whitespace design.
+
+NEGATIVE: No illustration, no 3D render, no ink wash, no borders, no full-bleed photography, no decorative arcs, no gradient background, no high-saturation blocks, no missing light-spot anchor, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'silent-humanist',
+    num: '05',
+    nameCn: '静默人文风',
+    nameEn: 'Silent Humanist',
+    desc: '建筑光影摄影、书法标题、单色暖调三段式',
+    visual: 'Architectural photography',
+    seasons: {
+      Spring: { base: '#F5F0E8', tone: 'tender-brown', shadow: 'pale-green' },
+      Summer: { base: '#F5F0E8', tone: 'caramel-brown', shadow: 'deep-green' },
+      Autumn: { base: '#F5F0E8', tone: 'ochre-brown', shadow: 'warm-orange' },
+      Winter: { base: '#F5F0E8', tone: 'gray-brown', shadow: 'silver-gray' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — silent humanist style, architectural light & shadow
+
+A 9:16 vertical poster in silent-humanist style. Strict three-band layout with two horizontal hairline dividers (pale-brown), no enclosing border. Six fixed zones.
+
+BASE: {SEASON} palette — base {BASE_COLOR}, main tone {MAIN_TONE}, tree-shadow color {SHADOW_COLOR}. Pure monochrome warm — absolutely no cold colors.
+
+LAYOUT (three bands, top to bottom):
+- BAND 1 (HEADER): Left — geometric single-line LOGO + Chinese company name "{COMPANY_CN}" + English name "{COMPANY_EN}". Right — weekday "{WEEKDAY}" + date "{DATE_NUMBER}", no frame, direct typesetting. Below the header: a horizontal hairline spanning the content area.
+- BAND 2 (MAIN VISUAL, ~55%): Architectural/spatial photography: {MAIN_VISUAL_DESC}. Low-saturation warm tone, golden-hour light. Must include diagonal tree-shadow or light projection. Deliberately de-digitalized — no gradient, no drop-shadow, no gloss. Matte art-paper feel.
+- Below main visual: a second horizontal hairline.
+- BAND 3 (FOOTER): Main title "{MAIN_TITLE}" in calligraphic Song (thin horizontal, thick vertical, flying-white visible), subtitle "{SUBTITLE}" in thin hei below. Three lines of plain contact text (standard hei, no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+
+BACKGROUND: Warm gray-white/cream ({BASE_COLOR}) simulating matte art paper.
+
+MOOD: Silent, powerful, humanistic, warm. No promotional tone, no visual noise.
+
+STYLE REFERENCES: Tadao Ando architectural photography, Hélène Binet, golden-hour light studies, matte art-paper printing, calligraphic Chinese typography.
+
+NEGATIVE: No illustration, no 3D render, no cold colors, no borders, no color-block interventions, no leader-line annotations, no gradient, no drop-shadow, no gloss, no missing tree-shadow/light direction, no non-calligraphic title font, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'tech-streamer',
+    num: '06',
+    nameCn: '科技流光风',
+    nameEn: 'Tech Streamer',
+    desc: '3D渲染抽象图形、冰蓝渐变、粒子系统、体积光效',
+    visual: '3D-rendered abstract graphic',
+    seasons: {
+      Spring: { base: '#FFFFFF→#F0F4F8', gradient: 'tender emerald-green', particle: 'silver-gray' },
+      Summer: { base: '#FFFFFF→#F0F4F8', gradient: '#0066FF→#00CCFF', particle: 'silver-gray' },
+      Autumn: { base: '#FFFFFF→#F0F4F8', gradient: 'amber-gold', particle: 'warm-gray' },
+      Winter: { base: '#FFFFFF→#F0F4F8', gradient: 'misty purple-silver', particle: 'ice-white' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — tech streamer style, 3D-rendered abstract graphics
+
+A 9:16 vertical poster in tech-streamer style. The layout uses an asymmetric grid with no borders, driven by negative space (~35% whitespace). Six fixed zones.
+
+BASE: {SEASON} palette — base gradient {BASE_COLOR}, 3D graphic gradient {GRADIENT_COLOR}, particle color {PARTICLE_COLOR}, text color #0A2540.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: Company name "{COMPANY_EN}" in ultra-thin (Light/Thin) all-caps sans-serif with wide letter-spacing, left-aligned. Small geometric LOGO mark beside it.
+- TOP-RIGHT: Date "{DATE_LABEL}" in monospaced numerals, right-aligned, with a short horizontal hairline anchor beneath.
+- CENTER (offset upper-left): The main visual — a 3D-rendered abstract graphic: {MAIN_VISUAL_DESC}. Must include a glass torus/ring with Fresnel reflection and caustics, a floating slab tilted ~25°, glowing volumetric light-track arcs, and a drifting particle system ({PARTICLE_COLOR}). Materials: optical glass, liquid metal, frosted acrylic, condensation droplets, bloom glow. The 3D graphic occupies ~50% of the canvas, offset to the upper-left, leaving a large negative space on the right. NOT centered.
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in ultra-bold (Heavy/Black) sans-serif with negative-space compression, subtitle "{SUBTITLE}" in regular sans-serif below, followed by a short hairline. Below the hairline, three lines of plain contact text in #0A2540 (no icons, no bullets, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label "扫码了解更多" beneath it.
+
+BACKGROUND: Cool-white to light-gray gradient ({BASE_COLOR}) with ultra-faint grid lines and slight noise texture.
+
+MOOD: Digital futurism, forward-looking, trustworthy, warm-tech. No promotional tone, no corporate rigidity.
+
+STYLE REFERENCES: Apple keynote visuals, 3D glassmorphism, Octane/Cycles render aesthetics, volumetric lighting, caustics, particle simulations.
+
+NEGATIVE: No illustration, no photography, no 2D flat design, no warm-toned palette, no high-saturation clashing colors, no centered 3D graphic, no information clutter, no borders, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'ink-wash',
+    num: '07',
+    nameCn: '新中式水墨风',
+    nameEn: 'New Chinese Ink Wash',
+    desc: '数字水墨山水、如意云头框、竹枝破边、禅意留白',
+    visual: 'Digital ink-wash landscape illustration',
+    seasons: {
+      Spring: { base: '#F5F0E8', hue: 'blue-green + tender mineral green + pale apricot slopes' },
+      Summer: { base: '#F5F0E8', hue: 'cyan-blue + deep azurite + ochre slopes' },
+      Autumn: { base: '#F5F0E8', hue: 'ochre-brown + ochre dominant + caramel slopes' },
+      Winter: { base: '#F5F0E8', hue: 'pure ink-wash + indigo cool tone + snow-white' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — new Chinese ink wash style, Song-dynasty literati aesthetics
+
+A 9:16 vertical poster in new-Chinese ink-wash style. No enclosing border. Whitespace-driven 3:7 composition with ~50–60% blank space. Six fixed zones.
+
+BASE: {SEASON} palette — base {BASE_COLOR}, landscape hue {LANDSCAPE_HUE}.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: A small geometric modern LOGO mark.
+- TOP-RIGHT: The solar-term label "{SOLAR_TERM}" set in Song/imitation-Song type, enclosed in a ruyi-cloud-head frame (traditional auspicious motif, four corners curling inward, double-line border).
+- TOP-RIGHT EDGE: A bamboo branch slanting in from outside the frame, rendered in white-outline (白描) with pale ink wash. This is a core identity element — must be present.
+- CENTER: The main visual — a digital ink-wash landscape: {MAIN_VISUAL_DESC}. Must have four-layer depth: distant mountains (boneless pale ink, 30–40% opacity) fading into mist, midground (textured strokes, 50–60%), foreground (dense ink, 80–100%), and an ochre slope. Must include a pure-white sun circle as a breathing anchor and a solitary pine on the slope (guest-welcoming pine silhouette). ~55% of canvas area, with ~60% whitespace above.
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in calligraphic kai/wei-bei script with stroke modulation and flying-white (飞白), subtitle "{SUBTITLE}" in thin Song type below. Three lines of plain contact text (modern sans-serif, no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label "扫码了解更多" beneath it.
+
+BACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain渗透 effect. Mineral-pigment grain.
+
+MOOD: Song-dynasty literati, Zen, elegant, culturally deep. No folkloric saturation, no promotional tone.
+
+STYLE REFERENCES: Song-dynasty landscape painting (郭熙, 范宽), digital ink-wash illustration, xuan-paper texture, traditional Chinese auspicious motifs, literati aesthetics.
+
+NEGATIVE: No photography, no 3D render, no flat geometric design, no high-saturation red-green folkloric colors, no full-bleed composition, no full-frame border, no missing bamboo branch, no less than four depth layers, no calligraphy title replaced by modern font, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'paper-light-craft',
+    num: '08',
+    nameCn: '晨光纸艺风',
+    nameEn: 'Paper Light Craft',
+    desc: '层叠纸张撕裂毛边、压花植物、金色光源、窗格阴影',
+    visual: 'Paper-craft collage + pressed flower',
+    seasons: {
+      Spring: { top: '#4A5D3A', mid: '#8B9D6E', bottom: '#F5F0E6', light: '#E8C84B', plant: 'tender-green' },
+      Summer: { top: '#5D3A1A', mid: '#6B7B4C', bottom: '#F5F0E6', light: '#E8A84B', plant: 'deep-green' },
+      Autumn: { top: '#4A2E15', mid: '#D4854A', bottom: '#EDE0CC', light: '#D4943A', plant: 'dry-yellow' },
+      Winter: { top: '#3D3D3D', mid: '#8B9BA8', bottom: '#F0EDE8', light: '#D4C88A', plant: 'silver-gray dry branch' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — morning-light paper craft collage style
+
+A 9:16 vertical poster in morning-light paper-craft style. Three-band color-block zoning: dark top (~15%), warm mid (~50%), light bottom (~35%). Six fixed zones. Global paper-fiber texture with torn/feathered edges and fine handmade noise.
+
+BASE: {SEASON} palette — top {TOP_COLOR}, mid {MID_COLOR}, bottom {BOTTOM_COLOR}, light source {LIGHT_COLOR}, plant {PLANT_COLOR}.
+
+LAYOUT (top to bottom):
+- TOP BLOCK (~15%, color {TOP_COLOR}): Left — small LOGO. Right — weekday "{WEEKDAY}" + large serif date "{DATE_NUMBER}" (Didot/Bodoni) + month "{MONTH}" in all-caps thin sans-serif.
+- MID BLOCK (~50%, color {MID_COLOR}): The main visual — a paper-craft collage: {MAIN_VISUAL_DESC}. Must include: (1) at least 2–3 layered paper sheets with irregular torn/feathered edges creating z-axis depth; (2) a golden amber circular light source ({LIGHT_COLOR}) casting a window-grid shadow (cross or tic-tac-toe pattern); (3) a pressed/dried flower specimen ({PLANT_COLOR}, slender stems with veins, NOT fresh flower, NOT watercolor); (4) 1–2 pieces of semi-transparent cream washi tape fixing paper layers.
+- BOTTOM BLOCK (~35%, color {BOTTOM_COLOR}): Label "今日主题" + main title "{MAIN_TITLE}" in Chinese serif/Song (thin horizontal, thick vertical), subtitle "{SUBTITLE}" in thin Song/kai. Three lines of plain contact text (standard sans-serif, no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+
+TEXTURE: Global paper-fiber grain, torn paper edges, fine noise. Handmade feel.
+
+MOOD: Warm, handmade, poetic, slow-living, mindful. No digital slickness, no promotional noise.
+
+STYLE REFERENCES: Pressed-flower botanical specimens, washi-tape collage art, kraft-paper craft, morning window light, handmade paper texture, Jenny Bowers illustration.
+
+NEGATIVE: No photography, no 3D render, no flat geometric illustration, no smooth gradient, no digital gloss, no fresh flowers, no watercolor, no missing color-block zoning, no arc decorations (except circular light), no promotional banners, no emoji, no icons in contact area.`
+  }
+];
+
+// === STATE ===
+let selectedTemplate = null;
+let selectedSeason = 'Summer';
+
+// === RENDER STYLE GRID ===
+function renderStyleGrid() {
+  const grid = document.getElementById('styleGrid');
+  grid.innerHTML = TEMPLATES.map(t => `
+    <div class="style-card" data-id="${t.id}" onclick="selectStyle('${t.id}')">
+      <div class="checkmark">✓</div>
+      <div class="card-num">${t.num}</div>
+      <div class="card-name">${t.nameCn}</div>
+      <div class="card-name-en">${t.nameEn}</div>
+      <div class="card-desc">${t.desc}</div>
+      <div class="card-visual">${t.visual}</div>
+    </div>
+  `).join('');
+}
+
+// === SELECT STYLE ===
+function selectStyle(id) {
+  selectedTemplate = TEMPLATES.find(t => t.id === id);
+  document.querySelectorAll('.style-card').forEach(c => {
+    c.classList.toggle('selected', c.dataset.id === id);
+  });
+  document.getElementById('contentSection').style.display = 'block';
+  document.getElementById('companySection').style.display = 'block';
+  updatePreview();
+}
+
+// === SEASON ===
+function selectSeason(s) {
+  selectedSeason = s;
+  document.querySelectorAll('.season-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.season === s);
+  });
+  updatePreview();
+}
+
+// === COLLAPSIBLE ===
+function toggleCollapsible(id, header) {
+  const body = document.getElementById(id);
+  body.classList.toggle('open');
+  header.classList.toggle('open');
+}
+
+// === GET VALUE ===
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+// === GENERATE PROMPT ===
+function generatePrompt() {
+  if (!selectedTemplate) return null;
+  const t = selectedTemplate;
+  const s = t.seasons[selectedSeason];
+  let p = t.prompt;
+
+  // Season-specific color variables
+  const replacements = {
+    '{SEASON}': selectedSeason,
+    '{DATE_LABEL}': val('vDateLabel') || 'auto',
+    '{WEEKDAY}': val('vWeekday') || 'MONDAY',
+    '{DATE_NUMBER}': val('vDateNumber') || '28',
+    '{MONTH}': val('vMonth') || 'JULY',
+    '{MAIN_TITLE}': val('vMainTitle') || '（请填写主标题）',
+    '{SUBTITLE}': val('vSubtitle') || '（请填写副标题）',
+    '{MAIN_VISUAL_DESC}': val('vMainVisualDesc') || '（请填写主视觉描述）',
+    '{COMPANY_EN}': val('vCompanyEn') || 'HUNTZ ENTERPRISES',
+    '{COMPANY_CN}': val('vCompanyCn') || '宏兹实业',
+    '{CONTACT_ADDRESS}': val('vContactAddress') || '珠海市格力金琴健康港12栋',
+    '{CONTACT_PHONE}': val('vContactPhone') || '0756-8639917',
+    '{CONTACT_EMAIL}': val('vContactEmail') || 'hello@yourcompany.com',
+    '{SOLAR_TERM}': val('vMainTitle') || '立秋',
+  };
+
+  // Color variables by template
+  if (t.id === 'album-minimalist') {
+    replacements['{PALETTE}'] = s.palette;
+  } else if (t.id === 'geometric-composition') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{ACCENT_COLOR}'] = s.accent;
+    replacements['{BLOCK_COLOR}'] = s.block;
+  } else if (t.id === 'warm-retro') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{MAIN_COLOR}'] = s.main;
+    replacements['{ACCENT_COLOR}'] = s.accent;
+  } else if (t.id === 'light-shadow') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{BLOCK_COLOR}'] = s.block;
+  } else if (t.id === 'silent-humanist') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{MAIN_TONE}'] = s.tone;
+    replacements['{SHADOW_COLOR}'] = s.shadow;
+  } else if (t.id === 'tech-streamer') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{GRADIENT_COLOR}'] = s.gradient;
+    replacements['{PARTICLE_COLOR}'] = s.particle;
+  } else if (t.id === 'ink-wash') {
+    replacements['{BASE_COLOR}'] = s.base;
+    replacements['{LANDSCAPE_HUE}'] = s.hue;
+  } else if (t.id === 'paper-light-craft') {
+    replacements['{TOP_COLOR}'] = s.top;
+    replacements['{MID_COLOR}'] = s.mid;
+    replacements['{BOTTOM_COLOR}'] = s.bottom;
+    replacements['{LIGHT_COLOR}'] = s.light;
+    replacements['{PLANT_COLOR}'] = s.plant;
+  }
+
+  for (const [key, value] of Object.entries(replacements)) {
+    p = p.replaceAll(key, value);
+  }
+  return p;
+}
+
+// === UPDATE PREVIEW ===
+function updatePreview() {
+  const titleEl = document.getElementById('vMainTitle');
+  const subtitleEl = document.getElementById('vSubtitle');
+  if (titleEl) {
+    document.getElementById('titleCount').textContent = `${titleEl.value.length} 字`;
+  }
+  if (subtitleEl) {
+    document.getElementById('subtitleCount').textContent = `${subtitleEl.value.length} 字`;
+  }
+
+  if (!selectedTemplate) return;
+
+  const prompt = generatePrompt();
+  if (!prompt) return;
+
+  const content = document.getElementById('previewContent');
+  content.innerHTML = `<div class="prompt-block">${escapeHtml(prompt)}</div>`;
+
+  document.getElementById('previewMeta').textContent = `${prompt.length} chars`;
+  document.getElementById('btnCopy').disabled = false;
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// === COPY ===
+function copyPrompt() {
+  const prompt = generatePrompt();
+  if (!prompt) return;
+  navigator.clipboard.writeText(prompt).then(() => {
+    const btn = document.getElementById('btnCopy');
+    btn.classList.add('copied');
+    btn.innerHTML = '<span>✓</span> 已复制';
+    showToast('已复制到剪贴板');
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<span>📋</span> 复制 Prompt';
+    }, 2000);
+  });
+}
+
+// === DOWNLOAD ===
+function downloadPrompt() {
+  const prompt = generatePrompt();
+  if (!prompt) return;
+  const blob = new Blob([prompt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `prompt-${selectedTemplate.id}-${selectedSeason}.txt`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// === TOAST ===
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// === RESET ===
+function resetAll() {
+  selectedTemplate = null;
+  selectedSeason = 'Summer';
+  document.querySelectorAll('.style-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.season-btn').forEach(b => b.classList.toggle('active', b.dataset.season === 'Summer'));
+  document.getElementById('contentSection').style.display = 'none';
+  document.getElementById('companySection').style.display = 'none';
+  ['vDateLabel','vWeekday','vDateNumber','vMonth','vMainTitle','vSubtitle','vMainVisualDesc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('vCompanyEn').value = 'HUNTZ ENTERPRISES';
+  document.getElementById('vCompanyCn').value = '宏兹实业';
+  document.getElementById('vContactAddress').value = '珠海市格力金琴健康港12栋';
+  document.getElementById('vContactPhone').value = '0756-8639917';
+  document.getElementById('vContactEmail').value = 'hello@yourcompany.com';
+  document.getElementById('previewContent').innerHTML = `
+    <div class="preview-empty">
+      <div class="icon">📋</div>
+      <p>选择左侧风格模板并填写内容<br>prompt 将在此实时预览</p>
+    </div>`;
+  document.getElementById('previewMeta').textContent = '— chars';
+  document.getElementById('btnCopy').disabled = true;
+}
+
+// === INIT ===
+renderStyleGrid();
+
+// Auto-detect season
+const month = new Date().getMonth() + 1;
+const autoSeason = month >= 3 && month <= 5 ? 'Spring' : month >= 6 && month <= 8 ? 'Summer' : month >= 9 && month <= 11 ? 'Autumn' : 'Winter';
+selectSeason(autoSeason);
+
+// Auto-fill date
+const now = new Date();
+const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+document.getElementById('vWeekday').value = days[now.getDay()];
+document.getElementById('vDateNumber').value = now.getDate();
+document.getElementById('vMonth').value = months[now.getMonth()];
+document.getElementById('vDateLabel').value = `${days[now.getDay()].slice(0,3)} · ${now.getDate()} · ${months[now.getMonth()]}`;
+</script>
+</body>
+</html>
