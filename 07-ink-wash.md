@@ -97,10 +97,10 @@ Six fixed zones, **no enclosing border, whitespace-driven, 3:7 composition**:
 {SEASON}           e.g., Autumn  (determines landscape palette)
 {BASE_COLOR}       e.g., #F5F0E8
 {LANDSCAPE_HUE}    e.g., blue-green + ochre
-{COMPANY_EN}       e.g., HUNTZ ENTERPRISES
-{CONTACT_ADDRESS}  e.g., 珠海市格力金琴健康港12栋
-{CONTACT_PHONE}    e.g., 0756-8639917
-{CONTACT_EMAIL}    e.g., hello@yourcompany.com
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
+{CONTACT_PHONE}    e.g., 00-SR-227300
+{CONTACT_EMAIL}    e.g., contact@starring-tech.space
 ```
 
 **Default fallbacks when a variable is missing:**
@@ -176,8 +176,8 @@ MAIN_TITLE: 秋意渐浓
 SUBTITLE: 一叶知秋，静候岁月的回响
 MAIN_VISUAL_DESC: distant blue-green mountains fading into mist, a solitary pine on an ochre slope, pale sun circle upper right
 SEASON: Autumn
-COMPANY_EN: HUNTZ ENTERPRISES
-CONTACT_ADDRESS: 珠海市格力金琴健康港12栋
-CONTACT_PHONE: 0756-8639917
-CONTACT_EMAIL: hello@yourcompany.com
+COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+CONTACT_ADDRESS: 地球同步轨道星环空间站集群
+CONTACT_PHONE: 00-SR-227300
+CONTACT_EMAIL: contact@starring-tech.space
 ```

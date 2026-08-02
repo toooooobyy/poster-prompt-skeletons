@@ -98,10 +98,10 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 在粉紫霓虹里，重温一场旧梦  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., vaporwave gradient graphic of a retro sunset grid with palm silhouettes in pink-purple cyan-blue
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., HUNTZ ENTERPRISES
-{CONTACT_ADDRESS}  e.g., 珠海市格力金琴健康港12栋
-{CONTACT_PHONE}    e.g., 0756-8639917
-{CONTACT_EMAIL}    e.g., hello@yourcompany.com
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
+{CONTACT_PHONE}    e.g., 00-SR-227300
+{CONTACT_EMAIL}    e.g., contact@starring-tech.space
 {BASE_COLOR}       e.g., #FF71CE → #01CDFE
 {GRADIENT_COLOR}   e.g., cyan-blue
 ```
@@ -182,10 +182,10 @@ MAIN_TITLE: 幻境回响
 SUBTITLE: 在粉紫霓虹里，重温一场旧梦
 MAIN_VISUAL_DESC: vaporwave gradient graphic of a retro sunset grid with palm silhouettes in pink-purple cyan-blue
 SEASON: Summer
-COMPANY_EN: HUNTZ ENTERPRISES
-CONTACT_ADDRESS: 珠海市格力金琴健康港12栋
-CONTACT_PHONE: 0756-8639917
-CONTACT_EMAIL: hello@yourcompany.com
+COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+CONTACT_ADDRESS: 地球同步轨道星环空间站集群
+CONTACT_PHONE: 00-SR-227300
+CONTACT_EMAIL: contact@starring-tech.space
 BASE_COLOR: #FF71CE → #01CDFE
 GRADIENT_COLOR: cyan-blue
 ```

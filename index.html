@@ -1835,15 +1835,15 @@ NEGATIVE: No high saturation, no warm tones, no photography, no 3D render, no il
 
 // === RANDOM COMPANY GENERATOR ===
 const COMPANY_POOLS = {
-  prefixCn: ['宏兹','华瑞','星辰','鼎丰','云图','光启','智远','德信','创联','汇通','天元','明德','嘉和','旭日','领越','卓尔','鹏程','泰安','新纪','融创'],
-  industry: ['实业','科技','传媒','设计','文化','数字','智能','创新','互联','数据'],
-  suffix: ['有限公司','集团有限公司'],
-  enWord1: ['HUNTZ','VANGUARD','APEX','NEXUS','ZENITH','CREST','NOVA','AXIS','ORBIT','FLUX','PRISM','HELIX','VERTEX','QUANTUM','SYNTAX','LUMEN','CASCADE','FOUNDRY','BEACON','STRATA'],
-  enWord2: ['ENTERPRISES','GROUP','LABS','STUDIO','DYNAMICS','VENTURES','COLLECTIVE','PARTNERS','WORKS','SYSTEMS'],
-  cities: ['珠海市','深圳市','广州市','杭州市','上海市','北京市','成都市','武汉市','苏州市','南京市','西安市','长沙市','重庆市','厦门市'],
-  buildings: ['格力金琴健康港','科技园','创新大厦','产业孵化园','数字谷','智慧城','创业广场','科技中心','商务广场','产业园','科创走廊','云计算基地'],
-  areaCodes: ['0756','0755','020','0571','021','010','028','027','0512','025','029','0731','023','0592'],
-  domains: ['company.com','enterprise.cn','studio.io','labs.tech','group.net','works.design','ventures.co']
+  prefixCn: ['星环','宏兹','华瑞','星辰','鼎丰','云图','光启','智远','德信','创联','汇通','天元','明德','嘉和','旭日','领越','卓尔','鹏程','泰安','新纪','融创'],
+  industry: ['航天科技','实业','科技','传媒','设计','文化','数字','智能','创新','互联','数据'],
+  suffix: ['集团有限公司','有限公司'],
+  enWord1: ['SRATG','STAR','RING','HUNTZ','VANGUARD','APEX','NEXUS','ZENITH','CREST','NOVA','AXIS','ORBIT','FLUX','PRISM','HELIX','VERTEX','QUANTUM','SYNTAX','LUMEN','CASCADE','FOUNDRY','BEACON','STRATA'],
+  enWord2: ['AEROSPACE','GROUP','ENTERPRISES','LABS','STUDIO','DYNAMICS','VENTURES','COLLECTIVE','PARTNERS','WORKS','SYSTEMS'],
+  cities: ['地球同步轨道','珠海市','深圳市','广州市','杭州市','上海市','北京市','成都市','武汉市','苏州市','南京市','西安市','长沙市','重庆市','厦门市'],
+  buildings: ['星环空间站集群','科技园','创新大厦','产业孵化园','数字谷','智慧城','创业广场','科技中心','商务广场','产业园','科创走廊','云计算基地'],
+  areaCodes: ['00-SR','0756','0755','020','0571','021','010','028','027','0512','025','029','0731','023','0592'],
+  domains: ['starring-tech.space','company.com','enterprise.cn','studio.io','labs.tech','group.net','works.design','ventures.co']
 };
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
@@ -2257,7 +2257,13 @@ function resetAll() {
   document.getElementById('vContactAddress').value = '';
   document.getElementById('vContactPhone').value = '';
   document.getElementById('vContactEmail').value = '';
-  fillCompanyFields(generateRandomCompany());
+  fillCompanyFields({
+    companyEn: 'Star Ring Aerospace Technology Group（缩写：SRATG）',
+    companyCn: '星环地球航天科技集团',
+    contactAddress: '地球同步轨道星环空间站集群',
+    contactPhone: '00-SR-227300',
+    contactEmail: 'contact@starring-tech.space'
+  });
   document.getElementById('previewContent').innerHTML = `
     <div class="preview-empty">
       <div class="icon">📋</div>
@@ -2271,7 +2277,13 @@ function resetAll() {
 renderStyleGrid();
 
 // Generate random company info on load
-fillCompanyFields(generateRandomCompany());
+fillCompanyFields({
+  companyEn: 'Star Ring Aerospace Technology Group（缩写：SRATG）',
+  companyCn: '星环地球航天科技集团',
+  contactAddress: '地球同步轨道星环空间站集群',
+  contactPhone: '00-SR-227300',
+  contactEmail: 'contact@starring-tech.space'
+});
 
 // Auto-detect season
 const month = new Date().getMonth() + 1;

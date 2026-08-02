@@ -97,10 +97,10 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 在绿意深处，听见季节的低语  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., softly blurred deep-green ferns and leaves with morning light bokeh
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., HUNTZ ENTERPRISES
-{CONTACT_ADDRESS}  e.g., 珠海市格力金琴健康港12栋
-{CONTACT_PHONE}    e.g., 0756-8639917
-{CONTACT_EMAIL}    e.g., hello@yourcompany.com
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
+{CONTACT_PHONE}    e.g., 00-SR-227300
+{CONTACT_EMAIL}    e.g., contact@starring-tech.space
 {BASE_COLOR}       e.g., #F0F2EC
 {ACCENT_COLOR}     e.g., deep green
 ```
@@ -181,10 +181,10 @@ MAIN_TITLE: 林间清欢
 SUBTITLE: 在绿意深处，听见季节的低语
 MAIN_VISUAL_DESC: softly blurred deep-green ferns and leaves with morning light bokeh
 SEASON: Summer
-COMPANY_EN: HUNTZ ENTERPRISES
-CONTACT_ADDRESS: 珠海市格力金琴健康港12栋
-CONTACT_PHONE: 0756-8639917
-CONTACT_EMAIL: hello@yourcompany.com
+COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+CONTACT_ADDRESS: 地球同步轨道星环空间站集群
+CONTACT_PHONE: 00-SR-227300
+CONTACT_EMAIL: contact@starring-tech.space
 BASE_COLOR: #F0F2EC
 ACCENT_COLOR: deep green
 ```

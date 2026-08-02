@@ -51,11 +51,11 @@ All templates share these enterprise defaults (from `company-config.md`):
 
 | Field | Value |
 |-------|-------|
-| Company (CN) | 珠海宏兹嘉华科技有限公司 |
-| Company (EN) | HUNTZ ENTERPRISES |
-| Address | 珠海市格力金琴健康港12栋 |
-| Phone | 0756-8639917 |
-| Email | hello@yourcompany.com |
+| Company (CN) | 星环地球航天科技集团 |
+| Company (EN) | Star Ring Aerospace Technology Group（缩写：SRATG） |
+| Address | 地球同步轨道星环空间站集群 |
+| Phone | 00-SR-227300 |
+| Email | contact@starring-tech.space |
 | QR label | 扫码了解更多 |
 
 All templates output **9:16 vertical** format with six fixed zones and a bottom contact-info + QR-code area following the global bottom spec (plain text, no icons, tight leading, QR at 15–18% zone width).
