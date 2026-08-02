@@ -94,7 +94,7 @@ Six fixed zones, **no border, pure whitespace-driven**:
 {SEASON}           e.g., Summer
 {BASE_COLOR}       e.g., #F5F3EF
 {BLOCK_COLOR}      e.g., #A8B4C4
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -170,7 +170,7 @@ MAIN_TITLE: 光之轨迹
 SUBTITLE: 在留白与结构之间，光影定义了空间的呼吸
 MAIN_VISUAL_DESC: low-angle photograph of a concrete staircase with soft directional light, faded look, single circular light spot
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

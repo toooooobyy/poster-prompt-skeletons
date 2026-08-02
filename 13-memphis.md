@@ -97,7 +97,7 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 用撞色与几何，拼出夏日的快乐  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., Memphis collage of bold triangles, dots, squiggles and zigzags in blue orange yellow
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -183,7 +183,7 @@ MAIN_TITLE: 趣味无界
 SUBTITLE: 用撞色与几何，拼出夏日的快乐
 MAIN_VISUAL_DESC: Memphis collage of bold triangles, dots, squiggles and zigzags in blue orange yellow
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

@@ -97,7 +97,7 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 在低饱和的灰调里，聆听色彩的呼吸  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., Morandi still-life of muted bottles and soft geometric blocks in grey-blue and grey-purple
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -181,7 +181,7 @@ MAIN_TITLE: 静默之诗
 SUBTITLE: 在低饱和的灰调里，聆听色彩的呼吸
 MAIN_VISUAL_DESC: Morandi still-life of muted bottles and soft geometric blocks in grey-blue and grey-purple
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

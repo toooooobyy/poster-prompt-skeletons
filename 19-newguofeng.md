@@ -98,7 +98,7 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 于淡墨晕染间，听见东方的清宁  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., new Chinese ink-wash of distant mountains and bamboo with cyan-green auspicious-cloud accents
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -182,7 +182,7 @@ MAIN_TITLE: 山水清音
 SUBTITLE: 于淡墨晕染间，听见东方的清宁
 MAIN_VISUAL_DESC: new Chinese ink-wash of distant mountains and bamboo with cyan-green auspicious-cloud accents
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

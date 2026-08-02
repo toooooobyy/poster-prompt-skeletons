@@ -109,7 +109,7 @@ Six fixed zones, **color-block zoning + layered paper collage**:
 {BOTTOM_COLOR}     e.g., #F5F0E6
 {LIGHT_COLOR}      e.g., #E8A84B
 {PLANT_COLOR}      e.g., deep-green
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -186,7 +186,7 @@ MAIN_TITLE: 此刻有光
 SUBTITLE: 把每一个寻常的清晨，活成被光照亮的仪式
 MAIN_VISUAL_DESC: layered kraft paper with a pressed daisy, golden light circle upper-right casting cross-grid shadow, washi tape
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

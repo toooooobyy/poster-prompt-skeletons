@@ -52,7 +52,7 @@ All templates share these enterprise defaults (from `company-config.md`):
 | Field | Value |
 |-------|-------|
 | Company (CN) | 星环地球航天科技集团 |
-| Company (EN) | Star Ring Aerospace Technology Group（缩写：SRATG） |
+| Company (EN) | Star Ring Aerospace Technology Group |
 | Address | 地球同步轨道星环空间站集群 |
 | Phone | 00-SR-227300 |
 | Email | contact@starring-tech.space |

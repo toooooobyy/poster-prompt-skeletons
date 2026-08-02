@@ -98,7 +98,7 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 以红金撞色，写就东方的新潮  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., 国潮 flat pattern of bold dragons and clouds in red gold and cyan-blue
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -184,7 +184,7 @@ MAIN_TITLE: 国潮新韵
 SUBTITLE: 以红金撞色，写就东方的新潮
 MAIN_VISUAL_DESC: 国潮 flat pattern of bold dragons and clouds in red gold and cyan-blue
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

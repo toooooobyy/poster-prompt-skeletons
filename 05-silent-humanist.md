@@ -95,7 +95,7 @@ Six fixed zones, **strict three-band layout, hairline dividers, no border**:
 {BASE_COLOR}       e.g., #F5F0E8
 {MAIN_TONE}        e.g., caramel-brown
 {SHADOW_COLOR}     e.g., deep-green
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {COMPANY_CN}       e.g., 宏兹实业
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
@@ -173,7 +173,7 @@ MAIN_TITLE: 静默之力
 SUBTITLE: 在无声的光影中，听见建筑呼吸的节奏
 MAIN_VISUAL_DESC: golden-hour photograph of a concrete wall with diagonal tree-shadow projection, warm monochrome tone
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 COMPANY_CN: 宏兹实业
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300

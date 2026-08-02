@@ -98,7 +98,7 @@ Replace each placeholder before generating:
 {SUBTITLE}         e.g., 于光影交叠间，尽显典雅的恢宏  (12–22 chars)
 {MAIN_VISUAL_DESC} e.g., baroque oil-texture still-life of drapery and gold vessels with dramatic blue accent light
 {SEASON}           e.g., Summer  (determines color palette)
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -182,7 +182,7 @@ MAIN_TITLE: 华章盛启
 SUBTITLE: 于光影交叠间，尽显典雅的恢宏
 MAIN_VISUAL_DESC: baroque oil-texture still-life of drapery and gold vessels with dramatic blue accent light
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space

@@ -93,7 +93,7 @@ Six fixed zones:
 {SEASON}           e.g., Summer
 {BASE_COLOR}       e.g., #F6F2EC
 {PALETTE}          e.g., misty teal + pale lake-blue
-{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group（缩写：SRATG）
+{COMPANY_EN}       e.g., Star Ring Aerospace Technology Group
 {CONTACT_ADDRESS}  e.g., 地球同步轨道星环空间站集群
 {CONTACT_PHONE}    e.g., 00-SR-227300
 {CONTACT_EMAIL}    e.g., contact@starring-tech.space
@@ -171,7 +171,7 @@ MAIN_TITLE: 盛夏如歌
 SUBTITLE: 在蝉鸣与微风之间，听见时间的低语
 MAIN_VISUAL_DESC: misty teal mountains reflected in a pale lake, soft ink wash, low saturation
 SEASON: Summer
-COMPANY_EN: Star Ring Aerospace Technology Group（缩写：SRATG）
+COMPANY_EN: Star Ring Aerospace Technology Group
 CONTACT_ADDRESS: 地球同步轨道星环空间站集群
 CONTACT_PHONE: 00-SR-227300
 CONTACT_EMAIL: contact@starring-tech.space
