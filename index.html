@@ -1830,6 +1830,46 @@ MOOD: Sophisticated, understated, refined, premium. No promotional tone.
 STYLE REFERENCES: Premium gray minimalist design, high-end business aesthetics, Swiss whitespace design, low-saturation gray palettes, refined corporate layout.
 
 NEGATIVE: No high saturation, no warm tones, no photography, no 3D render, no illustration, no decorative ornaments, no gradients, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'zine-minimal',
+    num: '30',
+    nameCn: 'ZINE极简风',
+    nameEn: 'ZINE Minimal',
+    desc: '仿旧纸张、极大留白、极小主体、单点高饱和锚点、印刷瑕疵',
+    visual: 'ZINE minimalist illustration',
+    category: 'texture',
+    tags: { temp: 'neutral', sat: 'low', scene: ['daily','culture'] },
+    seasons: {
+      Spring: { base: '#F0EBE3', accent: 'pear green' },
+      Summer: { base: '#F0EBE3', accent: 'cobalt blue' },
+      Autumn: { base: '#F0EBE3', accent: 'tomato red' },
+      Winter: { base: '#F0EBE3', accent: 'ultramarine' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — ZINE minimalist style, quiet independent-ZINE aesthetic
+
+A 9:16 vertical poster in ZINE minimalist style. Aged paper surface with paper texture noise. 65–85% of the canvas is quiet paper whitespace. A single tiny visual subject occupies only 8–25% of the canvas — a fragment, object, torn photo clipping, silhouette, or old printed illustration. One high-saturation color anchor ({ACCENT_COLOR}) occupies 0.8–2.5% of the canvas, visible at thumbnail size. Reproduction imperfections: xerox softening, halftone, scan lines, risograph grain, ink bleed, slight misregistration. Matte absorbent paper, diffuse light, low-to-medium contrast, no hard shadows, no 3D depth.
+
+BASE: {SEASON} palette — aged paper base {BASE_COLOR}, high-saturation anchor {ACCENT_COLOR}.
+
+LAYOUT (top to bottom):
+- TOP-LEFT: A minimal line LOGO (small, placed in whitespace) next to the English company name "{COMPANY_EN}" in small serif/typewriter face.
+- TOP-RIGHT: Weekday "{WEEKDAY}" in small serif/monospace (low contrast, quietly receding), date numeral "{DATE_NUMBER}" (small), and month "{MONTH}" below.
+- CENTER-UPPER (tiny zone): The main visual — {MAIN_VISUAL_DESC}. A single visual metaphor, NOT a full scene. The subject is treated with reproduction imperfections (xerox softening, halftone, scan lines, torn edges, risograph grain) to make it "belong to the paper." Surrounded by vast paper whitespace.
+- CENTER-LOWER: Main title "{MAIN_TITLE}" in serif/typewriter (restrained strokes, may drift or press to edge), subtitle "{SUBTITLE}" in thin serif/monospace below. Keep in-image text SHORT.
+- BOTTOM-LEFT: Three lines of plain contact text (no icons, no bullets, tiny font, tight leading 1.1–1.2×):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it in tiny sans-serif.
+
+MOOD: Quiet, poetic, archival, diary-like. Japanese/Korean independent ZINE aesthetic. No commercial advertising hierarchy, no promotional noise.
+
+COLOR LOGIC: Paper color {BASE_COLOR} + grey/black support + ONE high-saturation anchor {ACCENT_COLOR}. The anchor must be visible at thumbnail size. Only one main high-saturation hue per image. Do NOT describe the overall image as low-saturation or monochrome — the paper and secondary ink are low-contrast, but the anchor is fully saturated.
+
+STYLE REFERENCES: Japanese/Korean independent ZINE design, risograph print culture, xerox art, archival scan aesthetics, quiet editorial design, found-object collage.
+
+NEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-color high saturation, no commercial advertising hierarchy, no product advertising, no 3D render, no neon, no cartoon style, no dense collage, no glossy mockup, no hard shadows, no near-monochrome overall description, no pale/muted/pastel overall description, no promotional banners, no emoji, no icons in contact area.`
   }
 ];
 
