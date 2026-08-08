@@ -1910,6 +1910,88 @@ MOOD: Rebellious, raw, anti-establishment, amateur-but-intentional. Controlled c
 STYLE REFERENCES: Takada Yui / Allright Graphics, New Ugly design movement, anti-design, street flyer aesthetic, photocopy zine culture, rough collage, intentionally imperfect typography.
 
 NEGATIVE: photorealistic, 3d render, smooth vector, minimalist, swiss grid system, international typographic style, moiré soft colors, morandi palette, perfect composition, neat alignment, clean edges, symmetrical, polished commercial design, luxury aesthetic, sleek UI, glitchcore, weirdcore, vaporwave, pop art, bauhaus, clean sketch, professional refined artwork, soft shadow, depth of field, realistic perspective, soft gradient, promotional banners, emoji, icons in contact area.`
+  },
+  {
+    id: 'campus-newsletter',
+    num: '32',
+    nameCn: '校园小报风',
+    nameEn: 'Campus Newsletter',
+    desc: '早期Word野生排版美学、多字体混用、艺术字标题、自选图形堆叠、填满版面',
+    visual: 'Campus newsletter collage illustration',
+    category: 'experimental',
+    tags: { temp: 'warm', sat: 'high', scene: ['daily','culture'] },
+    seasons: {
+      Spring: { base: '#FFFFFF', accent: '#008000', pattern: '#FFFF00' },
+      Summer: { base: '#FFFFFF', accent: '#0000FF', pattern: '#FFFF00' },
+      Autumn: { base: '#FAFAF5', accent: '#FF8C00', pattern: '#FF0000' },
+      Winter: { base: '#FFFFFF', accent: '#0000FF', pattern: '#800080' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — campus newsletter / wild Word typography style, sincere clumsiness
+
+A 9:16 vertical poster in campus newsletter style, simulating early PC era (1995-2005) wild Word typography aesthetic. Multi-font mixing (at least 3 different fonts), WordArt-style deformed title (tilted/arc/stretched/shadow), auto-shape decorations (stars, clouds, arrows, ovals, straight lines, dashed lines, wavy lines), information-dense layout with NO whitespace — every empty space filled with decorative elements or text. Office default color palette: uncalibrated pure reds, blues, yellows, greens. Light laser-print grain texture, low-resolution image feel. Sincere clumsiness — the chaos is unconscious, not intentional rebellion. Someone tried very hard but didn't know design theory. Flat 2D, no 3D, no photorealism.
+
+SINCERE CLUMSINESS PRINCIPLE: The layout looks cluttered because the maker thought "more fonts = more effort" and "empty space = lazy." Space-bar alignment creates uneven spacing. Auto-shapes are stacked without layer management. WordArt titles are over-deformed. But everything is readable and earnestly made.
+
+BASE: {SEASON} palette — main color {ACCENT_COLOR}, decoration colors {BASE_COLOR} and {PATTERN_COLOR}.
+
+LAYOUT (top to bottom, Word document feel):
+- TOP-LEFT: Small LOGO + English company name "{COMPANY_EN}" in small sans-serif, left-aligned.
+- TOP-RIGHT: Large date "{DATE_NUMBER}" + small weekday "{WEEKDAY}" and month "{MONTH}", uneven spacing simulating space-bar alignment.
+- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Hand-drawn flat illustration style, low-resolution insertion feel. Side text boxes with quotes or slogans. Auto-shape decorations (stars, clouds, arrows, small flowers) scattered in corners and empty spaces. Colors: {ACCENT_COLOR}, {BASE_COLOR}, {PATTERN_COLOR} in Office default palette.
+- MID-LOWER: Main title "{MAIN_TITLE}" in WordArt-style deformed text (tilted/arc/stretched with hard shadow), subtitle "{SUBTITLE}" in bold sans-serif below. Horizontal straight or dashed line divider. Three lines of plain contact text (no icons, tight leading, slight misalignment):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+- DECORATIONS: Straight-line borders around sections, stars/arrows/clouds in corners, dashed or wavy dividers between sections. Fill ALL empty spaces — no whitespace allowed.
+
+MOOD: Nostalgic, campus, sincerely clumsy, earnestly over-decorated. The feeling of a student making their best effort with limited tools. Not anti-design, but pre-design.
+
+STYLE REFERENCES: Early Microsoft Word documents (Office 97/2000/XP era), school newspaper layouts, classroom bulletin board drafts, WordArt clip art aesthetic, auto-shape decorations, print shop flyers, 1990s-2000s campus culture materials.
+
+NEGATIVE: photorealistic, 3d render, smooth vector, professional grid system, minimalist whitespace, morandi palette, low saturation, polished commercial design, luxury aesthetic, single font, clean alignment, swiss design, international typographic style, gradients, soft shadows, depth of field, realistic perspective, promotional banners, emoji, icons in contact area.`
+  },
+  {
+    id: 'dos-ascii',
+    num: '33',
+    nameCn: 'DOS字符画复古风',
+    nameEn: 'DOS ASCII Retro',
+    desc: '纯ASCII/全角符号排版、零图形对象、等宽字体、终端单色配色、CRT扫描线质感',
+    visual: 'ASCII character art pattern',
+    category: 'experimental',
+    tags: { temp: 'cool', sat: 'low', scene: ['daily','tech'] },
+    seasons: {
+      Spring: { base: '#0A0A0A', accent: '#00FF00', pattern: '#FFFFFF' },
+      Summer: { base: '#000088', accent: '#FFFFFF', pattern: '#00FFFF' },
+      Autumn: { base: '#0A0A0A', accent: '#FFB000', pattern: '#FFFFFF' },
+      Winter: { base: '#F8F8F0', accent: '#000000', pattern: '#444444' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — DOS ASCII retro style, pure character typography, terminal aesthetic
+
+A 9:16 vertical poster in DOS ASCII retro style. Pure character typography — ALL visual elements (borders, dividers, decorations, main visual) are made entirely of ASCII characters and CJK box-drawing symbols (┃ ━ ┏ ┓ ┗ ┛ ╋ ═ ≈ ★ ■ ● ◆ ※). Zero graphic objects — no vector shapes, no line tools, no rectangles, no gradients. Monospace font throughout, ALL CAPS English. Perfect character-grid alignment, mechanical order. CRT scanline texture, slight pixel grain, character glow on dark backgrounds. Terminal duochrome color scheme. Flat 2D, no 3D, no photorealism.
+
+CHARACTERS ARE EVERYTHING PRINCIPLE: Every border is ┏━━━━┓, every divider is ═══ or ───, every decoration is ★ or ■ or ● or ◆, and the main visual is an ASCII art pattern formed by characters like /\\()|-+*#. The constraint of "no graphics" IS the aesthetic — order emerges from character grids, beauty from monospace repetition.
+
+BASE: {SEASON} terminal palette — base {BASE_COLOR}, text {ACCENT_COLOR}, accent {PATTERN_COLOR}.
+
+LAYOUT (top to bottom, all in character borders):
+- OUTER BORDER: Full canvas wrapped in ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓ character border.
+- TOP-LEFT (inside border): English company name "{COMPANY_EN}" in monospace ALL CAPS, small size.
+- TOP-RIGHT (inside border): Date "{DATE_NUMBER}" in monospace + weekday "{WEEKDAY}" + month "{MONTH}", with ═══ underline divider.
+- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Entirely made of ASCII characters forming a pattern/image. Surrounded by character-drawn frame. Colors: {ACCENT_COLOR} and {PATTERN_COLOR} on {BASE_COLOR} background.
+- MID-LOWER: Main title "{MAIN_TITLE}" wrapped in character border (┏━━━━━━━━┓), subtitle "{SUBTITLE}" in monospace below. ──── divider line. Three lines of plain monospace contact text (no icons, tight leading):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it in monospace.
+- DIVIDERS: Internal section dividers using ┠─────────────┨ or ═══ patterns.
+- DECORATIONS: ★ ■ ● ◆ ※ symbols at section corners and empty grid positions.
+
+MOOD: Geeky, nostalgic, orderly, mechanical, terminal romanticism. The feeling of an early PC user crafting beauty from character constraints. Retro-tech nostalgia, code poetry.
+
+STYLE REFERENCES: DOS terminal screens, ASCII art archives, early Word character-art documents, IBM monochrome displays, BBS bulletin board art, ANSI art, retro computing aesthetics, green-screen/amber-screen terminals.
+
+NEGATIVE: photorealistic, 3d render, smooth vector graphics, vector shapes, line tool, rectangle tool, gradient fill, color photograph, illustration, brush strokes, watercolor, oil painting, non-monospace font, proportional font, colorful palette, pastel colors, morandi palette, soft shadows, depth of field, realistic perspective, promotional banners, emoji, icons in contact area, minimalist whitespace, hand-drawn style.`
   }
 ];
 
