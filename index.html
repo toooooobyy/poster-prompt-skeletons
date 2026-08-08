@@ -526,6 +526,7 @@ body {
         <button class="filter-btn" data-cat="euro" onclick="filterCategory('euro')">欧式潮流</button>
         <button class="filter-btn" data-cat="texture" onclick="filterCategory('texture')">肌理氛围</button>
         <button class="filter-btn" data-cat="business" onclick="filterCategory('business')">商务氛围</button>
+        <button class="filter-btn" data-cat="experimental" onclick="filterCategory('experimental')">实验前卫</button>
       </div>
       <!-- Tag Filters -->
       <div class="filter-bar" id="tagFilter" style="margin-top:8px;">
@@ -1870,6 +1871,45 @@ COLOR LOGIC: Paper color {BASE_COLOR} + grey/black support + ONE high-saturation
 STYLE REFERENCES: Japanese/Korean independent ZINE design, risograph print culture, xerox art, archival scan aesthetics, quiet editorial design, found-object collage.
 
 NEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-color high saturation, no commercial advertising hierarchy, no product advertising, no 3D render, no neon, no cartoon style, no dense collage, no glossy mockup, no hard shadows, no near-monochrome overall description, no pale/muted/pastel overall description, no promotional banners, no emoji, no icons in contact area.`
+  },
+  {
+    id: 'new-ugly',
+    num: '31',
+    nameCn: '新丑风',
+    nameEn: 'New Ugly',
+    desc: '高饱和撞色、粗糙手作质感、刻意打破排版规则、低保真印刷肌理',
+    visual: 'New Ugly rough collage illustration',
+    category: 'experimental',
+    tags: { temp: 'warm', sat: 'high', scene: ['daily','culture'] },
+    seasons: {
+      Spring: { base: '#FFE500', accent: '#00CC44', pattern: '#FF0099' },
+      Summer: { base: '#111111', accent: '#00CCFF', pattern: '#FF8800' },
+      Autumn: { base: '#F5F0E8', accent: '#FF3300', pattern: '#9900CC' },
+      Winter: { base: '#999999', accent: '#0044FF', pattern: '#00FF44' }
+    },
+    prompt: `[PURPOSE]: Brand calendar poster — New Ugly style, anti-design aesthetic, controlled chaos
+
+A 9:16 vertical poster in New Ugly style. Intentional imperfection, deliberately broken grid layout, ignore golden ratio and symmetrical composition, unbalanced framing. Chaotic typography, distorted stretched text, overlapping text layers. Hand-drawn scribble marks, scratch lines, eraser marks, draft sketch traces. Rough collage splicing, uneven cropping, torn paper edges. Photocopy grain noise, offset printing dot texture, low-fidelity scanned texture. Harsh high-saturation clashing color palette, no soft gradient, banded color gradation. Reject minimalist aesthetic, reject clean vector smooth lines, reject perfect symmetrical composition, reject polished commercial aesthetic. Raw hand-made texture, amateur draft visual logic, anti-establishment graphic design style, flat 2D graphic poster style, no realistic lighting, no photorealism.
+
+CONTROLLED CHAOS PRINCIPLE: Six zone positions are fixed, but elements within each zone may deliberately misalign, overlap, stretch, distort, or spill across boundaries. Brand information (date, title, contact) must remain readable — "it looks like random layout, but you can still read it."
+
+BASE: {SEASON} palette — base {BASE_COLOR}, clashing colors {ACCENT_COLOR} and {PATTERN_COLOR}.
+
+LAYOUT (top to bottom, positions fixed, internal chaos allowed):
+- TOP-LEFT: A LOGO (may tilt/stretch slightly) beside the English company name "{COMPANY_EN}" in distorted sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" (may stretch/compress, zero letter-spacing, slight misalignment) + month "{MONTH}".
+- CENTER (~45-55%): The main visual — {MAIN_VISUAL_DESC}. Rough collage, hand-drawn scribble, low-fidelity xerox quality. Elements may spill across zone boundaries. Colors: {BASE_COLOR}, {ACCENT_COLOR}, {PATTERN_COLOR} in harsh clashing pairs. Photocopy grain, offset dot texture, scan noise throughout.
+- MID-LOWER: Main title "{MAIN_TITLE}" in distorted sans-serif (may stretch/overlap but MUST be readable), subtitle "{SUBTITLE}" below. Hand-drawn scribble marks and scratch lines may interleave. Three lines of plain contact text (no icons, tight leading, slight misalignment allowed but readable):
+  地址：{CONTACT_ADDRESS}
+  电话：{CONTACT_PHONE}
+  邮箱：{CONTACT_EMAIL}
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
+
+MOOD: Rebellious, raw, anti-establishment, amateur-but-intentional. Controlled chaos. No polished commercial feel.
+
+STYLE REFERENCES: Takada Yui / Allright Graphics, New Ugly design movement, anti-design, street flyer aesthetic, photocopy zine culture, rough collage, intentionally imperfect typography.
+
+NEGATIVE: photorealistic, 3d render, smooth vector, minimalist, swiss grid system, international typographic style, moiré soft colors, morandi palette, perfect composition, neat alignment, clean edges, symmetrical, polished commercial design, luxury aesthetic, sleek UI, glitchcore, weirdcore, vaporwave, pop art, bauhaus, clean sketch, professional refined artwork, soft shadow, depth of field, realistic perspective, soft gradient, promotional banners, emoji, icons in contact area.`
   }
 ];
 
