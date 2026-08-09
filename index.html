@@ -494,6 +494,111 @@ body {
     min-width: 0;
   }
 }
+
+/* === VISUAL SCAFFOLD MODULE === */
+.visual-examples {
+  margin-bottom: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.examples-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.example-card {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  line-height: 1.5;
+}
+.example-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--text-primary);
+}
+.example-card:last-child { margin-bottom: 0; }
+
+.visual-scaffold {
+  margin-bottom: 10px;
+}
+.scaffold-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.scaffold-input {
+  flex: 1;
+  font-size: 12px !important;
+  padding: 7px 10px !important;
+}
+.scaffold-input::placeholder { font-size: 11px; }
+.scaffold-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.btn-scaffold {
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-scaffold:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+.btn-generate {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-generate:hover { background: var(--accent); color: #fff; }
+.btn-switch {
+  border-color: var(--accent2, #e8a838);
+  color: #e8a838;
+}
+.btn-switch:hover { background: rgba(232,168,56,0.15); }
+.btn-dice {
+  border-color: #f06292;
+  color: #f06292;
+}
+.btn-dice:hover { background: rgba(240,98,146,0.15); }
+
+/* === VERSION FOOTER === */
+.version-footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+.version-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.version-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .scaffold-row { flex-direction: column; }
+  .scaffold-buttons { flex-wrap: wrap; }
+}
 </style>
 </head>
 <body>
@@ -622,7 +727,30 @@ body {
 
       <div class="form-group">
         <label class="form-label">主视觉画面描述 <span class="required">*</span> <span class="hint">Main Visual Description</span></label>
-        <textarea class="form-textarea" id="vMainVisualDesc" placeholder="geometric architectural composition, rectangles and triangular blocks" oninput="updatePreview()"></textarea>
+
+        <div id="visualExamples" class="visual-examples" style="display:none;">
+          <div class="examples-title">💡 风格示例（点击填入）</div>
+          <div id="examplesList"></div>
+        </div>
+
+        <div class="visual-scaffold">
+          <div class="scaffold-row">
+            <input type="text" class="form-input scaffold-input" id="visualWho" placeholder="主体 Who — a lone figure in a trench coat">
+            <input type="text" class="form-input scaffold-input" id="visualHow" placeholder="动作 How — walking through mist">
+          </div>
+          <div class="scaffold-row">
+            <input type="text" class="form-input scaffold-input" id="visualWhere" placeholder="环境 Where — a rain-soaked alley">
+            <input type="text" class="form-input scaffold-input" id="visualVibe" placeholder="氛围 Vibe — cinematic warm lighting">
+          </div>
+          <input type="text" class="form-input" id="visualExtra" placeholder="✨ 额外画面细节（可选自由槽位）">
+          <div class="scaffold-buttons">
+            <button class="btn-scaffold btn-generate" onclick="generateVisualDesc()">⚡ 生成描述</button>
+            <button class="btn-scaffold btn-switch" onclick="switchSentencePattern()">🔄 换句式</button>
+            <button class="btn-scaffold btn-dice" onclick="generateRandomVisual()">🎲 随机灵感</button>
+          </div>
+        </div>
+
+        <textarea class="form-textarea" id="vMainVisualDesc" placeholder="geometric architectural composition, rectangles and triangular blocks&#10;💡 试试上方「随机灵感」或「生成描述」按钮" oninput="updatePreview()"></textarea>
       </div>
 
       <div class="form-group">
@@ -697,6 +825,10 @@ body {
 </div>
 
 <div class="toast" id="toast">已复制到剪贴板</div>
+
+<div class="version-footer">
+  v4.0.0 · 35 templates · Last updated: 2026-08-09
+</div>
 
 <script>
 // === TEMPLATE DATA ===
@@ -2042,6 +2174,218 @@ function fillCompanyFields(c) {
   document.getElementById('vContactEmail').value = c.contactEmail;
 }
 
+// === VISUAL POOLS (灵感骰子词库) ===
+const VISUAL_POOLS = {
+  // 场景叙事型 — 复古/国风/欧式/部分肌理
+  narrative: {
+    who: ['a lone figure in a trench coat','a vintage tram','a cat in Victorian attire','a paper crane floating','a lone traveler with a lantern','a floating paper boat','an old typewriter on a desk','a traditional Chinese fishing boat','a steaming teapot on a wooden table','a flock of cranes flying','a solitary tree on a hilltop','a vintage bicycle leaning on a wall'],
+    how: ['walking through mist','emerging from shadows','gliding silently','drifting in warm light','standing still against the wind','fading into the horizon','caught mid-motion','resting in quiet solitude','swaying gently','reflecting in still water'],
+    where: ['a rain-soaked alley','a misty mountain path','a quiet harbor at dawn','an abandoned train station','a rooftop at golden hour','a traditional courtyard','a fog-covered bridge','a sunlit meadow','a narrow cobblestone street','a serene lakeside'],
+    vibe: ['cinematic warm lighting','soft film grain atmosphere','dreamy bokeh background','moody low-key lighting','ethereal morning glow','nostalgic amber tones','gentle diffused sunlight','dramatic chiaroscuro','soft pastel haze','warm golden hour glow']
+  },
+  // 抽象构成型 — 现代极简/商务
+  abstract: {
+    who: ['geometric architectural composition','overlapping triangular planes','circular forms in tension','rectilinear grid pattern','intersecting diagonal lines','stacked rectangular blocks','concentric circles radiating','minimalist geometric shapes','parallel lines converging','bold typographic elements'],
+    how: ['floating in negative space','stacked in precise rhythm','interlocking at sharp angles','arranged in mathematical sequence','layered with deliberate offset','balanced asymmetrically','projecting from a flat plane','intersecting at 45 degrees'],
+    where: ['on a cool gray plane','against a high-contrast background','within a strict grid field','on a neutral matte surface','against a monochrome backdrop','on a clean white canvas','within a bauhaus color field'],
+    vibe: ['hard-edge color blocking','minimal two-tone contrast','bauhaus primary palette','swiss-grid precision','clean architectural lighting','stark geometric simplicity','precise mathematical order','ultra-minimal composition']
+  },
+  // 纹理质感型 — 纸艺/侘寂/ZINE/手绘
+  texture: {
+    who: ['a single dried flower','a piece of handmade paper','a torn paper edge','a pressed leaf','a ceramic bowl with cracks','a length of raw linen','a weathered stone surface','a strand of natural rope'],
+    how: ['resting on a rough surface','casting a soft shadow','caught in raking light','layered with organic texture','weathered by time','fragmented into pieces'],
+    where: ['on a rustic wooden table','against a lime-washed wall','on a concrete floor','within a paper-folded landscape','on a textured canvas','amidst scattered natural debris'],
+    vibe: ['wabi-sabi imperfection','raw organic texture','matte earthy tones','soft natural diffusion','aged patina','quiet contemplative mood','tactile surface quality']
+  },
+  // 氛围情绪型 — 实验前卫/赛博/蒸汽波
+  mood: {
+    who: ['a glitching neon sign','a fragmented digital portrait','a melting clock','a distorted reflection','a pixelated cloud formation','a vaporwave sun','a broken CRT screen','a scattered collage of torn paper'],
+    how: ['dissolving into static','bleeding across the frame','shifting between dimensions','breaking apart violently','morphing unpredictably','oscillating between states'],
+    where: ['in a void of static noise','against a gradient sunset','within a digital liminal space','on a corrupted screen','amidst floating debris','in a surreal dreamscape'],
+    vibe: ['cyberpunk neon glow','vaporwave aesthetic','lo-fi photocopy texture','chaotic energy','anti-design rawness','intentional imperfection','high-saturation clash']
+  },
+  // 字符图案型 — DOS字符画
+  character: {
+    who: ['a simple house outline','a cat figure','a tree with branches','a mountain peak','a coffee cup','a stylized heart shape'],
+    how: ['drawn in ASCII characters','rendered in terminal symbols','constructed from box-drawing chars','pixelated in monospace'],
+    where: ['on a dark terminal screen','within a character border frame','on a green-screen display','on an amber monochrome monitor'],
+    vibe: ['CRT scanline texture','retro computing aesthetic','terminal green glow','DOS-era pixelated charm']
+  }
+};
+
+// === SENTENCE PATTERNS (动态句式库) ===
+const SENTENCE_PATTERNS = {
+  narrative: [
+    'A close-up of {WHO}, {HOW}, in {WHERE}, {VIBE}',
+    'A wide-angle shot of {WHERE}, where {WHO} {HOW}, {VIBE}',
+    '{WHO} captured {HOW}, against {WHERE}, {VIBE}',
+    '{VIBE}, {WHO} {HOW} in {WHERE}',
+    'In {WHERE}, {WHO} {HOW}, {VIBE}'
+  ],
+  abstract: [
+    'Abstract {WHO} with {VIBE}, set against {WHERE}',
+    '{WHO}, {VIBE}, minimal {WHERE} context',
+    '{WHO} {HOW}, {VIBE}',
+    'A composition of {WHO}, {VIBE}, on {WHERE}',
+    '{VIBE}, {WHO} arranged {HOW}'
+  ],
+  texture: [
+    'Macro view of {WHO}, {VIBE} texture, {WHERE} ambiance',
+    '{WHO} {HOW}, {VIBE}, resting {WHERE}',
+    'Close-up of {WHO}, {VIBE}, {WHERE}',
+    '{VIBE}, {WHO} {HOW} {WHERE}'
+  ],
+  mood: [
+    '{WHO} {HOW}, {VIBE}, {WHERE}',
+    '{VIBE}, {WHO} {HOW}, set {WHERE}',
+    'A scene of {WHO} {HOW}, {VIBE}, {WHERE}',
+    '{WHO}, {VIBE}, {HOW} {WHERE}'
+  ],
+  character: [
+    'ASCII art of {WHO}, {HOW}, {VIBE}',
+    '{WHO} rendered in terminal characters, {VIBE}, {WHERE}',
+    'Character-drawn {WHO}, {HOW}, {VIBE}'
+  ]
+};
+
+// === VISUAL EXAMPLES (风格联动示例) ===
+const VISUAL_EXAMPLES = {
+  'album-minimalist': ['minimalist ink landscape, distant mountains with sparse brushstrokes, vast empty sky','a single crane in flight over still water, traditional sumi-e style'],
+  'geometric-composition': ['geometric architectural composition, rectangles and triangular blocks in precise rhythm','overlapping circular and rectangular forms, bauhaus primary colors on gray plane'],
+  'warm-retro': ['a vintage gramophone on a wooden table, warm amber light, retro flat illustration','an old-fashioned bicycle leaning against a brick wall, golden hour, flat retro style'],
+  'light-shadow': ['minimalist concrete staircase, strong directional light casting geometric shadows','a modern glass facade with sharp light reflections, architectural photography'],
+  'silent-humanist': ['a weathered stone wall with a single shaft of warm light, architectural detail','an empty corridor with arched windows, warm monochrome tones, meditative silence'],
+  'tech-flow': ['a sleek 3D-rendered abstract sphere with ice-blue gradients and particle effects','floating geometric 3D forms with glass-morphism, cool blue volumetric lighting'],
+  'ink-wash': ['misty mountain range with layered ink wash, three-depth perspective, bamboo branch breaking the frame','a solitary boat on a vast empty river, digital ink wash, vast negative space'],
+  'paper-light': ['layered torn paper forming a mountain landscape, golden light filtering through paper gaps','a pressed flower arrangement on layered paper, warm window shadow play'],
+  'vintage-american': ['a classic 1950s diner scene with a jukebox, warm caramel tones, vintage poster style','a retro gasoline pump at sunset, faded paper texture, vintage advertisement aesthetic'],
+  'cyberpunk': ['a neon-lit rainy alley in a futuristic city, holographic signs reflecting in puddles','a lone figure under a glowing cyberpunk sign, blue-purple neon, rain and fog'],
+  'morandi': ['soft muted still life with a vase and fruit, morandi color palette, hazy atmosphere','overlapping geometric shapes in muted gray-pink tones, quiet and contemplative'],
+  'minimal-flat': ['a single potted plant on a clean white surface, soft shadows, minimalist flat design','one bold geometric shape on a pastel background, ultra-clean minimal composition'],
+  'memphis': ['colorful memphis-style geometric shapes, zigzag lines and dots on a bright background','playful composition of circles, triangles and squiggly lines, bold primary colors'],
+  'forest-natural': ['soft-focus green foliage with dappled sunlight, natural bokeh, fresh and serene','a single leaf with morning dew, soft green background, natural photography'],
+  'pop-art': ['a bold pop-art portrait with thick black outlines, halftone dots, high-contrast colors','a retro comic book explosion graphic with primary colors and ben-day dots'],
+  'ukiyo-e': ['a traditional Japanese wave pattern with Mount Fuji in the distance, ukiyo-e woodblock style','a crane flying over a stylized river, traditional morandi-toned ukiyo-e print'],
+  'wabisabi': ['a cracked ceramic bowl on a rough stone surface, earthy tones, wabi-sabi imperfection','a single dried branch in a weathered vase, muted natural tones, quiet beauty'],
+  'republic-retro': ['a vintage Chinese street scene with old-fashioned shop signs, yellowed paper texture','a traditional window lattice pattern with faded ink calligraphy, republican era aesthetic'],
+  'new-guofeng': ['modern Chinese-style ink mountains with subtle green wash, minimalist composition','a single bamboo leaf with ink wash, contemporary guofeng style, clean layout'],
+  'guochao': ['bold Chinese traditional pattern with red and gold, flat guochao graphic design','a stylized dragon motif with geometric cloud patterns, national tide aesthetic'],
+  'vaporwave': ['a vaporwave sunset with palm silhouettes, pink-purple gradient, retro-future aesthetic','a floating classical bust against a grid horizon, pink-cyan neon, vaporwave style'],
+  'baroque': ['ornate baroque scrollwork with gold relief on a dark background, dramatic oil painting texture','a baroque candle holder with warm chiaroscuro lighting, deep shadows, antique gold'],
+  'rococo': ['delicate rococo floral scrollwork in pastel colors, soft relief texture, airy elegance','a rococo-style decorative border with shell motifs, dusty rose and cream tones'],
+  'handdrawn-flat': ['a hand-drawn illustration of a cozy cafe scene, warm earthy tones, paper texture','a simple hand-drawn plant with watercolor spots, healing and warm atmosphere'],
+  'film-grain': ['a sunlit park bench with film grain texture, warm faded colors, nostalgic photography','a street corner at dusk with heavy film noise, soft focus, amber tones'],
+  'blackgold-business': ['a minimalist black and gold geometric composition, luxury business aesthetic','an abstract gold line pattern on dark navy, sophisticated and refined'],
+  'tech-business': ['a clean blue-gray geometric pattern with subtle grid lines, tech business aesthetic','an abstract data visualization with cool blue tones, flat tech design'],
+  'warmgold-business': ['a warm gold-toned abstract composition with soft micro-light particles','a minimalist golden line art on a cream background, warm and inviting'],
+  'gray-business': ['an advanced gray geometric composition with minimal line divisions, calm and professional','a subtle gray gradient with fine linear elements, understated elegance'],
+  'zine-minimal': ['a tiny hand-drawn figure on a vast off-white background, photocopy imperfections, single red dot','a small torn paper fragment on aged paper, 85% whitespace, faint scan lines'],
+  'new-ugly': ['a rough collage of torn paper fragments with spray-paint shapes and overlapping text in clashing colors','a deliberately chaotic hand-drawn doodle with offset printing dots and eraser marks'],
+  'campus-newsletter': ['a hand-drawn flat illustration with WordArt-style decoration, multiple fonts, scattered auto-shapes','a clipart-style illustration with stars and arrows, Office default colors, earnestly cluttered'],
+  'dos-ascii': ['an ASCII art mountain landscape rendered in terminal box-drawing characters','a character-drawn cat figure with star decorations, green terminal text on black']
+};
+
+// === HELPER: Map template to description type ===
+function getTemplateDescType(templateId) {
+  const typeMap = {
+    'album-minimalist':'narrative','geometric-composition':'abstract','warm-retro':'narrative',
+    'light-shadow':'abstract','silent-humanist':'texture','tech-flow':'abstract',
+    'ink-wash':'narrative','paper-light':'texture','vintage-american':'narrative',
+    'cyberpunk':'mood','morandi':'abstract','minimal-flat':'abstract',
+    'memphis':'abstract','forest-natural':'narrative','pop-art':'mood',
+    'ukiyo-e':'narrative','wabisabi':'texture','republic-retro':'narrative',
+    'new-guofeng':'narrative','guochao':'mood','vaporwave':'mood',
+    'baroque':'narrative','rococo':'narrative','handdrawn-flat':'texture',
+    'film-grain':'narrative','blackgold-business':'abstract','tech-business':'abstract',
+    'warmgold-business':'abstract','gray-business':'abstract','zine-minimal':'texture',
+    'new-ugly':'mood','campus-newsletter':'mood','dos-ascii':'character'
+  };
+  return typeMap[templateId] || 'narrative';
+}
+
+// === VISUAL SCAFFOLD FUNCTIONS ===
+let currentSentenceIdx = -1; // Track last used sentence pattern index
+
+function generateRandomVisual() {
+  if (!selectedTemplate) { showToast('请先选择风格模板'); return; }
+  const descType = getTemplateDescType(selectedTemplate.id);
+  const pool = VISUAL_POOLS[descType] || VISUAL_POOLS.narrative;
+  document.getElementById('visualWho').value = pick(pool.who);
+  document.getElementById('visualHow').value = pick(pool.how);
+  document.getElementById('visualWhere').value = pick(pool.where);
+  document.getElementById('visualVibe').value = pick(pool.vibe);
+  // Auto-generate description after filling
+  generateVisualDesc();
+}
+
+function generateVisualDesc() {
+  const who = val('visualWho');
+  const how = val('visualHow');
+  const where = val('visualWhere');
+  const vibe = val('visualVibe');
+  const extra = val('visualExtra');
+  if (!who && !how && !where && !vibe) {
+    showToast('请至少填写一个字段，或点击「随机灵感」');
+    return;
+  }
+  const descType = selectedTemplate ? getTemplateDescType(selectedTemplate.id) : 'narrative';
+  const patterns = SENTENCE_PATTERNS[descType] || SENTENCE_PATTERNS.narrative;
+  // Pick a pattern different from last one
+  let idx;
+  if (patterns.length === 1) {
+    idx = 0;
+  } else {
+    do { idx = Math.floor(Math.random() * patterns.length); } while (idx === currentSentenceIdx);
+  }
+  currentSentenceIdx = idx;
+  let desc = patterns[idx]
+    .replace('{WHO}', who)
+    .replace('{HOW}', how)
+    .replace('{WHERE}', where)
+    .replace('{VIBE}', vibe)
+    .replace(/,\s*,/g, ',')
+    .replace(/,\s*$/g, '')
+    .replace(/^,\s*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (extra) desc += ', ' + extra;
+  document.getElementById('vMainVisualDesc').value = desc;
+  updatePreview();
+  showToast('描述已生成，可自由编辑');
+}
+
+function switchSentencePattern() {
+  const hasContent = val('visualWho') || val('visualHow') || val('visualWhere') || val('visualVibe');
+  if (!hasContent) {
+    showToast('请先填写字段或点击「随机灵感」');
+    return;
+  }
+  generateVisualDesc(); // Will pick a different pattern
+  showToast('句式已切换');
+}
+
+function renderVisualExamples() {
+  if (!selectedTemplate) return;
+  const examples = VISUAL_EXAMPLES[selectedTemplate.id];
+  const container = document.getElementById('visualExamples');
+  const list = document.getElementById('examplesList');
+  if (examples && examples.length > 0) {
+    list.innerHTML = examples.map((desc, i) =>
+      `<div class="example-card" onclick="fillVisualExample(this)" data-desc="${desc.replace(/"/g, '&quot;')}">${desc}</div>`
+    ).join('');
+    container.style.display = 'block';
+  } else {
+    container.style.display = 'none';
+  }
+}
+
+function fillVisualExample(el) {
+  const desc = el.getAttribute('data-desc');
+  document.getElementById('vMainVisualDesc').value = desc;
+  updatePreview();
+  showToast('示例已填入');
+}
+
 // === STATE ===
 let selectedTemplate = null;
 let selectedSeason = 'Summer';
@@ -2100,6 +2444,7 @@ function selectStyle(id) {
   });
   document.getElementById('contentSection').style.display = 'block';
   document.getElementById('companySection').style.display = 'block';
+  renderVisualExamples();
   updatePreview();
 }
 
@@ -2403,7 +2748,9 @@ function resetAll() {
   document.querySelectorAll('.season-btn').forEach(b => b.classList.toggle('active', b.dataset.season === 'Summer'));
   document.getElementById('contentSection').style.display = 'none';
   document.getElementById('companySection').style.display = 'none';
-  ['vDateLabel','vWeekday','vDateNumber','vMonth','vMainTitle','vSubtitle','vMainVisualDesc'].forEach(id => {
+  document.getElementById('visualExamples').style.display = 'none';
+  currentSentenceIdx = -1;
+  ['vDateLabel','vWeekday','vDateNumber','vMonth','vMainTitle','vSubtitle','vMainVisualDesc','visualWho','visualHow','visualWhere','visualVibe','visualExtra'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
