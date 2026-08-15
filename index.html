@@ -193,6 +193,61 @@ body {
   color: var(--accent);
 }
 
+/* Mode switch (poster / wallpaper) */
+.mode-switch {
+  display: flex; gap: 8px; margin-bottom: 18px;
+  padding: 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.mode-btn {
+  flex: 1; padding: 9px 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) - 3px);
+  color: var(--text-secondary);
+  cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: var(--transition); text-align: center;
+}
+.mode-btn:hover { color: var(--text-primary); }
+.mode-btn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.mode-note {
+  font-size: 12px; color: var(--text-tertiary);
+  margin: -10px 0 14px;
+  padding-left: 2px;
+}
+/* Hidden subtitle toggle */
+.chk-label {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 400;
+  color: var(--text-tertiary);
+  cursor: pointer; user-select: none;
+}
+.chk-label input { cursor: pointer; }
+.subtitle-hidden-badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  color: var(--warning, #d29922);
+  background: rgba(210, 153, 34, 0.12);
+  border: 1px solid rgba(210, 153, 34, 0.35);
+  border-radius: 10px;
+  padding: 1px 8px;
+  margin-left: 6px;
+}
+.ai-hint {
+  font-size: 12px; color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-left: 6px;
+}
+
 /* Toggle */
 .toggle-row {
   display: flex; align-items: center; gap: 8px;
@@ -668,12 +723,18 @@ body {
         填写内容变量 / Fill Content
       </div>
 
-      <div class="form-group">
+      <div class="mode-switch">
+        <button class="mode-btn active" id="modePoster" onclick="setMode('poster')">📅 日签模式</button>
+        <button class="mode-btn" id="modeWallpaper" onclick="setMode('wallpaper')">🖼️ 壁纸模式</button>
+      </div>
+      <div class="mode-note" id="modeNote">日签模式：完整六区块版式，含 LOGO / 日期 / 企业信息 / 二维码</div>
+
+      <div class="form-group" id="groupDateLabel">
         <label class="form-label">时间标签 <span class="hint">Date Label — 留空自动填充当前日期</span></label>
         <input type="text" class="form-input" id="vDateLabel" placeholder="MON · 28 · JULY" oninput="updatePreview()">
       </div>
 
-      <div class="calendar-picker-wrapper">
+      <div class="calendar-picker-wrapper" id="groupCalendar">
         <label class="form-label">日期选择 <span class="hint">Calendar — 点击选择日期自动填充下方字段</span></label>
         <div class="calendar-trigger" id="calendarTrigger" onclick="toggleCalendar()">
           <svg class="cal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -698,7 +759,7 @@ body {
         </div>
       </div>
 
-      <div class="form-row">
+      <div class="form-row" id="groupDateRow">
         <div class="form-group">
           <label class="form-label">星期 <span class="hint">Weekday</span></label>
           <input type="text" class="form-input" id="vWeekday" placeholder="MONDAY" oninput="updatePreview()">
@@ -720,13 +781,15 @@ body {
       </div>
 
       <div class="form-group">
-        <label class="form-label">副标题 <span class="hint">Subtitle — 12-22字</span></label>
-        <input type="text" class="form-input" id="vSubtitle" placeholder="在严谨的结构中，发现自由的力量" oninput="updatePreview()">
+        <label class="form-label">副标题 <span class="hint">Subtitle — 12-22字</span> <span class="ai-hint" id="subtitleAiHint" style="display:none;">留空 = AI 生成</span>
+          <label class="chk-label" style="float:right;"><input type="checkbox" id="chkHideSubtitle" onchange="toggleSubtitleHidden()"> 隐藏副标题</label>
+        </label>
+        <input type="text" class="form-input" id="vSubtitle" placeholder="留空则由 AI 根据主标题生成 · 勾选「隐藏副标题」则完全去除" oninput="updatePreview()">
         <div class="char-count" id="subtitleCount">0 字</div>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">主视觉画面描述 <span class="required">*</span> <span class="hint">Main Visual Description</span></label>
+      <div class="form-group" id="groupVisual">
+        <label class="form-label">主视觉画面描述 <span class="hint">Main Visual Description</span> <span class="ai-hint">留空 = AI 根据标题生成</span></label>
 
         <div id="visualExamples" class="visual-examples" style="display:none;">
           <div class="examples-title">💡 风格示例（点击填入）</div>
@@ -827,7 +890,7 @@ body {
 <div class="toast" id="toast">已复制到剪贴板</div>
 
 <div class="version-footer">
-  v4.1.0 · 35 templates · Last updated: 2026-08-09
+  v4.2.0 · 35 templates · Last updated: 2026-08-15
 </div>
 
 <script>
@@ -2389,6 +2452,51 @@ function fillVisualExample(el) {
 // === STATE ===
 let selectedTemplate = null;
 let selectedSeason = 'Summer';
+let currentMode = 'poster'; // 'poster' | 'wallpaper'
+
+// === MODE SWITCH (poster / wallpaper) ===
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('modePoster').classList.toggle('active', mode === 'poster');
+  document.getElementById('modeWallpaper').classList.toggle('active', mode === 'wallpaper');
+
+  const wallpaper = mode === 'wallpaper';
+  // Hide date / visual fields in wallpaper mode; company section hidden too
+  const groups = ['groupDateLabel', 'groupCalendar', 'groupDateRow', 'groupVisual'];
+  groups.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = wallpaper ? 'none' : '';
+  });
+  const company = document.getElementById('companySection');
+  if (company) company.style.display = (wallpaper || !selectedTemplate) ? 'none' : 'block';
+
+  const note = document.getElementById('modeNote');
+  if (note) {
+    note.textContent = wallpaper
+      ? '壁纸模式：仅主标题 / 副标题 / 季节色系 — 无 LOGO、无日期、无企业信息、无二维码，主视觉由 AI 即兴创作'
+      : '日签模式：完整六区块版式，含 LOGO / 日期 / 企业信息 / 二维码';
+  }
+  closeCalendar();
+  updatePreview();
+}
+
+// === HIDE SUBTITLE TOGGLE ===
+function toggleSubtitleHidden() {
+  const chk = document.getElementById('chkHideSubtitle');
+  const input = document.getElementById('vSubtitle');
+  const count = document.getElementById('subtitleCount');
+  const aiHint = document.getElementById('subtitleAiHint');
+  const hidden = chk.checked;
+  input.disabled = hidden;
+  input.style.opacity = hidden ? 0.4 : 1;
+  if (count) {
+    count.innerHTML = hidden
+      ? '<span class="subtitle-hidden-badge">已隐藏 · 提示词将不含副标题</span>'
+      : `${input.value.length} 字`;
+  }
+  if (aiHint) aiHint.style.display = hidden ? 'none' : '';
+  updatePreview();
+}
 let activeCategory = 'all';
 let activeFilters = { temp: '', sat: '', scene: '' };
 
@@ -2443,7 +2551,14 @@ function selectStyle(id) {
     c.classList.toggle('selected', c.dataset.id === id);
   });
   document.getElementById('contentSection').style.display = 'block';
-  document.getElementById('companySection').style.display = 'block';
+  document.getElementById('companySection').style.display = (currentMode === 'wallpaper') ? 'none' : 'block';
+  // Re-apply wallpaper field visibility after section is shown
+  if (currentMode === 'wallpaper') {
+    ['groupDateLabel', 'groupCalendar', 'groupDateRow', 'groupVisual'].forEach(gid => {
+      const el = document.getElementById(gid);
+      if (el) el.style.display = 'none';
+    });
+  }
   renderVisualExamples();
   updatePreview();
 }
@@ -2477,21 +2592,48 @@ function generatePrompt() {
   const s = t.seasons[selectedSeason];
   let p = t.prompt;
 
-  // Season-specific color variables
+  const wallpaper = currentMode === 'wallpaper';
+  const hideSubtitle = document.getElementById('chkHideSubtitle') && document.getElementById('chkHideSubtitle').checked;
+
+  const mainTitle = val('vMainTitle') || '（请填写主标题）';
+  const subtitleInput = val('vSubtitle');
+  const visualInput = val('vMainVisualDesc');
+
+  // === AI-composed fallbacks (empty = let the image AI compose on the fly) ===
+  let subtitleValue;
+  if (hideSubtitle) {
+    subtitleValue = '[no subtitle — see LAYOUT OVERRIDE below]';
+  } else if (!subtitleInput) {
+    subtitleValue = '[AI-composed subtitle: create a 12–22 character Chinese subtitle inspired by the main title, matching this poster style — do not repeat the main title]';
+  } else {
+    subtitleValue = subtitleInput;
+  }
+
+  let visualValue;
+  if (!visualInput) {
+    const ctx = hideSubtitle || !subtitleInput
+      ? `the main title "${mainTitle}"`
+      : `the main title "${mainTitle}" and subtitle "${subtitleInput}"`;
+    visualValue = `[AI-composed visual: create the main visual scene based on ${ctx}, strongly fitting this template's style and mood]`;
+  } else {
+    visualValue = visualInput;
+  }
+
+  // === Season-specific color variables ===
   const replacements = {
     '{SEASON}': selectedSeason,
-    '{DATE_LABEL}': val('vDateLabel') || 'auto',
-    '{WEEKDAY}': val('vWeekday') || 'MONDAY',
-    '{DATE_NUMBER}': val('vDateNumber') || '28',
-    '{MONTH}': val('vMonth') || 'JULY',
-    '{MAIN_TITLE}': val('vMainTitle') || '（请填写主标题）',
-    '{SUBTITLE}': val('vSubtitle') || '（请填写副标题）',
-    '{MAIN_VISUAL_DESC}': val('vMainVisualDesc') || '（请填写主视觉描述）',
-    '{COMPANY_EN}': val('vCompanyEn') || 'Star Ring Aerospace Technology Group',
-    '{COMPANY_CN}': val('vCompanyCn') || '星环地球航天科技集团',
-    '{CONTACT_ADDRESS}': val('vContactAddress') || '地球同步轨道星环空间站集群',
-    '{CONTACT_PHONE}': val('vContactPhone') || '00-SR-227300',
-    '{CONTACT_EMAIL}': val('vContactEmail') || 'contact@starring-tech.space',
+    '{DATE_LABEL}': wallpaper ? '[none]' : (val('vDateLabel') || 'auto'),
+    '{WEEKDAY}': wallpaper ? '[none]' : (val('vWeekday') || 'MONDAY'),
+    '{DATE_NUMBER}': wallpaper ? '[none]' : (val('vDateNumber') || '28'),
+    '{MONTH}': wallpaper ? '[none]' : (val('vMonth') || 'JULY'),
+    '{MAIN_TITLE}': mainTitle,
+    '{SUBTITLE}': subtitleValue,
+    '{MAIN_VISUAL_DESC}': visualValue,
+    '{COMPANY_EN}': wallpaper ? '[none]' : (val('vCompanyEn') || 'Star Ring Aerospace Technology Group'),
+    '{COMPANY_CN}': wallpaper ? '[none]' : (val('vCompanyCn') || '星环地球航天科技集团'),
+    '{CONTACT_ADDRESS}': wallpaper ? '[none]' : (val('vContactAddress') || '地球同步轨道星环空间站集群'),
+    '{CONTACT_PHONE}': wallpaper ? '[none]' : (val('vContactPhone') || '00-SR-227300'),
+    '{CONTACT_EMAIL}': wallpaper ? '[none]' : (val('vContactEmail') || 'contact@starring-tech.space'),
     '{SOLAR_TERM}': val('vMainTitle') || '立秋',
   };
 
@@ -2540,6 +2682,32 @@ function generatePrompt() {
   for (const [key, value] of Object.entries(replacements)) {
     p = p.replaceAll(key, value);
   }
+
+  // === LAYOUT OVERRIDE pipeline (wallpaper mode / hidden subtitle) ===
+  const overrides = [];
+  if (wallpaper) {
+    overrides.push(
+      '=== LAYOUT OVERRIDE — WALLPAPER MODE (HIGHEST PRIORITY, applies over all zone descriptions above) ===',
+      'This is a pure WALLPAPER edition, not a brand calendar poster:',
+      '- REMOVE all company branding: no LOGO, no company name, no brand text.',
+      '- REMOVE all date elements: no weekday, no date numeral, no month, no date label.',
+      '- REMOVE all contact information: no address, no phone, no email, no contact block.',
+      '- REMOVE the QR code and the "扫码了解更多" label entirely.',
+      '- KEEP only: the main visual, the main title, and the subtitle (if not disabled).',
+      '- REBALANCE the 9:16 layout: enlarge the main visual to fill the freed space, keep generous negative space and safe margins; the main title / subtitle remain the only text elements.',
+      '- If a visual is marked [AI-composed visual: ...], improvise the scene from the title context, staying strictly within this template\'s style.'
+    );
+  }
+  if (hideSubtitle) {
+    overrides.push(
+      '=== LAYOUT OVERRIDE — NO SUBTITLE (HIGHEST PRIORITY) ===',
+      '- There is NO subtitle in this poster. Wherever a subtitle appears above, omit it entirely.',
+      '- Keep only the main title; expand whitespace or the main visual to compensate for the missing line.'
+    );
+  }
+  if (overrides.length) {
+    p = p.trimEnd() + '\n\n' + overrides.join('\n');
+  }
   return p;
 }
 
@@ -2562,7 +2730,8 @@ function updatePreview() {
   const content = document.getElementById('previewContent');
   content.innerHTML = `<div class="prompt-block">${escapeHtml(prompt)}</div>`;
 
-  document.getElementById('previewMeta').textContent = `${prompt.length} chars`;
+  document.getElementById('previewMeta').textContent =
+    `${currentMode === 'wallpaper' ? '🖼️ 壁纸模式' : '📅 日签模式'} · ${prompt.length} chars`;
   document.getElementById('btnCopy').disabled = false;
 }
 
