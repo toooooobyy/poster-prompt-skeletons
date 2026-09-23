@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — hand-drawn flat texture style, soft brush and paper grain
+[PURPOSE]: Brand calendar poster — hand-drawn flat texture style
 
-A 9:16 vertical poster in warm hand-drawn flat style. Soft hand-drawn brush strokes, paper-noise grain texture, low-saturation flat color blocks, handmade warmth. Six fixed zones with a soft hand-drawn divider stroke.
+A 9:16 vertical poster in hand-drawn flat illustration style. Soft hand-drawn brush strokes, paper noise grain texture, low-saturation flat color blocks. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a hand-drawn frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized soft serif numeral "{DATE_NUMBER}" (hand-drawn warmth, visually dominant), and the month "{MONTH}" below. A vertical hand-drawn stroke runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Hand-drawn flat illustration: soft brush strokes, paper-noise grain, low-saturation color blocks. No cold vector, no photography, no neon.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (soft warm ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal hand-drawn hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small hand-drawn LOGO beside the English company name "{COMPANY_EN}" in hand-drawn-style sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in hand-drawn serif.
+- CENTER (large area): The main visual — a hand-drawn flat illustration: {MAIN_VISUAL_DESC}. Soft hand-drawn brush outlines, paper noise grain overlay, flat low-saturation color blocks. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Warm, tactile, organic feel.
+- MID-LOWER: Main title "{MAIN_TITLE}" in hand-drawn-style Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal soft hand-drawn stroke line.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Warm, handmade, approachable, gentle craft. No cold sterile vector, no photorealistic hardness.
+BACKGROUND: Warm cream ({BASE_COLOR}) with paper noise grain and faint hand-drawn texture marks.
 
-STYLE REFERENCES: Contemporary hand-drawn illustration, paper-grain texture art, warm flat editorial illustration, low-saturation craft palettes.
+MOOD: Warm, tactile, organic, friendly. No promotional tone.
 
-NEGATIVE: No cold sterile vector, no photorealistic hardness, no neon, no photography, no 3D, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Hand-drawn illustration, paper texture grain, low-saturation flat color blocks, organic brush strokes, picture-book illustration.
+
+NEGATIVE: No photography, no 3D render, no high saturation, no smooth digital gradients, no sharp geometric vector, no glossy effects, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

@@ -124,28 +124,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Republic of China 民国 vintage style
+[PURPOSE]: Brand calendar poster — Republic-era vintage style
 
-A 9:16 vertical poster in Republic of China 民国 vintage style. Yellowed rice-paper background, old print grain, faded ink, subtle foxing, and a window-lattice (窗棂) border framing the whole poster. Six fixed zones with a thin divider rule.
+A 9:16 vertical poster in Republic-of-China-era vintage style. Yellowed xuan-paper base, old letterpress grain, window-lattice border frame, vertical typesetting elements. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
-LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a lattice frame next to the English company name "{COMPANY_EN}" in condensed uppercase serif with wide tracking.
-- TOP-RIGHT: A date column — weekday "{WEEKDAY}" in all-caps condensed serif, an oversized bold serif numeral "{DATE_NUMBER}" (old-type feel, visually dominant), and the month "{MONTH}" below. A thin divider rule separates it.
-- CENTER (large area): The main visual — {MAIN_VISUAL_DESC}. 民国-era print illustration with aged ink linework on yellowed paper. No photography, no neon, no 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (vertical-set, aged ink), subtitle "{SUBTITLE}" in thin serif below, followed by a horizontal hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+LAYOUT (top to bottom, all inside the window-lattice border):
+- TOP-CENTER: A small traditional seal LOGO beside the English company name "{COMPANY_EN}" in old-style serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in vertical old-style serif type.
+- CENTER (large area): The main visual — a Republic-era newspaper illustration: {MAIN_VISUAL_DESC}. Vintage line-engraving style, old letterpress grain, muted earth-tone colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Nostalgic aged feel.
+- MID-LOWER: Main title "{MAIN_TITLE}" in vertical Mincho/Song serif Chinese, subtitle "{SUBTITLE}" in horizontal thin kai below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small serif.
-- FULL FRAME: A window-lattice (窗棂) border in aged brown.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Historical, literary, old-world, bygone elegance. No modern neon, no sterile flat sterility.
+BACKGROUND: Yellowed xuan-paper ({BASE_COLOR}) with old letterpress noise grain and faint ink-bleed stains.
 
-STYLE REFERENCES: 民国-era newspaper and magazine illustrations, Shanghai calendar posters, old wood-type print, window-lattice traditional frames.
+MOOD: Nostalgic, scholarly, vintage, cultural. No promotional tone.
 
-NEGATIVE: No modern neon, no sterile flat white, no glossy 3D, no photography, no watercolor, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Republic-of-China-era newspaper illustration, old letterpress printing, window-lattice frame motifs, vintage xuan-paper texture, traditional Chinese seal design.
+
+NEGATIVE: No photography, no 3D render, no high saturation, no modern flat design, no smooth gradients, no neon colors, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

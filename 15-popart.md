@@ -125,28 +125,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Pop Art silkscreen style, thick outlines and high-contrast clash
+[PURPOSE]: Brand calendar poster — Pop Art style
 
-A 9:16 vertical poster in bold Pop Art style. Thick black outlines, high-contrast clashing colors, halftone silkscreen dot texture, flat ink with no soft gradients. Six fixed zones with a thick black divider.
+A 9:16 vertical poster in Pop Art style. Bold black outline, high-contrast clashing colors, silkscreen halftone dot texture. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}, outline color {OUTLINE_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}, outline {OUTLINE_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a bold black frame next to the English company name "{COMPANY_EN}" in bold uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps bold sans-serif with wide tracking, an oversized bold display sans-serif numeral "{DATE_NUMBER}" (punchy, visually dominant), and the month "{MONTH}" below. A vertical bold black line runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Pop Art illustration with thick black outlines and high-contrast clashing colors, silkscreen halftone dots. No photography, no watercolor, no soft 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold display sans-serif Chinese (graphic), subtitle "{SUBTITLE}" in bold sans-serif below, followed by a horizontal thick black hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small bold pop-art LOGO (speech-bubble or star shape with thick black outline) beside the English company name "{COMPANY_EN}" in bold condensed sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in bold comic-book style type with black outline.
+- CENTER (large area): The main visual — a pop art illustration: {MAIN_VISUAL_DESC}. Thick black outlines ({OUTLINE_COLOR}), flat high-contrast colors ({BASE_COLOR}, {ACCENT_COLOR}), Ben-Day dot halftone pattern overlay, bold and graphic. No soft edges.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold black-outlined Chinese, subtitle "{SUBTITLE}" in bold sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal thick black line.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Bold, graphic, punchy, playful impact. No soft muted restraint, no photorealistic softness.
+BACKGROUND: Bold flat color ({BASE_COLOR}) with Ben-Day dot pattern overlay.
 
-STYLE REFERENCES: Andy Warhol silkscreen, Roy Lichtenstein halftone comics, bold graphic Pop Art posters.
+MOOD: Bold, energetic, graphic, pop-culture. No promotional tone.
 
-NEGATIVE: No soft muted palettes, no photorealistic gradients, no delicate watercolor, no soft 3D, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Andy Warhol silkscreen prints, Roy Lichtenstein comic art, Ben-Day dot halftone, bold pop-culture color palettes.
+
+NEGATIVE: No photography, no 3D render, no soft edges, no muted tones, no gradients, no realistic illustration, no thin lines, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

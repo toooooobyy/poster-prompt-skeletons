@@ -124,26 +124,27 @@ Replace each placeholder before generating:
 ```
 [PURPOSE]: Brand calendar poster — premium gray minimalist business style
 
-A 9:16 vertical poster in premium-gray minimalist business style. Full low-saturation grey ground, ultra-minimal geometric thin-line zoning, abundant whitespace, clean matte ultra-flat. Six fixed zones with an ultra-thin divider hairline.
+A 9:16 vertical poster in premium-gray minimalist business style. All-tone low-saturation gray base, minimal geometric thin-line divisions, large whitespace. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a thin frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized light serif numeral "{DATE_NUMBER}" (refined grey, visually dominant), and the month "{MONTH}" below. A vertical thin hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Premium-gray minimalist flat graphic: single soft geometric form on abundant whitespace, low-saturation grey tones. No photography, no neon, no dense pattern.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (refined grey ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal thin hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small minimal LOGO beside the English company name "{COMPANY_EN}" in ultra-thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in light sans-serif, right-aligned.
+- CENTER (offset, minimal): The main visual — a premium gray minimalist flat graphic: {MAIN_VISUAL_DESC}. Low-saturation gray palette, minimal geometric thin-line elements, large negative space (~50% whitespace). Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Sophisticated, understated, refined.
+- MID-LOWER: Main title "{MAIN_TITLE}" in ultra-thin sans-serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Thin geometric divider. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal ultra-thin hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Refined, calm, high-end, understated sophistication. No vivid clash, no decorative noise.
+BACKGROUND: Premium low-saturation gray ({BASE_COLOR}) with minimal geometric thin-line divisions and large whitespace.
 
-STYLE REFERENCES: High-end editorial minimalism, premium grey-tone branding, abundant-whitespace composition, ultra-flat executive design.
+MOOD: Sophisticated, understated, refined, premium. No promotional tone.
 
-NEGATIVE: No vivid clash, no decorative noise, no neon, no dense texture, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Premium gray minimalist design, high-end business aesthetics, Swiss whitespace design, low-saturation gray palettes, refined corporate layout.
+
+NEGATIVE: No high saturation, no warm tones, no photography, no 3D render, no illustration, no decorative ornaments, no gradients, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

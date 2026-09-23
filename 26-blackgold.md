@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — black-gold luxury minimalist business style
+[PURPOSE]: Brand calendar poster — black gold luxury business style
 
-A 9:16 vertical poster in restrained black-gold luxury business style. Deep blue/grey matte ground, fine gold-line accents, generous restrained whitespace, subtle metal sheen on gold. Six fixed zones with a fine gold divider hairline.
+A 9:16 vertical poster in black-gold luxury minimalist business style. Deep blue/dark gray matte base, fine gold line accents, restrained whitespace, premium feel. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, gold color {GOLD_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a gold-line frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking (light gold), an oversized light serif numeral "{DATE_NUMBER}" (gold tone, visually dominant), and the month "{MONTH}" below. A vertical fine gold hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Black-gold minimalist graphic: fine lines, restrained composition, subtle metal sheen. No photography, no neon, no dense pattern.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (gold-ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal gold hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small fine-line gold LOGO beside the English company name "{COMPANY_EN}" in ultra-thin all-caps sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in thin serif with gold accent, right-aligned.
+- CENTER (offset, restrained): The main visual — a black gold minimalist graphic: {MAIN_VISUAL_DESC}. Dark matte background ({BASE_COLOR}), fine gold line elements ({GOLD_COLOR}), minimal composition, large negative space. Premium, understated, luxurious.
+- MID-LOWER: Main title "{MAIN_TITLE}" in ultra-thin sans-serif Chinese with gold accent line, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal fine gold hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Premium, calm, authoritative, quiet confidence. No gaudy clutter, no casual playfulness.
+BACKGROUND: Deep dark blue-gray ({BASE_COLOR}) matte finish with subtle fine gold line accents ({GOLD_COLOR}) and minimal decoration.
 
-STYLE REFERENCES: Executive luxury brand design, fine gold-line minimalism, deep matte premium packaging, restrained high-end business aesthetics.
+MOOD: Premium, luxurious, restrained, sophisticated. No promotional tone.
 
-NEGATIVE: No gaudy clutter, no casual playfulness, no neon, no dense patterns, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Luxury brand minimalism, black-gold premium design, fine-line gold detailing, dark matte finishes, high-end business aesthetics.
+
+NEGATIVE: No bright colors, no photography, no 3D render, no illustration, no high saturation, no decorative patterns, no gradients, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

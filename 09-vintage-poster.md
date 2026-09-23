@@ -124,28 +124,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — vintage American poster style, warm sepia caramel tones
+[PURPOSE]: Brand calendar poster — vintage American poster style
 
-A 9:16 vertical poster in warm vintage American poster画报 style. Aged paper grain texture, faded print ink, subtle foxing, soft vignette, and a retro double-line geometric border framing the whole poster. Six fixed zones with a thin divider rule.
+A 9:16 vertical poster in vintage American poster style. Aged-paper grain, warm caramel-brown tones, retro geometric corner frames and double-line border. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
-LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a sepia frame next to the English company name "{COMPANY_EN}" in condensed uppercase serif with wide tracking.
-- TOP-RIGHT: A date column — weekday "{WEEKDAY}" in all-caps condensed serif, an oversized bold slab-serif numeral "{DATE_NUMBER}" (vintage wood-type feel, visually dominant), and the month "{MONTH}" below. A thin divider rule separates it.
-- CENTER (large area): The main visual — {MAIN_VISUAL_DESC}. Hand-rendered vintage poster illustration in warm sepia and caramel tones, aged paper texture, no glossy modern gradients, no neon, no photography.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (slightly worn warm ink), subtitle "{SUBTITLE}" in thin serif below, followed by a horizontal hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+LAYOUT (top to bottom, all inside the double border):
+- TOP-LEFT: A small retro emblem LOGO beside the English company name "{COMPANY_EN}" in condensed vintage sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in retro slab-serif with wide tracking.
+- CENTER (large area): The main visual — a retro poster illustration: {MAIN_VISUAL_DESC}. Warm caramel tones, bold flat shapes, vintage halftone dot texture, aged-paper grain overlay. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold condensed serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small serif.
-- FULL FRAME: A retro double-line geometric border in warm brown.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Nostalgic, warm, storied, timeless. No cold modern flatness, no promotional hard-sell.
+BACKGROUND: Aged warm cream ({BASE_COLOR}) with fine noise grain, slight vignette, and faint halftone print marks.
 
-STYLE REFERENCES: Mid-20th-century American print画报, vintage travel posters, aged wood-type posters, warm sepia print.
+MOOD: Nostalgic, warm, vintage editorial. No promotional tone.
 
-NEGATIVE: No glossy gradients, no neon, no 3D renders, no sterile white background, no photography, no watercolor, no ink wash, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: 1950s American travel posters, WPA poster aesthetic, vintage botanical book illustration, aged paper texture, halftone print.
+
+NEGATIVE: No photography, no 3D render, no high-saturation clashing colors, no cold tones, no smooth gradients, no modern flat design, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

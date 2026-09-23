@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — rational tech-business blue-grey flat style
+[PURPOSE]: Brand calendar poster — rational tech business style
 
-A 9:16 vertical poster in rational tech-business style. Blue-grey cold tone, faint grid/geometry underlay, crisp thin-line dividers, clean flat. Six fixed zones with a crisp thin divider hairline.
+A 9:16 vertical poster in rational tech-business style. Blue-gray cool tone, faint grid geometric watermark, clean thin-line divisions, orderly layout. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a thin frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized light sans-serif numeral "{DATE_NUMBER}" (precise, visually dominant), and the month "{MONTH}" below. A vertical thin hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Tech-business flat graphic: interconnected nodes, thin geometric lines, faint grid underlay, blue-grey cold tone. No warm illustration, no neon, no photography.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold sans-serif Chinese (clean), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal thin hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small geometric tech LOGO beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in monospaced sans-serif, right-aligned.
+- CENTER (large area): The main visual — a tech business flat graphic: {MAIN_VISUAL_DESC}. Blue-gray cool palette, faint grid lines, geometric data-visualization elements, clean thin-line divisions. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Orderly, rational, precise.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold sans-serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Thin horizontal divider line. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal crisp thin hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Precise, professional, forward-looking, rational optimism. No warm clutter, no decorative excess.
+BACKGROUND: Light blue-gray ({BASE_COLOR}) with faint grid geometric watermark pattern and clean thin-line divisions.
 
-STYLE REFERENCES: Corporate tech brand design, isometric data graphics, blue-grey UI aesthetics, faint-grid underlay composition.
+MOOD: Rational, precise, trustworthy, professional. No promotional tone.
 
-NEGATIVE: No warm clutter, no decorative excess, no neon, no photography, no 3D render, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Tech corporate design, data-visualization aesthetics, Swiss grid systems, blue-gray cool palettes, clean professional layout.
+
+NEGATIVE: No warm tones, no photography, no 3D render, no illustration, no high saturation, no decorative ornaments, no hand-drawn elements, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

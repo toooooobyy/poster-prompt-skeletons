@@ -139,13 +139,13 @@ A 9:16 vertical poster in DOS ASCII retro style. Pure character typography — A
 
 CHARACTERS ARE EVERYTHING PRINCIPLE: Every border is ┏━━━━┓, every divider is ═══ or ───, every decoration is ★ or ■ or ● or ◆, and the main visual is an ASCII art pattern formed by characters like /\()|-+*#. The constraint of "no graphics" IS the aesthetic — order emerges from character grids, beauty from monospace repetition.
 
-BASE: {SEASON} terminal palette — base {BASE_COLOR}, text {TEXT_COLOR}, accent {ACCENT_COLOR}.
+BASE: {SEASON} terminal palette — base {BASE_COLOR}, text {ACCENT_COLOR}, accent {PATTERN_COLOR}.
 
 LAYOUT (top to bottom, all in character borders):
 - OUTER BORDER: Full canvas wrapped in ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓ character border.
 - TOP-LEFT (inside border): English company name "{COMPANY_EN}" in monospace ALL CAPS, small size.
 - TOP-RIGHT (inside border): Date "{DATE_NUMBER}" in monospace + weekday "{WEEKDAY}" + month "{MONTH}", with ═══ underline divider.
-- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Entirely made of ASCII characters forming a pattern/image. Surrounded by character-drawn frame. Colors: {TEXT_COLOR} and {ACCENT_COLOR} on {BASE_COLOR} background.
+- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Entirely made of ASCII characters forming a pattern/image. Surrounded by character-drawn frame. Colors: {ACCENT_COLOR} and {PATTERN_COLOR} on {BASE_COLOR} background.
 - MID-LOWER: Main title "{MAIN_TITLE}" wrapped in character border (┏━━━━━━━━┓), subtitle "{SUBTITLE}" in monospace below. ──── divider line. Three lines of plain monospace contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}

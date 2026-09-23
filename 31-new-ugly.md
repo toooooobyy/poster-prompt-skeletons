@@ -133,12 +133,12 @@ A 9:16 vertical poster in New Ugly style. Intentional imperfection, deliberately
 
 CONTROLLED CHAOS PRINCIPLE: Six zone positions are fixed, but elements within each zone may deliberately misalign, overlap, stretch, distort, or spill across boundaries. Brand information (date, title, contact) must remain readable — "it looks like random layout, but you can still read it."
 
-BASE: {SEASON} palette — base {BASE_COLOR}, clashing colors {CLASH_COLOR_1} and {CLASH_COLOR_2}.
+BASE: {SEASON} palette — base {BASE_COLOR}, clashing colors {ACCENT_COLOR} and {PATTERN_COLOR}.
 
 LAYOUT (top to bottom, positions fixed, internal chaos allowed):
 - TOP-LEFT: A LOGO (may tilt/stretch slightly) beside the English company name "{COMPANY_EN}" in distorted sans-serif.
 - TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" (may stretch/compress, zero letter-spacing, slight misalignment) + month "{MONTH}".
-- CENTER (~45-55%): The main visual — {MAIN_VISUAL_DESC}. Rough collage, hand-drawn scribble, low-fidelity xerox quality. Elements may spill across zone boundaries. Colors: {BASE_COLOR}, {CLASH_COLOR_1}, {CLASH_COLOR_2} in harsh clashing pairs. Photocopy grain, offset dot texture, scan noise throughout.
+- CENTER (~45-55%): The main visual — {MAIN_VISUAL_DESC}. Rough collage, hand-drawn scribble, low-fidelity xerox quality. Elements may spill across zone boundaries. Colors: {BASE_COLOR}, {ACCENT_COLOR}, {PATTERN_COLOR} in harsh clashing pairs. Photocopy grain, offset dot texture, scan noise throughout.
 - MID-LOWER: Main title "{MAIN_TITLE}" in distorted sans-serif (may stretch/overlap but MUST be readable), subtitle "{SUBTITLE}" below. Hand-drawn scribble marks and scratch lines may interleave. Three lines of plain contact text (no icons, tight leading, slight misalignment allowed but readable):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}

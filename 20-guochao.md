@@ -125,28 +125,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Guochao 国潮 red-gold flat-pattern style
+[PURPOSE]: Brand calendar poster — Guochao (Chinese trend) style
 
-A 9:16 vertical poster in bold Guochao 国潮 style. Traditional patterns combined with bold geometric color blocks, red-gold color clashing, flat 国风 graphics, bold ink. Six fixed zones with a gold divider hairline.
+A 9:16 vertical poster in Guochao style. Traditional patterns combined with bold geometric color blocks, red-gold clashing palette, flat national-style design. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, gold color {GOLD_COLOR}, pattern color {PATTERN_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}, pattern {PATTERN_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a gold frame next to the English company name "{COMPANY_EN}" in bold uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps bold sans-serif with wide tracking, an oversized bold serif numeral "{DATE_NUMBER}" (festive, visually dominant), and the month "{MONTH}" below. A vertical gold hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. 国潮 flat pattern: traditional motifs (回纹/云纹) with bold geometric blocks, red-gold clash. No photography, no soft watercolor, no 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (gold-ink), subtitle "{SUBTITLE}" in bold sans-serif below, followed by a horizontal gold hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small bold traditional-style LOGO beside the English company name "{COMPANY_EN}" in bold sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in bold serif with gold accent.
+- CENTER (large area): The main visual — a Guochao flat pattern illustration: {MAIN_VISUAL_DESC}. Bold traditional motifs (cloud patterns, wave patterns, folk elements) rendered in flat geometric style, red base ({BASE_COLOR}) with gold details ({GOLD_COLOR}) and pattern accents ({PATTERN_COLOR}). High-impact, bold, graphic.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold serif Chinese with gold accent, subtitle "{SUBTITLE}" in sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal gold hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Bold, festive, culturally proud, Eastern vigor. No muted restraint, no western-minimal sterility.
+BACKGROUND: Bold traditional red ({BASE_COLOR}) with flat traditional pattern motifs in {PATTERN_COLOR} and gold trim ({GOLD_COLOR}).
 
-STYLE REFERENCES: Contemporary 国潮 graphic design, traditional Chinese patterns reinterpreted flat, red-gold festive palettes, bold Eastern typography.
+MOOD: Bold, festive, cultural, trendy. No promotional tone.
 
-NEGATIVE: No muted restraint, no western-minimal sterility, no soft watercolor, no photography, no 3D, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Chinese trend (国潮) graphic design, traditional auspicious patterns, red-gold color schemes, flat national-style illustration, modern Chinese poster art.
+
+NEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no ink wash, no realistic illustration, no gradients, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

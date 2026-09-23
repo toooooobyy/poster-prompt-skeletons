@@ -12,6 +12,54 @@ _暂无未发布变更。_
 
 ---
 
+## [v4.3.0] - 2026-09-23
+
+### Added — 架构：单一事实源（SSOT）
+- 新增 `data/templates.json`：33 套模板的全部结构化数据（id / 名称 / 分类 / 四维标签 / descType / 风格示例 / 四季色系 / Prompt / 风格变体）
+- 新增 `tools/build.py`：从 SSOT 一键重新生成 `index.html` 数据区、README 速查表、`SKILL.md` 标签矩阵，并同步根目录模板 Section 7；`--check` 模式用于提交前一致性校验
+- `descType` 与 `examples` 并入模板对象，彻底消灭 v4.1.0 以来两套键名并存导致的平行数据结构
+
+### Added — 风格变体选择器
+- 网页端新增变体下拉（选中含变体的模板时出现）：几何构成风（包豪斯原色 / 瑞士网格）、新中式水墨风（写意笔触）、新丑风（日式克制 / 中式市井）、校园小报风（黑板报 / 市井传单）、DOS 字符画风（白底文档 / 琥珀终端）
+- 实现机制：选择变体后向 Prompt 追加 `STYLE VARIANT` 覆盖块，与壁纸模式 / 隐藏副标题的 OVERRIDE 管线复用
+
+### Added — 视觉类型筛选（第四维标签）
+- 全部 33 套模板补齐 `visualType` 标签（插画 / 摄影 / 3D / 几何 / 水墨 / 拼贴），筛选栏新增对应下拉，与 SKILL.md 的四维标签矩阵对齐
+
+### Added — 体验与可访问性
+- localStorage 状态持久化：模板 / 变体 / 季节 / 模式 / 全部输入 / 筛选器刷新后自动恢复
+- 字数超限提示：主标题超 8 字、副标题超出 12-22 字时计数器变 amber 警示
+- 日历弹窗在下方空间不足时自动上翻，避免被滚动容器裁剪
+- 选中风格后在移动端自动滚动到第 2 步表单
+- 风格卡片改为原生 `<button>`、日历格子改为 `<button>`、日历触发器支持键盘操作，新增 `:focus-visible` 样式与 `prefers-reduced-motion` 支持
+- 新增 meta description 与内联 SVG favicon；下载文件名附带日期
+
+### Fixed
+- **风格联动示例对 14/33 模板静默失效**（P0）：`TEMPLATES.id` 与 `VISUAL_EXAMPLES`/`typeMap` 键名系统性不匹配（如 `tech-streamer` vs `tech-flow`），导致示例不显示且🎲随机灵感词库错误兜底 narrative —— 已通过 SSOT 重构根治
+- 「留空 = AI 生成」徽章永远不显示（P0）：初始 `display:none` 且无任何代码将其显示
+- 时间标签清空后 Prompt 注入字面量 `Date "auto"`：兜底改为自动拼接当前日期
+- `resetAll()` 未重置壁纸模式 / 副标题隐藏开关 / 分类与标签筛选器 / 日历状态 —— 已全量复位
+- 壁纸模式 Prompt 首尾矛盾（开头 "Brand calendar poster" vs 结尾 "not a brand calendar poster"）：改为重写 PURPOSE 行；占位符不再以 `[none]` 字面量注入正文，改为直接裁剪品牌 / 日期 / 联系信息 / 二维码相关行（同行含主标题时保留并清洗，覆盖暖光复古风特例）
+- 新中式水墨风 `{SOLAR_TERM}` 硬编码兜底「立秋」：改为按当前日期推导 24 节气
+- 标签事实冲突：SKILL.md 与网页端 8 处不一致（14 森系色温 / 16 浮世绘 / 17 侘寂 / 11 莫兰迪 / 26 黑金 / 28 暖金饱和度 / 16、25 节气场景）—— 已统一并纳入 SSOT
+- CSS：`--text-tertiary` 未定义被使用、`.toggle-switch`/`.toggle-row`/`.form-select` 死代码、副标题嵌套 `<label>` 无效 HTML
+- 对比度：`--text-muted` 在卡片底上仅 3.41:1，提升至 `#9299ad`（≥5.1:1，过 WCAG AA）
+- 企业信息三方矛盾：删除网页端随机生成器死代码（约 45 行）与「随机生成（每次不同）」文案；SKILL.md 第九节、`company-config.md`、`bottom-spec.md` 同步改为固定默认值说明
+- 文档数量口径：README（8 套且 `computer:///` 死链）/ SKILL.md（35 套、分类计数、文件结构 31 套）/ 页脚（35 templates）/ bottom-spec（三十五套）—— 全部修正为 33 并由 build.py 生成维护
+- SKILL.md 补充 v4.2.0 三大特性（AI 即兴创作 / 副标题隐藏 / 壁纸模式）说明；修正错别字「季节气系」；移除不存在的 `assets/` 目录引用；gallery.md 标注样张未入库
+- 英文 Prompt 中英混杂「water-stain渗透」→「water-stain bleeding」
+- `switchSentencePattern()` 双重 toast
+
+### Changed
+- 预览更新改为 150ms 防抖；字数统计即时更新
+- `paperlight-reference.png` 由 5.8MB 压缩至约 400KB
+- 新增 `LICENSE`（MIT）与 `.gitignore`
+
+### Tag
+- `v4.3.0` → SSOT 架构重构 + 变体选择器 + 视觉类型筛选 + 全量缺陷修复
+
+---
+
 ## [v4.2.0] - 2026-08-15
 
 ### Added — AI 即兴创作（留空 = AI 生成）
@@ -188,3 +236,4 @@ _暂无未发布变更。_
 | v4.0.0  | `f1bd437`  | 2026-08-08   | 新增校园小报 + DOS 字符画模板（32-33）      |
 | v4.1.0  | `cf909de`  | 2026-08-09   | 主视觉描述体验重构 + 版本管理体系建设       |
 | v4.2.0  | `1407c7a` | 2026-08-15   | AI 即兴创作 + 副标题隐藏开关 + 壁纸模式     |
+| v4.3.0  | 本次提交   | 2026-09-23   | SSOT 架构重构 + 变体选择器 + 视觉类型筛选 + 全量缺陷修复 |

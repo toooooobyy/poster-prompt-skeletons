@@ -124,28 +124,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Memphis high-saturation clash-geometry style
+[PURPOSE]: Brand calendar poster — Memphis design style
 
-A 9:16 vertical poster in playful Memphis style. High-saturation clashing geometry, dots, waves, zigzags, free playful composition, bold flat vector shapes. Six fixed zones with a playful zigzag/wavy divider.
+A 9:16 vertical poster in Memphis design style. High-saturation clashing geometric shapes, polka dots, wavy lines, zigzag patterns, free playful composition. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}, pattern color {PATTERN_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}, pattern {PATTERN_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a bold frame next to the English company name "{COMPANY_EN}" in bold uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps bold sans-serif with wide tracking, an oversized bold rounded sans-serif numeral "{DATE_NUMBER}" (playful, visually dominant), and the month "{MONTH}" below. A vertical zigzag divider runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Memphis geometric collage: bold triangles, dots, squiggles, zigzags, high-saturation clash. Flat vector, no soft gradients, no photography, no watercolor.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold rounded sans-serif Chinese (energetic), subtitle "{SUBTITLE}" in bold sans-serif below, followed by a horizontal wavy hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small bold geometric LOGO (triangle or circle) beside the English company name "{COMPANY_EN}" in bold rounded sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in bold playful sans-serif with mixed colors.
+- CENTER (large area): The main visual — a Memphis geometric collage: {MAIN_VISUAL_DESC}. Bold clashing shapes (triangles, circles, squiggles, zigzags, polka dots), high-saturation colors ({ACCENT_COLOR}, {PATTERN_COLOR}), playful asymmetrical composition. Flat design, no shadows.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold rounded sans-serif Chinese, subtitle "{SUBTITLE}" in regular sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal zigzag/wavy line.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Energetic, playful, bold, fun optimism. No muted restraint, no rigid corporate flatness.
+BACKGROUND: Clean white ({BASE_COLOR}) scattered with small geometric pattern dots and lines in {PATTERN_COLOR}.
 
-STYLE REFERENCES: Memphis Group (1980s) design, Ettore Sottsass, bold clashing postmodern geometry, playful flat collage.
+MOOD: Playful, energetic, bold, fun. No promotional tone.
 
-NEGATIVE: No muted low-saturation palettes, no rigid corporate grids, no photorealistic detail, no soft watercolor, no 3D, no soft gradients, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Memphis Group (Ettore Sottsass), 1980s postmodern design, bold geometric patterns, clashing color palettes.
+
+NEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no realistic illustration, no gradients, no shadows, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

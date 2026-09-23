@@ -118,7 +118,7 @@ Six fixed zones:
 
 A 9:16 vertical poster in minimalist art-album style. Low saturation, faint paper texture, soft and elegant. Six fixed zones with safe margins.
 
-BASE: {SEASON} palette — base {BASE_COLOR}, accent palette {PALETTE}.
+BASE: {SEASON} palette — base #F6F2EC, accent palette {PALETTE}.
 
 LAYOUT (top to bottom):
 - TOP-LEFT: A small LOGO mark (concentric-circle line motif) beside the English company name "{COMPANY_EN}" in thin sans-serif.
@@ -130,7 +130,7 @@ LAYOUT (top to bottom):
   邮箱：{CONTACT_EMAIL}
 - BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-BACKGROUND: Cream-rice white ({BASE_COLOR}) with faint paper grain.
+BACKGROUND: Cream-rice white (#F6F2EC) with faint paper grain.
 
 MOOD: Gentle, healing, refined, atmospheric. No promotional tone.
 

@@ -121,13 +121,13 @@ Six fixed zones, **asymmetric grid, no border, negative-space-driven**:
 
 A 9:16 vertical poster in tech-streamer style. The layout uses an asymmetric grid with no borders, driven by negative space (~35% whitespace). Six fixed zones.
 
-BASE: {SEASON} palette — base gradient {BASE_COLOR}, 3D graphic gradient {GRADIENT_COLOR}, particle color {PARTICLE_COLOR}, text color {TEXT_COLOR}.
+BASE: {SEASON} palette — base gradient {BASE_COLOR}, 3D graphic gradient {GRADIENT_COLOR}, particle color {PARTICLE_COLOR}, text color #0A2540.
 
 LAYOUT (top to bottom):
 - TOP-LEFT: Company name "{COMPANY_EN}" in ultra-thin (Light/Thin) all-caps sans-serif with wide letter-spacing, left-aligned. Small geometric LOGO mark beside it.
 - TOP-RIGHT: Date "{DATE_LABEL}" in monospaced numerals, right-aligned, with a short horizontal hairline anchor beneath.
 - CENTER (offset upper-left): The main visual — a 3D-rendered abstract graphic: {MAIN_VISUAL_DESC}. Must include a glass torus/ring with Fresnel reflection and caustics, a floating slab tilted ~25°, glowing volumetric light-track arcs, and a drifting particle system ({PARTICLE_COLOR}). Materials: optical glass, liquid metal, frosted acrylic, condensation droplets, bloom glow. The 3D graphic occupies ~50% of the canvas, offset to the upper-left, leaving a large negative space on the right. NOT centered.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in ultra-bold (Heavy/Black) sans-serif with negative-space compression, subtitle "{SUBTITLE}" in regular sans-serif below, followed by a short hairline. Below the hairline, three lines of plain contact text in {TEXT_COLOR} (no icons, no bullets, tight leading):
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in ultra-bold (Heavy/Black) sans-serif with negative-space compression, subtitle "{SUBTITLE}" in regular sans-serif below, followed by a short hairline. Below the hairline, three lines of plain contact text in #0A2540 (no icons, no bullets, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}

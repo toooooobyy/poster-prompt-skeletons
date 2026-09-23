@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — film-grain warm soft-focus atmospheric style
+[PURPOSE]: Brand calendar poster — film grain style
 
-A 9:16 vertical poster in nostalgic film-grain style. Film-grain noise texture, warm-tone soft-focus light-shadow, light leaks, hazy atmospheric mood. Six fixed zones with a soft divider hairline.
+A 9:16 vertical poster in film-grain photography style. Film noise grain texture, warm-tone soft-focus light, blurred atmospheric depth. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a soft frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized soft serif numeral "{DATE_NUMBER}" (warm faded, visually dominant), and the month "{MONTH}" below. A vertical soft hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Film-photography mood: grain noise, soft focus, light leaks, warm fade. No crisp digital, no flat vector, no neon.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (warm ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal soft hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small minimal LOGO beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in light serif.
+- CENTER (large area): The main visual — film photography texture: {MAIN_VISUAL_DESC}. Warm-tone soft focus, film grain noise, light leaks, shallow depth of field, faded vintage feel. Accent color ({ACCENT_COLOR}) in subtle highlights. Atmospheric, dreamy, nostalgic.
+- MID-LOWER: Main title "{MAIN_TITLE}" in light serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal soft hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Nostalgic, cinematic, atmospheric, warm reverie. No crisp digital sterility, no harsh neon edge.
+BACKGROUND: Warm cream ({BASE_COLOR}) with film grain noise, subtle light leaks, and soft vignette.
 
-STYLE REFERENCES: Analog 35mm film photography, Kodak warm tones, soft-focus light leaks, hazy cinematic stills.
+MOOD: Nostalgic, atmospheric, dreamy, warm. No promotional tone.
 
-NEGATIVE: No crisp digital sterility, no harsh neon edge, no flat vector, no 3D render, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: 35mm film photography, faded vintage film tones, light leaks, film grain texture, analog photography aesthetic, Lomography.
+
+NEGATIVE: No digital sharpness, no 3D render, no illustration, no high saturation, no modern clean look, no flat vector design, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Baroque dark-gold chiaroscuro oil-texture style
+[PURPOSE]: Brand calendar poster — Baroque style
 
-A 9:16 vertical poster in grand Baroque style. Dark-gold relief scrollwork (卷草纹), strong chiaroscuro light-shadow contrast, deep luxurious brown ground, oil-paint texture. Six fixed zones with a dark-gold scrollwork border.
+A 9:16 vertical poster in Baroque style. Dark gold relief scrollwork, strong chiaroscuro light-shadow contrast, deep luxurious dark base. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, gold color {GOLD_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a gold relief frame next to the English company name "{COMPANY_EN}" in classical uppercase serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps classical serif with wide tracking, an oversized bold serif numeral "{DATE_NUMBER}" (gilded, visually dominant), and the month "{MONTH}" below. A vertical gold scrollwork divider runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Baroque oil-texture illustration: rich impasto, dramatic chiaroscuro, deep brown ground, gold accents. No flat vector, no neon, no photography.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (gilded ink), subtitle "{SUBTITLE}" in thin serif below, followed by a horizontal gold hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-CENTER: A small ornate crest LOGO beside the English company name "{COMPANY_EN}" in elegant classical serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in classical serif with gold accent.
+- CENTER (large area): The main visual — a Baroque oil painting texture: {MAIN_VISUAL_DESC}. Dark dramatic background, strong directional light (chiaroscuro), gold relief scrollwork and acanthus-leaf ornament ({GOLD_COLOR}), rich deep tones. Opulent, theatrical, dramatic.
+- MID-LOWER: Main title "{MAIN_TITLE}" in elegant serif Chinese with gold accent, subtitle "{SUBTITLE}" in thin serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small serif.
-- FULL FRAME: A dark-gold relief scrollwork (卷草纹) border.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Grand, opulent, dramatic, timeless grandeur. No flat modern minimalism, no bright pastel softness.
+BACKGROUND: Deep dark brown-black ({BASE_COLOR}) with gold relief scrollwork ornaments ({GOLD_COLOR}) in corners and edges. Dramatic vignette.
 
-STYLE REFERENCES: 17th-century European Baroque painting, Caravaggio chiaroscuro, gilded relief scrollwork, rich oil-paint texture.
+MOOD: Opulent, dramatic, luxurious, theatrical. No promotional tone.
 
-NEGATIVE: No flat modern minimalism, no bright pastel softness, no neon, no flat vector, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Baroque oil painting (Caravaggio, Rembrandt chiaroscuro), gold relief ornament, acanthus-leaf scrollwork, deep dark luxurious palettes, classical European poster design.
+
+NEGATIVE: No photography, no 3D render, no bright pastel colors, no flat design, no modern minimalism, no high-saturation neon, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

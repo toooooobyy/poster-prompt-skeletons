@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — new Chinese 国风 ink-wash light-element style
+[PURPOSE]: Brand calendar poster — New Chinese Guofeng style
 
-A 9:16 vertical poster in new Chinese 国风 style. Ink-wash diffusion with light color, minimalist mountains/bamboo/auspicious-cloud light accents, blue-green (青绿) color system, soft paper texture. Six fixed zones with a thin ink divider hairline.
+A 9:16 vertical poster in New Chinese Guofeng style. Ink-wash light-color diffusion, minimal landscape elements (mountains, bamboo, auspicious clouds), blue-green tone palette, large whitespace. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with an ink frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized brush serif numeral "{DATE_NUMBER}" (refined, visually dominant), and the month "{MONTH}" below. A vertical thin cloud line runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. New Chinese ink-wash light elements: soft diffusion, minimalist mountains/bamboo/auspicious clouds, blue-green tones. No photography, no neon, no heavy oil.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold brush serif Chinese (ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal ink hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small modern Chinese-style LOGO beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in Song/imitation-Song serif.
+- CENTER (large area, offset): The main visual — New Chinese ink light elements: {MAIN_VISUAL_DESC}. Soft ink-wash diffusion, minimal landscape motifs (distant mountains, bamboo leaves, auspicious cloud outlines), pale watercolor tints in {ACCENT_COLOR}. Large whitespace above. Gentle, no heavy ink.
+- MID-LOWER: Main title "{MAIN_TITLE}" in calligraphic kai/Song Chinese, subtitle "{SUBTITLE}" in thin Song below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal thin ink hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Contemporary-classical, restrained, refined, Eastern poetic clarity. No gaudy heavy ornament, no photorealistic clutter.
+BACKGROUND: Pale blue-green rice-paper white ({BASE_COLOR}) with faint ink-wash diffusion and xuan-paper grain.
 
-STYLE REFERENCES: Contemporary Chinese ink-wash illustration, 青绿山水 light palette, minimalist Eastern design, auspicious-cloud accents.
+MOOD: Elegant, fresh, culturally modern, serene. No promotional tone.
 
-NEGATIVE: No gaudy heavy ornament, no photorealistic clutter, no neon, no heavy oil, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: New Chinese ink-wash illustration, modern Guofeng design, traditional blue-green landscape (青绿山水), xuan-paper texture, minimal auspicious motifs.
+
+NEGATIVE: No photography, no 3D render, no high-saturation folkloric red-gold, no heavy dense ink, no full-bleed composition, no modern flat geometric design, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

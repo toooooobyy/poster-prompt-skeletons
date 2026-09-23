@@ -57,7 +57,7 @@ Six fixed zones, **no enclosing border, whitespace-driven, 3:7 composition**:
 | Four-layer depth | Distant mountains (boneless pale ink 30–40%) → midground (textured strokes 50–60%) → foreground (dense ink 80–100%) → ochre slope |
 | Required elements | Pure-white sun circle (breathing anchor) + slope-side solitary pine (guest-welcoming pine silhouette) + bamboo branch breaking the edge |
 | Ruyi-cloud frame | Solar-term label border, traditional auspicious motif, four corners curl inward, double-line |
-| Texture simulation | Xuan-paper / silk-base texture + ink bleed (edge water-stain渗透) + mineral-pigment grain |
+| Texture simulation | Xuan-paper / silk-base texture + ink bleed (edge water-stain bleeding) + mineral-pigment grain |
 | Font · Solar-term label | Song / imitation-Song, inside ruyi frame |
 | Font · Main title | Calligraphic kai / wei-bei script, stroke modulation, flying-white (飞白) |
 | Font · Subtitle | Thin Song / imitation-Song |
@@ -136,7 +136,7 @@ LAYOUT (top to bottom):
   邮箱：{CONTACT_EMAIL}
 - BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label "扫码了解更多" beneath it.
 
-BACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain渗透 effect. Mineral-pigment grain.
+BACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain bleeding effect. Mineral-pigment grain.
 
 MOOD: Song-dynasty literati, Zen, elegant, culturally deep. No folkloric saturation, no promotional tone.
 

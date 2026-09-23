@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — minimalist large-whitespace flat style
+[PURPOSE]: Brand calendar poster — minimalist style
 
-A 9:16 vertical poster in clean minimalist style. Large generous whitespace, a single dominant flat visual, soft clean base color, absolutely flat texture with no grain and no noise. Six fixed zones with a 1px bottom hairline.
+A 9:16 vertical poster in strict minimalist style. Large-scale whitespace (~45–50% blank), single dominant visual, clean soft base color. Six fixed zones. No decorative borders.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a thin frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized light serif numeral "{DATE_NUMBER}" (airy, visually dominant), and the month "{MONTH}" below. A vertical thin hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. A single flat color block on generous whitespace. No photography, no 3D, no dense pattern, no heavy shadow.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (clean), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: Company name "{COMPANY_EN}" in ultra-thin sans-serif, left-aligned.
+- TOP-RIGHT: Date numeral "{DATE_NUMBER}" in large light sans-serif, right-aligned, with weekday "{WEEKDAY}" and month "{MONTH}" in small caps below.
+- CENTER (offset, single element): The main visual — a minimalist flat block composition: {MAIN_VISUAL_DESC}. One single clean visual element, maximum negative space, subtle accent color ({ACCENT_COLOR}) used sparingly. No clutter.
+- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in light-weight sans-serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal 1px hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Calm, pure, uncluttered, quiet clarity. No ornate decoration, no dense visual noise.
+BACKGROUND: Clean soft off-white ({BASE_COLOR}) with no texture.
 
-STYLE REFERENCES: Dieter Rams minimalism, Swiss whitespace design, flat contemporary poster, muji-style calm.
+MOOD: Calm, clean, spacious, refined. No promotional tone.
 
-NEGATIVE: No ornate decoration, no dense patterns, no heavy shadows, no texture grain, no photography, no 3D, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Dieter Rams design principles, Apple minimalist aesthetic, Swiss whitespace design, Muji catalog layout.
+
+NEGATIVE: No decoration, no patterns, no gradients, no textures, no multiple visual elements, no borders, no photography, no 3D render, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Japanese ukiyo-e woodblock style
+[PURPOSE]: Brand calendar poster — Japanese Ukiyo-e woodblock style
 
-A 9:16 vertical poster in traditional Japanese ukiyo-e woodblock style. Woodblock print line work, Morandi-traditional color palette, cloud-pattern (雲紋) motifs, generous whitespace, flat ink on rice-paper texture. Six fixed zones with a cloud-motif divider.
+A 9:16 vertical poster in Ukiyo-e woodblock print style. Traditional Morandi-toned palette, cloud-pattern motifs, large whitespace, flat color planes with woodblock texture. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a traditional frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized brush serif numeral "{DATE_NUMBER}" (classical, visually dominant), and the month "{MONTH}" below. A vertical cloud-pattern divider runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Ukiyo-e woodblock illustration: flat ink line work, traditional colors, cloud motifs, generous whitespace. No photography, no neon vector, no 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold brush serif Chinese (ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small traditional seal-style LOGO beside the English company name "{COMPANY_EN}" in thin serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in vertical Japanese-style serif.
+- CENTER (large area): The main visual — a Ukiyo-e woodblock illustration: {MAIN_VISUAL_DESC}. Flat color planes, traditional cloud-pattern (雲紋) borders, woodblock grain texture, large whitespace above and below. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}.
+- MID-LOWER: Main title "{MAIN_TITLE}" in Mincho/Song serif Chinese, subtitle "{SUBTITLE}" in thin kai style below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal thin line with cloud motif.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Classical, elegant, serene, seasonal poetic grace. No modern neon, no photorealistic clutter.
+BACKGROUND: Warm rice-paper white ({BASE_COLOR}) with faint woodblock grain and traditional cloud-pattern motifs in corners.
 
-STYLE REFERENCES: Hokusai and Hiroshige woodblock prints, traditional Japanese云纹 motifs, Morandi-traditional color palettes, generous whitespace composition.
+MOOD: Traditional, elegant, serene, culturally deep. No promotional tone.
 
-NEGATIVE: No modern neon, no photorealistic clutter, no heavy 3D, no photography, no watercolor, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Hokusai and Hiroshige Ukiyo-e woodblock prints, traditional Japanese cloud patterns, Morandi-toned traditional colors, washi paper texture.
+
+NEGATIVE: No photography, no 3D render, no high-saturation modern colors, no gradients, no modern flat design, no sharp geometric shapes, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

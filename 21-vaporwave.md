@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Vaporwave pink-purple-cyan retro-glow style
+[PURPOSE]: Brand calendar poster — Vaporwave style
 
-A 9:16 vertical poster in dreamy Vaporwave style. Pink-purple-cyan-blue neon gradients, retro soft-focus glow, scanline haze, retro grain, cyber-retro texture. Six fixed zones with a glowing neon divider hairline.
+A 9:16 vertical poster in Vaporwave style. Pink-purple-cyan-blue neon gradient, retro soft-focus light effects, cyber-retro texture, 80s/90s aesthetic. Six fixed zones.
 
-BASE: {SEASON} color palette — base gradient {BASE_COLOR}, accent gradient color {GRADIENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, gradient {GRADIENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block (neon frame) next to the English company name "{COMPANY_EN}" in retro uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps retro sans-serif with wide tracking, an oversized bold serif numeral "{DATE_NUMBER}" with neon glow (visually dominant), and the month "{MONTH}" below. A vertical neon hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Vaporwave gradient graphic: pink-purple-cyan-blue gradients, retro soft-focus glow, scanline haze. No harsh realism, no flat vector, no watercolor.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese with faint neon edge, subtitle "{SUBTITLE}" in thin retro sans-serif below, followed by a horizontal neon hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small retro-digital LOGO beside the English company name "{COMPANY_EN}" in thin retro sans-serif with neon glow.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in retro digital/monospaced type with glow.
+- CENTER (large area): The main visual — a Vaporwave gradient graphic: {MAIN_VISUAL_DESC}. Pink-purple-cyan neon gradient ({GRADIENT_COLOR}), retro soft-focus glow, scan lines, grid horizon, Greek statue or palm silhouette elements, 80s/90s cyber-retro aesthetic. Dreamy, hazy, nostalgic.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold retro sans-serif Chinese with neon glow, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small retro sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal glowing neon hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Dreamy, nostalgic, surreal, retro-future reverie. No harsh industrial realism, no sterile flat minimalism.
+BACKGROUND: Soft pastel gradient base ({BASE_COLOR}) with neon gradient overlay ({GRADIENT_COLOR}), scan lines, and retro grid.
 
-STYLE REFERENCES: 1980s/90s Vaporwave aesthetics, retro-future sunsets, neon gradient grids, surreal dreamlike glow.
+MOOD: Dreamy, nostalgic, retro-futuristic, hazy. No promotional tone.
 
-NEGATIVE: No harsh industrial realism, no sterile flat white, no muted earth tones, no flat vector, no watercolor, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Vaporwave aesthetic, 80s/90s retro digital art, Miami Vice color palette, synthwave gradients, retro Japanese city pop visuals.
+
+NEGATIVE: No photography, no 3D render, no earth tones, no muted palette, no realistic illustration, no sharp clean lines, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

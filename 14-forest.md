@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — natural forest soft-greenery style
+[PURPOSE]: Brand calendar poster — forest natural minimalist style
 
-A 9:16 vertical poster in fresh natural forest style. Softly blurred green-plant background, low-saturation plant-and-earth tones, natural light bokeh, gentle depth of field. Six fixed zones with a thin soft divider hairline.
+A 9:16 vertical poster in forest-natural minimalist style. Blurred soft-focus greenery background, low-saturation plant-tone palette, fresh and natural atmosphere. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a soft frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized soft serif numeral "{DATE_NUMBER}" (natural tone, visually dominant), and the month "{MONTH}" below. A vertical thin stem line runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Natural greenery photography with soft bokeh blur and natural light. No neon vector, no heavy oil paint, no 3D render.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (soft natural ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small leaf-outline LOGO beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in light serif.
+- CENTER (large area): The main visual — nature plant photography: {MAIN_VISUAL_DESC}. Soft-focus blurred greenery background, gentle natural light, low saturation, fresh atmosphere. Accent color ({ACCENT_COLOR}) in subtle plant details. Shallow depth of field.
+- MID-LOWER: Main title "{MAIN_TITLE}" in light serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal thin hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Fresh, calm, organic, natural stillness. No harsh industrial edge, no artificial neon.
+BACKGROUND: Soft pale green-gray ({BASE_COLOR}) with faint blurred plant shadows and natural light diffusion.
 
-STYLE REFERENCES: Botanical photography, soft-focus nature backgrounds, fresh organic lifestyle brands, low-saturation plant palettes.
+MOOD: Fresh, natural, calm, healing. No promotional tone.
 
-NEGATIVE: No harsh industrial elements, no neon, no artificial heavy contrast, no heavy oil paint, no 3D render, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Nature photography, botanical minimalist design, soft-focus bokeh, Muji natural aesthetic, slow-living lifestyle.
+
+NEGATIVE: No high saturation, no strong contrast, no urban scenes, no illustration, no 3D render, no sharp focus, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — cyberpunk neon-noir style, blue-purple cold tone
+[PURPOSE]: Brand calendar poster — cyberpunk neon city style
 
-A 9:16 vertical poster in cyberpunk neon-noir style. Blue-purple cold tone, rainy-night hazy neon glow, glitch-art bands, scanlines, and digital noise texture. Six fixed zones with a glowing neon divider hairline.
+A 9:16 vertical poster in cyberpunk style. Dark blue-purple cold tone, neon light effects, rainy-night atmosphere, glitch art elements. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, neon accent color {NEON_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, neon accent {NEON_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block (dark background with a thin {NEON_COLOR} neon outline) next to the English company name "{COMPANY_EN}" in thin uppercase tech sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps tech sans-serif with wide tracking, an oversized bold serif numeral "{DATE_NUMBER}" with neon glow and subtle glitch, and the month "{MONTH}" below. A vertical neon hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Cyberpunk city illustration: neon bloom, wet reflective streets, hazy fog, deep blue dark base. No pastoral scenery, no flat vector, no watercolor.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese with faint neon edge glow, subtitle "{SUBTITLE}" in thin tech sans-serif below, followed by a horizontal neon hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small geometric neon-outline LOGO beside the English company name "{COMPANY_EN}" in thin futuristic sans-serif with glow effect.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in monospaced neon-glow type.
+- CENTER (large area): The main visual — a cyberpunk city illustration: {MAIN_VISUAL_DESC}. Dark blue-purple base, neon glow accents ({NEON_COLOR}), rain streaks, reflective wet surfaces, holographic light leaks, subtle glitch artifacts. Dramatic high-contrast lighting.
+- MID-LOWER: Main title "{MAIN_TITLE}" in bold futuristic sans-serif with neon glow, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small tech sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal glowing neon hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Futuristic, electric, moody, neon-lit solitude. No warm pastoral tone, no sterile flat minimalism.
+BACKGROUND: Deep dark blue-purple ({BASE_COLOR}) with subtle rain texture, neon bokeh, and faint scan-line glitch.
 
-STYLE REFERENCES: Cyberpunk 2077 aesthetic, Blade Runner neon-noir, retrowave cityscapes, glitch-art posters.
+MOOD: Futuristic, edgy, neon-lit, cinematic. No promotional tone.
 
-NEGATIVE: No warm pastel palettes, no pastoral natural scenery, no sterile flat white background, no photography, no watercolor, no ink wash, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Blade Runner aesthetic, cyberpunk game key art, neon signage photography, glitch art, synthwave visuals.
+
+NEGATIVE: No warm-tone palette, no daytime bright scenes, no flat 2D illustration, no soft pastel colors, no cartoon style, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

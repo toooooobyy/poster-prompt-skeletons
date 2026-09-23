@@ -130,7 +130,7 @@ Replace each placeholder before generating:
 ```
 [PURPOSE]: Brand calendar poster — ZINE minimalist style, quiet independent-ZINE aesthetic
 
-A 9:16 vertical poster in ZINE minimalist style. Aged paper surface with paper texture noise. 65–85% of the canvas is quiet paper whitespace. A single tiny visual subject occupies only 8–25% of the canvas — a fragment, object, torn photo clipping, silhouette, or old printed illustration. One high-saturation color anchor (cobalt blue / ultramarine / pear green / tomato red per season) occupies 0.8–2.5% of the canvas, visible at thumbnail size. Reproduction imperfections: xerox softening, halftone, scan lines, risograph grain, ink bleed, slight misregistration. Matte absorbent paper, diffuse light, low-to-medium contrast, no hard shadows, no 3D depth.
+A 9:16 vertical poster in ZINE minimalist style. Aged paper surface with paper texture noise. 65–85% of the canvas is quiet paper whitespace. A single tiny visual subject occupies only 8–25% of the canvas — a fragment, object, torn photo clipping, silhouette, or old printed illustration. One high-saturation color anchor ({ACCENT_COLOR}) occupies 0.8–2.5% of the canvas, visible at thumbnail size. Reproduction imperfections: xerox softening, halftone, scan lines, risograph grain, ink bleed, slight misregistration. Matte absorbent paper, diffuse light, low-to-medium contrast, no hard shadows, no 3D depth.
 
 BASE: {SEASON} palette — aged paper base {BASE_COLOR}, high-saturation anchor {ACCENT_COLOR}.
 
@@ -143,7 +143,7 @@ LAYOUT (top to bottom):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in tiny sans-serif.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it in tiny sans-serif.
 
 MOOD: Quiet, poetic, archival, diary-like. Japanese/Korean independent ZINE aesthetic. No commercial advertising hierarchy, no promotional noise.
 
@@ -151,7 +151,7 @@ COLOR LOGIC: Paper color {BASE_COLOR} + grey/black support + ONE high-saturation
 
 STYLE REFERENCES: Japanese/Korean independent ZINE design, risograph print culture, xerox art, archival scan aesthetics, quiet editorial design, found-object collage.
 
-NEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-color high saturation, no commercial advertising hierarchy, no product advertising, no 3D render, no neon, no cartoon style, no dense collage, no glossy mockup, no hard shadows, no near-monochrome overall description, no pale/muted/pastel overall description.
+NEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-color high saturation, no commercial advertising hierarchy, no product advertising, no 3D render, no neon, no cartoon style, no dense collage, no glossy mockup, no hard shadows, no near-monochrome overall description, no pale/muted/pastel overall description, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

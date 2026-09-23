@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — wabi-sabi earth-tone matte style
+[PURPOSE]: Brand calendar poster — Wabi-sabi style
 
-A 9:16 vertical poster in wabi-sabi style. Low-saturation earth tones, matte rough texture, irregular edges, minimal natural elements, handmade paper grain. Six fixed zones with an irregular rough divider.
+A 9:16 vertical poster in Wabi-sabi style. Earth-tone low-saturation palette, matte rough texture, minimal natural elements, imperfect beauty. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a rough frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized irregular serif numeral "{DATE_NUMBER}" (raw, visually dominant), and the month "{MONTH}" below. A vertical rough hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Wabi-sabi natural abstract: matte rough texture, minimal elements, low-saturation earth tones, imperfection. No glossy photography, no neon, no ornate 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (earthy ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal rough hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small imperfect hand-drawn LOGO beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in light serif with slight irregularity.
+- CENTER (large area, offset): The main visual — a wabi-sabi natural abstract: {MAIN_VISUAL_DESC}. Earth-tone low-saturation colors, matte rough texture, minimal natural elements (a branch, a stone, a crack), imperfect asymmetrical composition. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Large whitespace.
+- MID-LOWER: Main title "{MAIN_TITLE}" in calligraphic kai/Song Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal irregular hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Raw, quiet, grounded, impermanent beauty. No glossy perfection, no ornate luxury.
+BACKGROUND: Earth-tone warm gray ({BASE_COLOR}) with rough matte texture, irregular grain, and faint natural stains.
 
-STYLE REFERENCES: Japanese wabi-sabi interiors, handmade ceramic aesthetics, raw plaster and paper textures, imperfection-as-beauty philosophy.
+MOOD: Serene, imperfect, natural, contemplative. No promotional tone.
 
-NEGATIVE: No glossy perfection, no ornate luxury, no neon, no high saturation, no photography gloss, no 3D, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Japanese Wabi-sabi aesthetics, rough matte texture, earth-tone palettes, natural imperfection, Zen minimalism.
+
+NEGATIVE: No high saturation, no smooth surfaces, no perfect symmetry, no photography, no 3D render, no modern flat design, no gradients, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

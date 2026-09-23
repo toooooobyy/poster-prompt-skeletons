@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="33 套企业日签海报风格模板，选风格、填变量，一键生成 9:16 竖版海报图像 Prompt。支持日签/壁纸双模式、四季色系、风格变体与标签筛选。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236c8eef'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3EP%3C/text%3E%3C/svg%3E">
 <title>Poster Prompt Generator — 海报提示词生成器</title>
 <style>
 :root {
@@ -14,7 +16,8 @@
   --border-hover: #4a5170;
   --text-primary: #e8eaf0;
   --text-secondary: #9ba3b8;
-  --text-muted: #6b7390;
+  --text-muted: #9299ad;
+  --text-tertiary: #8a91a6;
   --accent: #6c8eef;
   --accent-hover: #8aa5f5;
   --accent-dim: rgba(108,142,239,0.15);
@@ -154,7 +157,7 @@ body {
 }
 .form-label .required { color: var(--accent); }
 .form-label .hint { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-left: 6px; }
-.form-input, .form-textarea, .form-select {
+.form-input, .form-textarea {
   width: 100%;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
@@ -165,7 +168,7 @@ body {
   font-family: inherit;
   transition: var(--transition);
 }
-.form-input:focus, .form-textarea:focus, .form-select:focus {
+.form-input:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-dim);
@@ -247,26 +250,6 @@ body {
   padding: 1px 7px;
   margin-left: 6px;
 }
-
-/* Toggle */
-.toggle-row {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-.toggle-switch {
-  width: 36px; height: 20px;
-  background: var(--border); border-radius: 10px;
-  position: relative; cursor: pointer; transition: var(--transition);
-}
-.toggle-switch.on { background: var(--accent); }
-.toggle-switch::after {
-  content: ''; position: absolute;
-  width: 16px; height: 16px; border-radius: 50%;
-  background: #fff; top: 2px; left: 2px;
-  transition: var(--transition);
-}
-.toggle-switch.on::after { left: 18px; }
 
 /* Collapsible */
 .collapsible-header {
@@ -650,6 +633,28 @@ body {
 }
 .version-footer a:hover { text-decoration: underline; }
 
+/* === A11Y & STATES === */
+.style-card { font-family: inherit; color: inherit; text-align: left; width: 100%; }
+button:focus-visible, [tabindex]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.cal-day { background: transparent; font-family: inherit; width: 100%; }
+.calendar-popup.flip-up {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+.char-count.warn { color: #d29922; font-weight: 600; }
+.variant-select-wrap { margin-bottom: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 768px) {
   .scaffold-row { flex-direction: column; }
   .scaffold-buttons { flex-wrap: wrap; }
@@ -663,7 +668,7 @@ body {
     <h1><span class="logo-icon">P</span> Poster Prompt Generator <span class="subtitle">— 海报提示词生成器</span></h1>
   </div>
   <div class="header-actions">
-    <button class="btn-reset" onclick="resetAll()">重置</button>
+    <button class="btn-reset" onclick="resetAll()" aria-label="重置全部输入与筛选">重置</button>
   </div>
 </div>
 
@@ -690,20 +695,29 @@ body {
       </div>
       <!-- Tag Filters -->
       <div class="filter-bar" id="tagFilter" style="margin-top:8px;">
-        <select class="filter-select" id="filterTemp" onchange="applyFilters()">
+        <select class="filter-select" id="filterTemp" onchange="applyFilters()" aria-label="按色温筛选">
           <option value="">色温</option>
           <option value="warm">暖调</option>
           <option value="cool">冷调</option>
           <option value="neutral">中性</option>
         </select>
-        <select class="filter-select" id="filterSat" onchange="applyFilters()">
+        <select class="filter-select" id="filterSat" onchange="applyFilters()" aria-label="按饱和度筛选">
           <option value="">饱和度</option>
           <option value="high">高饱和</option>
           <option value="mid">中饱和</option>
           <option value="low">低饱和</option>
           <option value="gray">灰调</option>
         </select>
-        <select class="filter-select" id="filterScene" onchange="applyFilters()">
+        <select class="filter-select" id="filterVisual" onchange="applyFilters()" aria-label="按视觉类型筛选">
+          <option value="">视觉类型</option>
+          <option value="illustration">插画</option>
+          <option value="photo">摄影</option>
+          <option value="3d">3D</option>
+          <option value="geometric">几何</option>
+          <option value="ink">水墨</option>
+          <option value="collage">拼贴</option>
+        </select>
+        <select class="filter-select" id="filterScene" onchange="applyFilters()" aria-label="按场景筛选">
           <option value="">场景</option>
           <option value="solar">节气</option>
           <option value="business">商务</option>
@@ -729,6 +743,11 @@ body {
       </div>
       <div class="mode-note" id="modeNote">日签模式：完整六区块版式，含 LOGO / 日期 / 企业信息 / 二维码</div>
 
+      <div class="form-group variant-select-wrap" id="groupVariant" style="display:none;">
+        <label class="form-label" for="vVariant">风格变体 <span class="hint">Variant — 共享版式，微调视觉参数</span></label>
+        <select class="filter-select" id="vVariant" style="width:100%;" onchange="selectVariant()"></select>
+      </div>
+
       <div class="form-group" id="groupDateLabel">
         <label class="form-label">时间标签 <span class="hint">Date Label — 留空自动填充当前日期</span></label>
         <input type="text" class="form-input" id="vDateLabel" placeholder="MON · 28 · JULY" oninput="updatePreview()">
@@ -736,7 +755,7 @@ body {
 
       <div class="calendar-picker-wrapper" id="groupCalendar">
         <label class="form-label">日期选择 <span class="hint">Calendar — 点击选择日期自动填充下方字段</span></label>
-        <div class="calendar-trigger" id="calendarTrigger" onclick="toggleCalendar()">
+        <div class="calendar-trigger" id="calendarTrigger" onclick="toggleCalendar()" role="button" tabindex="0" aria-haspopup="dialog" aria-label="打开日期选择器" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCalendar();}">
           <svg class="cal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -781,10 +800,11 @@ body {
       </div>
 
       <div class="form-group">
-        <label class="form-label">副标题 <span class="hint">Subtitle — 12-22字</span> <span class="ai-hint" id="subtitleAiHint" style="display:none;">留空 = AI 生成</span>
-          <label class="chk-label" style="float:right;"><input type="checkbox" id="chkHideSubtitle" onchange="toggleSubtitleHidden()"> 隐藏副标题</label>
-        </label>
-        <input type="text" class="form-input" id="vSubtitle" placeholder="留空则由 AI 根据主标题生成 · 勾选「隐藏副标题」则完全去除" oninput="updatePreview()">
+        <div class="form-label">
+          副标题 <span class="hint">Subtitle — 12-22字</span> <span class="ai-hint" id="subtitleAiHint">留空 = AI 生成</span>
+          <label class="chk-label" style="float:right;" for="chkHideSubtitle"><input type="checkbox" id="chkHideSubtitle" onchange="toggleSubtitleHidden()"> 隐藏副标题</label>
+        </div>
+        <input type="text" class="form-input" id="vSubtitle" placeholder="留空则由 AI 根据主标题生成 · 勾选「隐藏副标题」则完全去除" oninput="updatePreview()" aria-label="副标题">
         <div class="char-count" id="subtitleCount">0 字</div>
       </div>
 
@@ -832,7 +852,7 @@ body {
       <div class="collapsible-header" onclick="toggleCollapsible('companyBody', this)">
         <div class="section-title" style="margin-bottom:0;">
           <span class="section-num active">3</span>
-          企业信息 / Company Info <span class="hint" style="font-weight:400;">— 随机生成（每次不同）</span>
+          企业信息 / Company Info <span class="hint" style="font-weight:400;">— 默认占位值，可自由修改</span>
         </div>
         <span class="arrow">▶</span>
       </div>
@@ -882,7 +902,7 @@ body {
       <button class="btn-copy" id="btnCopy" disabled onclick="copyPrompt()">
         <span>📋</span> 复制 Prompt
       </button>
-      <button class="btn-download" id="btnDownload" onclick="downloadPrompt()">⬇</button>
+      <button class="btn-download" id="btnDownload" onclick="downloadPrompt()" aria-label="下载 Prompt 为文本文件">⬇</button>
     </div>
   </div>
 </div>
@@ -890,11 +910,11 @@ body {
 <div class="toast" id="toast">已复制到剪贴板</div>
 
 <div class="version-footer">
-  v4.2.0 · 35 templates · Last updated: 2026-08-15
+  v4.3.0 · 33 templates · Last updated: 2026-09-23
 </div>
 
 <script>
-// === TEMPLATE DATA ===
+// === TEMPLATE DATA (GENERATED by tools/build.py from data/templates.json — do not edit by hand) ===
 const TEMPLATES = [
   {
     id: 'album-minimalist',
@@ -904,12 +924,17 @@ const TEMPLATES = [
     desc: '低饱和度水墨风景、柔和纸张肌理、治愈素雅',
     visual: 'Ink-wash landscape illustration',
     category: 'modern',
-    tags: { temp: 'neutral', sat: 'low', scene: ['solar','daily'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'ink', scene: ['solar','daily'] },
+    descType: 'narrative',
+    examples: [
+      'minimalist ink landscape, distant mountains with sparse brushstrokes, vast empty sky',
+      'a single crane in flight over still water, traditional sumi-e style',
+    ],
     seasons: {
       Spring: { palette: 'pale bean-green, light gosling-yellow' },
       Summer: { palette: 'misty teal #A3C1BD, pale lake-blue #9ABBD4' },
       Autumn: { palette: 'warm coffee, ochre-rice' },
-      Winter: { palette: 'gray-blue, charcoal-cream-white' }
+      Winter: { palette: 'gray-blue, charcoal-cream-white' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — minimalist art-album style
 
@@ -943,13 +968,29 @@ NEGATIVE: No photography, no 3D render, no high saturation, no strong contrast, 
     desc: '包豪斯美学、硬边块面、黑白强对比、零肌理',
     visual: 'Geometric composition illustration',
     category: 'modern',
-    tags: { temp: 'cool', sat: 'low', scene: ['business'] },
+    tags: { temp: 'cool', sat: 'low', visualType: 'geometric', scene: ['business'] },
+    descType: 'abstract',
+    examples: [
+      'geometric architectural composition, rectangles and triangular blocks in precise rhythm',
+      'overlapping circular and rectangular forms, bauhaus primary colors on gray plane',
+    ],
     seasons: {
       Spring: { base: '#CFD0CE', accent: 'tender green', block: '#000000' },
       Summer: { base: '#CFD0CE', accent: 'terracotta orange #C97B5A', block: '#000000' },
       Autumn: { base: '#C8C4BC', accent: 'ochre', block: '#3A2A1A' },
-      Winter: { base: '#D4D4D4', accent: 'ice blue #7BA7C9', block: '#2A2A2A' }
+      Winter: { base: '#D4D4D4', accent: 'ice blue #7BA7C9', block: '#2A2A2A' },
     },
+    defaultVariantName: '标准几何构成',
+    variants: [
+      {
+        id: 'bauhaus-primary', nameCn: '包豪斯原色', nameEn: 'Bauhaus Primary',
+        override: 'STYLE VARIANT — BAUHAUS PRIMARY COLORS: Replace the block/accent colors with the Bauhaus primary triad — pure red #E63946, pure yellow #F4D35E, pure blue #1D3557 — on the cool gray base #CFD0CE. Bolder primary-color collisions, industrial Bauhaus aesthetics. All other layout rules unchanged.'
+      },
+      {
+        id: 'swiss-grid', nameCn: '瑞士网格', nameEn: 'Swiss Grid',
+        override: 'STYLE VARIANT — SWISS GRID TYPOGRAPHY: Enforce a strict 12-column grid; every element snaps to grid lines. More rigorous alignment, larger whitespace, finer block divisions and denser hairlines. Accent color subdued; typographic order dominates. All other layout rules unchanged.'
+      },
+    ],
     prompt: `[PURPOSE]: Brand calendar poster — geometric composition style, Bauhaus aesthetic
 
 A 9:16 vertical poster in strict Bauhaus geometric composition style. Absolutely flat, zero texture, zero gradient, zero shadow. The layout uses a rigid asymmetric grid with six fixed zones and a 1px bottom hairline spanning full width.
@@ -981,12 +1022,17 @@ NEGATIVE: No curves, no rounded corners, no gradients, no shadows, no drop shado
     desc: '做旧纸张质感、双层边框、大地色系扁平插画',
     visual: 'Flat geometric illustration',
     category: 'retro',
-    tags: { temp: 'warm', sat: 'low', scene: ['daily','solar'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'illustration', scene: ['daily','solar'] },
+    descType: 'narrative',
+    examples: [
+      'a vintage gramophone on a wooden table, warm amber light, retro flat illustration',
+      'an old-fashioned bicycle leaning against a brick wall, golden hour, flat retro style',
+    ],
     seasons: {
       Spring: { base: '#F5F0E6', main: 'tender olive-green', accent: 'pale apricot' },
       Summer: { base: '#F5F0E6', main: '#C67B4B', accent: '#8B8B5E' },
       Autumn: { base: '#F5F0E6', main: 'ochre-brown', accent: 'caramel-orange' },
-      Winter: { base: '#F5F0E6', main: 'gray-brown', accent: 'warm-white' }
+      Winter: { base: '#F5F0E6', main: 'gray-brown', accent: 'warm-white' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — warm retro wabi-sabi style
 
@@ -1021,12 +1067,17 @@ NEGATIVE: No photography, no 3D render, no ink wash, no cold gray tones, no high
     desc: '建筑摄影、引线标注、色块介入、极大留白',
     visual: 'Architectural photography',
     category: 'texture',
-    tags: { temp: 'neutral', sat: 'low', scene: ['business','daily'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'photo', scene: ['business','daily'] },
+    descType: 'abstract',
+    examples: [
+      'minimalist concrete staircase, strong directional light casting geometric shadows',
+      'a modern glass facade with sharp light reflections, architectural photography',
+    ],
     seasons: {
       Spring: { base: '#F5F3EF', block: 'tender-green' },
       Summer: { base: '#F5F3EF', block: '#A8B4C4' },
       Autumn: { base: '#F5F3EF', block: 'ochre-gray' },
-      Winter: { base: '#F5F3EF', block: 'ice-gray' }
+      Winter: { base: '#F5F3EF', block: 'ice-gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — light & shadow neo-minimalist architectural style
 
@@ -1060,12 +1111,17 @@ NEGATIVE: No illustration, no 3D render, no ink wash, no borders, no full-bleed 
     desc: '建筑光影摄影、书法标题、单色暖调三段式',
     visual: 'Architectural photography',
     category: 'texture',
-    tags: { temp: 'warm', sat: 'low', scene: ['business','daily'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'photo', scene: ['business','daily'] },
+    descType: 'texture',
+    examples: [
+      'a weathered stone wall with a single shaft of warm light, architectural detail',
+      'an empty corridor with arched windows, warm monochrome tones, meditative silence',
+    ],
     seasons: {
       Spring: { base: '#F5F0E8', tone: 'tender-brown', shadow: 'pale-green' },
       Summer: { base: '#F5F0E8', tone: 'caramel-brown', shadow: 'deep-green' },
       Autumn: { base: '#F5F0E8', tone: 'ochre-brown', shadow: 'warm-orange' },
-      Winter: { base: '#F5F0E8', tone: 'gray-brown', shadow: 'silver-gray' }
+      Winter: { base: '#F5F0E8', tone: 'gray-brown', shadow: 'silver-gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — silent humanist style, architectural light & shadow
 
@@ -1099,12 +1155,17 @@ NEGATIVE: No illustration, no 3D render, no cold colors, no borders, no color-bl
     desc: '3D渲染抽象图形、冰蓝渐变、粒子系统、体积光效',
     visual: '3D-rendered abstract graphic',
     category: 'business',
-    tags: { temp: 'cool', sat: 'mid', scene: ['tech','business'] },
+    tags: { temp: 'cool', sat: 'mid', visualType: '3d', scene: ['tech','business'] },
+    descType: 'abstract',
+    examples: [
+      'a sleek 3D-rendered abstract sphere with ice-blue gradients and particle effects',
+      'floating geometric 3D forms with glass-morphism, cool blue volumetric lighting',
+    ],
     seasons: {
       Spring: { base: '#FFFFFF→#F0F4F8', gradient: 'tender emerald-green', particle: 'silver-gray' },
       Summer: { base: '#FFFFFF→#F0F4F8', gradient: '#0066FF→#00CCFF', particle: 'silver-gray' },
       Autumn: { base: '#FFFFFF→#F0F4F8', gradient: 'amber-gold', particle: 'warm-gray' },
-      Winter: { base: '#FFFFFF→#F0F4F8', gradient: 'misty purple-silver', particle: 'ice-white' }
+      Winter: { base: '#FFFFFF→#F0F4F8', gradient: 'misty purple-silver', particle: 'ice-white' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — tech streamer style, 3D-rendered abstract graphics
 
@@ -1138,13 +1199,25 @@ NEGATIVE: No illustration, no photography, no 2D flat design, no warm-toned pale
     desc: '数字水墨山水、如意云头框、竹枝破边、禅意留白',
     visual: 'Digital ink-wash landscape illustration',
     category: 'guofeng',
-    tags: { temp: 'neutral', sat: 'low', scene: ['solar','culture'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'ink', scene: ['solar','culture'] },
+    descType: 'narrative',
+    examples: [
+      'misty mountain range with layered ink wash, three-depth perspective, bamboo branch breaking the frame',
+      'a solitary boat on a vast empty river, digital ink wash, vast negative space',
+    ],
     seasons: {
       Spring: { base: '#F5F0E8', hue: 'blue-green + tender mineral green + pale apricot slopes' },
       Summer: { base: '#F5F0E8', hue: 'cyan-blue + deep azurite + ochre slopes' },
       Autumn: { base: '#F5F0E8', hue: 'ochre-brown + ochre dominant + caramel slopes' },
-      Winter: { base: '#F5F0E8', hue: 'pure ink-wash + indigo cool tone + snow-white' }
+      Winter: { base: '#F5F0E8', hue: 'pure ink-wash + indigo cool tone + snow-white' },
     },
+    defaultVariantName: '工笔山水（默认）',
+    variants: [
+      {
+        id: 'xieyi', nameCn: '写意笔触', nameEn: 'Xieyi Freehand',
+        override: 'STYLE VARIANT — XIEYI FREEHAND BRUSHWORK: Switch the ink technique to spontaneous splash-ink (pomo) — bold sweeping strokes, fewer fine texture strokes, stronger void-versus-solid contrast, larger jumps in ink tonal range, whitespace raised to 60-70%. The lone pine and bamboo rendered as loose freehand accents. All other layout rules unchanged.'
+      },
+    ],
     prompt: `[PURPOSE]: Brand calendar poster — new Chinese ink wash style, Song-dynasty literati aesthetics
 
 A 9:16 vertical poster in new-Chinese ink-wash style. No enclosing border. Whitespace-driven 3:7 composition with ~50–60% blank space. Six fixed zones.
@@ -1162,7 +1235,7 @@ LAYOUT (top to bottom):
   邮箱：{CONTACT_EMAIL}
 - BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label "扫码了解更多" beneath it.
 
-BACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain渗透 effect. Mineral-pigment grain.
+BACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain bleeding effect. Mineral-pigment grain.
 
 MOOD: Song-dynasty literati, Zen, elegant, culturally deep. No folkloric saturation, no promotional tone.
 
@@ -1178,12 +1251,17 @@ NEGATIVE: No photography, no 3D render, no flat geometric design, no high-satura
     desc: '层叠纸张撕裂毛边、压花植物、金色光源、窗格阴影',
     visual: 'Paper-craft collage + pressed flower',
     category: 'texture',
-    tags: { temp: 'warm', sat: 'low', scene: ['solar','daily'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'collage', scene: ['solar','daily'] },
+    descType: 'texture',
+    examples: [
+      'layered torn paper forming a mountain landscape, golden light filtering through paper gaps',
+      'a pressed flower arrangement on layered paper, warm window shadow play',
+    ],
     seasons: {
       Spring: { top: '#4A5D3A', mid: '#8B9D6E', bottom: '#F5F0E6', light: '#E8C84B', plant: 'tender-green' },
       Summer: { top: '#5D3A1A', mid: '#6B7B4C', bottom: '#F5F0E6', light: '#E8A84B', plant: 'deep-green' },
       Autumn: { top: '#4A2E15', mid: '#D4854A', bottom: '#EDE0CC', light: '#D4943A', plant: 'dry-yellow' },
-      Winter: { top: '#3D3D3D', mid: '#8B9BA8', bottom: '#F0EDE8', light: '#D4C88A', plant: 'silver-gray dry branch' }
+      Winter: { top: '#3D3D3D', mid: '#8B9BA8', bottom: '#F0EDE8', light: '#D4C88A', plant: 'silver-gray dry branch' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — morning-light paper craft collage style
 
@@ -1216,12 +1294,17 @@ NEGATIVE: No photography, no 3D render, no flat geometric illustration, no smoot
     desc: '暖棕焦糖色调、旧纸张做旧颗粒、复古几何边框',
     visual: 'Retro poster illustration',
     category: 'retro',
-    tags: { temp: 'warm', sat: 'mid', scene: ['daily','culture'] },
+    tags: { temp: 'warm', sat: 'mid', visualType: 'illustration', scene: ['daily','culture'] },
+    descType: 'narrative',
+    examples: [
+      'a classic 1950s diner scene with a jukebox, warm caramel tones, vintage poster style',
+      'a retro gasoline pump at sunset, faded paper texture, vintage advertisement aesthetic',
+    ],
     seasons: {
       Spring: { base: '#E8DCC8', accent: 'tender green' },
       Summer: { base: '#E8DCC8', accent: 'caramel orange #C67B4B' },
       Autumn: { base: '#E0D4C0', accent: 'ochre brown' },
-      Winter: { base: '#E8DCC8', accent: 'gray-brown' }
+      Winter: { base: '#E8DCC8', accent: 'gray-brown' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — vintage American poster style
 
@@ -1255,12 +1338,17 @@ NEGATIVE: No photography, no 3D render, no high-saturation clashing colors, no c
     desc: '蓝紫冷调霓虹光效、雨夜朦胧光影、故障艺术glitch',
     visual: 'Cyberpunk city illustration',
     category: 'texture',
-    tags: { temp: 'cool', sat: 'high', scene: ['tech','daily'] },
+    tags: { temp: 'cool', sat: 'high', visualType: 'illustration', scene: ['tech','daily'] },
+    descType: 'mood',
+    examples: [
+      'a neon-lit rainy alley in a futuristic city, holographic signs reflecting in puddles',
+      'a lone figure under a glowing cyberpunk sign, blue-purple neon, rain and fog',
+    ],
     seasons: {
       Spring: { base: '#0A0E27', neon: 'neon green #39FF14' },
       Summer: { base: '#0A0E27', neon: 'neon magenta #FF00FF' },
       Autumn: { base: '#0A0E27', neon: 'neon amber #FF9E00' },
-      Winter: { base: '#0A0E27', neon: 'neon ice-blue #00FFFF' }
+      Winter: { base: '#0A0E27', neon: 'neon ice-blue #00FFFF' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — cyberpunk neon city style
 
@@ -1294,12 +1382,17 @@ NEGATIVE: No warm-tone palette, no daytime bright scenes, no flat 2D illustratio
     desc: '低饱和灰调柔色、朦胧柔和色块、哑光纸张肌理',
     visual: 'Morandi abstract blocks',
     category: 'texture',
-    tags: { temp: 'neutral', sat: 'low', scene: ['daily','culture'] },
+    tags: { temp: 'neutral', sat: 'gray', visualType: 'geometric', scene: ['daily','culture'] },
+    descType: 'abstract',
+    examples: [
+      'soft muted still life with a vase and fruit, morandi color palette, hazy atmosphere',
+      'overlapping geometric shapes in muted gray-pink tones, quiet and contemplative',
+    ],
     seasons: {
       Spring: { base: '#D4CFC9', accent: 'muted gray-green' },
       Summer: { base: '#D4CFC9', accent: 'muted gray-blue' },
       Autumn: { base: '#CCC4BC', accent: 'muted gray-brown' },
-      Winter: { base: '#D8D4D0', accent: 'muted gray-white' }
+      Winter: { base: '#D8D4D0', accent: 'muted gray-white' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Morandi muted texture style
 
@@ -1333,12 +1426,17 @@ NEGATIVE: No high saturation, no strong contrast, no neon colors, no photography
     desc: '大面积留白、单一主视觉、柔和干净底色',
     visual: 'Minimalist flat blocks',
     category: 'modern',
-    tags: { temp: 'neutral', sat: 'low', scene: ['business','daily'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'geometric', scene: ['business','daily'] },
+    descType: 'abstract',
+    examples: [
+      'a single potted plant on a clean white surface, soft shadows, minimalist flat design',
+      'one bold geometric shape on a pastel background, ultra-clean minimal composition',
+    ],
     seasons: {
       Spring: { base: '#FAFAF8', accent: 'tender green' },
       Summer: { base: '#FAFAF8', accent: 'pale blue' },
       Autumn: { base: '#FAFAF8', accent: 'warm brown' },
-      Winter: { base: '#FAFAF8', accent: 'cool gray' }
+      Winter: { base: '#FAFAF8', accent: 'cool gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — minimalist style
 
@@ -1372,12 +1470,17 @@ NEGATIVE: No decoration, no patterns, no gradients, no textures, no multiple vis
     desc: '高饱和撞色几何、圆点波浪线条、自由趣味构图',
     visual: 'Memphis geometric collage',
     category: 'modern',
-    tags: { temp: 'warm', sat: 'high', scene: ['daily','festival'] },
+    tags: { temp: 'warm', sat: 'high', visualType: 'geometric', scene: ['daily','festival'] },
+    descType: 'abstract',
+    examples: [
+      'colorful memphis-style geometric shapes, zigzag lines and dots on a bright background',
+      'playful composition of circles, triangles and squiggly lines, bold primary colors',
+    ],
     seasons: {
       Spring: { base: '#FFFFFF', accent: 'pink #FF6B9D', pattern: 'green #4CAF50' },
       Summer: { base: '#FFFFFF', accent: 'blue #2196F3', pattern: 'orange #FF9800' },
       Autumn: { base: '#FFFFFF', accent: 'red #F44336', pattern: 'brown #795548' },
-      Winter: { base: '#FFFFFF', accent: 'blue #3F51B5', pattern: 'purple #9C27B0' }
+      Winter: { base: '#FFFFFF', accent: 'blue #3F51B5', pattern: 'purple #9C27B0' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Memphis design style
 
@@ -1411,12 +1514,17 @@ NEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no real
     desc: '虚化绿植柔光背景、低饱和草木色系、清新自然',
     visual: 'Nature plant photography',
     category: 'modern',
-    tags: { temp: 'cool', sat: 'low', scene: ['solar','daily'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'photo', scene: ['solar','daily'] },
+    descType: 'narrative',
+    examples: [
+      'soft-focus green foliage with dappled sunlight, natural bokeh, fresh and serene',
+      'a single leaf with morning dew, soft green background, natural photography',
+    ],
     seasons: {
       Spring: { base: '#F0F2EC', accent: 'tender green' },
       Summer: { base: '#F0F2EC', accent: 'deep green' },
       Autumn: { base: '#F0F2EC', accent: 'withered yellow' },
-      Winter: { base: '#F0F2EC', accent: 'silver gray' }
+      Winter: { base: '#F0F2EC', accent: 'silver gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — forest natural minimalist style
 
@@ -1450,12 +1558,17 @@ NEGATIVE: No high saturation, no strong contrast, no urban scenes, no illustrati
     desc: '粗黑轮廓线、高对比撞色、丝网印刷网点肌理',
     visual: 'Pop art illustration',
     category: 'retro',
-    tags: { temp: 'warm', sat: 'high', scene: ['daily','festival'] },
+    tags: { temp: 'warm', sat: 'high', visualType: 'illustration', scene: ['daily','festival'] },
+    descType: 'mood',
+    examples: [
+      'a bold pop-art portrait with thick black outlines, halftone dots, high-contrast colors',
+      'a retro comic book explosion graphic with primary colors and ben-day dots',
+    ],
     seasons: {
       Spring: { base: '#FFD23F', accent: 'pink #FF6B9D', outline: 'black' },
       Summer: { base: '#FFD23F', accent: 'blue #2196F3', outline: 'black' },
       Autumn: { base: '#FFD23F', accent: 'orange #FF5722', outline: 'black' },
-      Winter: { base: '#FFFFFF', accent: 'blue #3F51B5', outline: 'black' }
+      Winter: { base: '#FFFFFF', accent: 'blue #3F51B5', outline: 'black' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Pop Art style
 
@@ -1489,12 +1602,17 @@ NEGATIVE: No photography, no 3D render, no soft edges, no muted tones, no gradie
     desc: '浮世绘版画、莫兰迪传统色、云纹纹样、大量留白',
     visual: 'Ukiyo-e woodblock illustration',
     category: 'retro',
-    tags: { temp: 'neutral', sat: 'mid', scene: ['culture','daily'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'illustration', scene: ['culture','daily','solar'] },
+    descType: 'narrative',
+    examples: [
+      'a traditional Japanese wave pattern with Mount Fuji in the distance, ukiyo-e woodblock style',
+      'a crane flying over a stylized river, traditional morandi-toned ukiyo-e print',
+    ],
     seasons: {
       Spring: { base: '#F5F0E8', accent: 'cherry pink' },
       Summer: { base: '#F5F0E8', accent: 'cyan-blue' },
       Autumn: { base: '#F5F0E8', accent: 'ochre brown' },
-      Winter: { base: '#F5F0E8', accent: 'indigo blue' }
+      Winter: { base: '#F5F0E8', accent: 'indigo blue' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Japanese Ukiyo-e woodblock style
 
@@ -1528,12 +1646,17 @@ NEGATIVE: No photography, no 3D render, no high-saturation modern colors, no gra
     desc: '大地低饱和色系、哑光粗糙肌理、极简自然元素',
     visual: 'Wabi-sabi natural abstract',
     category: 'retro',
-    tags: { temp: 'neutral', sat: 'low', scene: ['solar','culture'] },
+    tags: { temp: 'warm', sat: 'gray', visualType: 'illustration', scene: ['solar','culture'] },
+    descType: 'texture',
+    examples: [
+      'a cracked ceramic bowl on a rough stone surface, earthy tones, wabi-sabi imperfection',
+      'a single dried branch in a weathered vase, muted natural tones, quiet beauty',
+    ],
     seasons: {
       Spring: { base: '#E8E2D9', accent: 'moss green' },
       Summer: { base: '#E8E2D9', accent: 'dried green' },
       Autumn: { base: '#E8E2D9', accent: 'ochre' },
-      Winter: { base: '#E8E2D9', accent: 'silver gray' }
+      Winter: { base: '#E8E2D9', accent: 'silver gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Wabi-sabi style
 
@@ -1567,12 +1690,17 @@ NEGATIVE: No high saturation, no smooth surfaces, no perfect symmetry, no photog
     desc: '泛黄宣纸、老式印刷颗粒、窗棂边框、竖排文字',
     visual: 'Republic-era newspaper illustration',
     category: 'retro',
-    tags: { temp: 'warm', sat: 'low', scene: ['culture','daily'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'illustration', scene: ['culture','daily'] },
+    descType: 'narrative',
+    examples: [
+      'a vintage Chinese street scene with old-fashioned shop signs, yellowed paper texture',
+      'a traditional window lattice pattern with faded ink calligraphy, republican era aesthetic',
+    ],
     seasons: {
       Spring: { base: '#EDE4D0', accent: 'ink green' },
       Summer: { base: '#EDE4D0', accent: 'indigo blue' },
       Autumn: { base: '#EDE4D0', accent: 'ochre' },
-      Winter: { base: '#EDE4D0', accent: 'gray ink' }
+      Winter: { base: '#EDE4D0', accent: 'gray ink' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Republic-era vintage style
 
@@ -1606,12 +1734,17 @@ NEGATIVE: No photography, no 3D render, no high saturation, no modern flat desig
     desc: '水墨晕染淡彩、简约山水竹叶祥云浅元素、青绿色系',
     visual: 'New Chinese ink light elements',
     category: 'guofeng',
-    tags: { temp: 'neutral', sat: 'low', scene: ['solar','culture'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'ink', scene: ['solar','culture'] },
+    descType: 'narrative',
+    examples: [
+      'modern Chinese-style ink mountains with subtle green wash, minimalist composition',
+      'a single bamboo leaf with ink wash, contemporary guofeng style, clean layout',
+    ],
     seasons: {
       Spring: { base: '#EFF2EC', accent: 'tender green' },
       Summer: { base: '#EFF2EC', accent: 'cyan-blue' },
       Autumn: { base: '#EFF2EC', accent: 'ochre yellow' },
-      Winter: { base: '#EFF2EC', accent: 'flower blue' }
+      Winter: { base: '#EFF2EC', accent: 'flower blue' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — New Chinese Guofeng style
 
@@ -1645,12 +1778,17 @@ NEGATIVE: No photography, no 3D render, no high-saturation folkloric red-gold, n
     desc: '传统纹样+粗几何色块、红金撞色、扁平化国风图案',
     visual: 'Guochao flat pattern',
     category: 'guofeng',
-    tags: { temp: 'warm', sat: 'high', scene: ['festival','culture'] },
+    tags: { temp: 'warm', sat: 'high', visualType: 'illustration', scene: ['festival','culture'] },
+    descType: 'mood',
+    examples: [
+      'bold Chinese traditional pattern with red and gold, flat guochao graphic design',
+      'a stylized dragon motif with geometric cloud patterns, national tide aesthetic',
+    ],
     seasons: {
       Spring: { base: '#C8102E', gold: '#D4AF37', pattern: 'pink green' },
       Summer: { base: '#C8102E', gold: '#D4AF37', pattern: 'cyan blue' },
       Autumn: { base: '#C8102E', gold: '#D4AF37', pattern: 'ochre yellow' },
-      Winter: { base: '#C8102E', gold: '#D4AF37', pattern: 'ink black' }
+      Winter: { base: '#C8102E', gold: '#D4AF37', pattern: 'ink black' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Guochao (Chinese trend) style
 
@@ -1684,12 +1822,17 @@ NEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no ink 
     desc: '粉紫青蓝霓虹渐变、复古柔焦光效、赛博复古肌理',
     visual: 'Vaporwave gradient graphic',
     category: 'euro',
-    tags: { temp: 'cool', sat: 'high', scene: ['tech','daily'] },
+    tags: { temp: 'cool', sat: 'high', visualType: 'geometric', scene: ['tech','daily'] },
+    descType: 'mood',
+    examples: [
+      'a vaporwave sunset with palm silhouettes, pink-purple gradient, retro-future aesthetic',
+      'a floating classical bust against a grid horizon, pink-cyan neon, vaporwave style',
+    ],
     seasons: {
       Spring: { base: '#FFE0F0', gradient: '#FF71CE→#39FF14' },
       Summer: { base: '#E0F0FF', gradient: '#FF71CE→#01CDFE' },
       Autumn: { base: '#FFF0E0', gradient: '#FF71CE→#FF9E00' },
-      Winter: { base: '#F0F0FF', gradient: '#FF71CE→#FFFFFF' }
+      Winter: { base: '#F0F0FF', gradient: '#FF71CE→#FFFFFF' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Vaporwave style
 
@@ -1723,12 +1866,17 @@ NEGATIVE: No photography, no 3D render, no earth tones, no muted palette, no rea
     desc: '暗金浮雕卷草纹样、强烈光影对比、深色华贵基底',
     visual: 'Baroque oil painting texture',
     category: 'euro',
-    tags: { temp: 'warm', sat: 'mid', scene: ['culture','festival'] },
+    tags: { temp: 'warm', sat: 'mid', visualType: 'illustration', scene: ['culture','festival'] },
+    descType: 'narrative',
+    examples: [
+      'ornate baroque scrollwork with gold relief on a dark background, dramatic oil painting texture',
+      'a baroque candle holder with warm chiaroscuro lighting, deep shadows, antique gold',
+    ],
     seasons: {
       Spring: { base: '#2A1F14', gold: '#8B7355' },
       Summer: { base: '#2A1F14', gold: '#8B7355' },
       Autumn: { base: '#2A1F14', gold: '#8B7355' },
-      Winter: { base: '#2A1F14', gold: '#8B7355' }
+      Winter: { base: '#2A1F14', gold: '#8B7355' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Baroque style
 
@@ -1762,12 +1910,17 @@ NEGATIVE: No photography, no 3D render, no bright pastel colors, no flat design,
     desc: '马卡龙浅柔色系、柔婉卷曲花纹、细腻浮雕质感',
     visual: 'Rococo decorative illustration',
     category: 'euro',
-    tags: { temp: 'warm', sat: 'mid', scene: ['daily','festival'] },
+    tags: { temp: 'warm', sat: 'mid', visualType: 'illustration', scene: ['daily','festival'] },
+    descType: 'narrative',
+    examples: [
+      'delicate rococo floral scrollwork in pastel colors, soft relief texture, airy elegance',
+      'a rococo-style decorative border with shell motifs, dusty rose and cream tones',
+    ],
     seasons: {
       Spring: { base: '#E8D5E0', accent: 'tender green' },
       Summer: { base: '#D5E8E0', accent: 'soft pink' },
       Autumn: { base: '#E8DCC8', accent: 'warm brown' },
-      Winter: { base: '#E0E8F0', accent: 'silver blue' }
+      Winter: { base: '#E0E8F0', accent: 'silver blue' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — Rococo style
 
@@ -1801,12 +1954,17 @@ NEGATIVE: No photography, no 3D render, no dark heavy tones, no high-saturation 
     desc: '柔和手绘笔触、纸张噪点肌理、低饱和色块',
     visual: 'Hand-drawn flat illustration',
     category: 'texture',
-    tags: { temp: 'warm', sat: 'low', scene: ['daily','solar'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'illustration', scene: ['daily','solar'] },
+    descType: 'texture',
+    examples: [
+      'a hand-drawn illustration of a cozy cafe scene, warm earthy tones, paper texture',
+      'a simple hand-drawn plant with watercolor spots, healing and warm atmosphere',
+    ],
     seasons: {
       Spring: { base: '#F5F0E8', accent: 'tender green' },
       Summer: { base: '#F5F0E8', accent: 'pale blue' },
       Autumn: { base: '#F5F0E8', accent: 'ochre orange' },
-      Winter: { base: '#F5F0E8', accent: 'gray blue' }
+      Winter: { base: '#F5F0E8', accent: 'gray blue' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — hand-drawn flat texture style
 
@@ -1840,12 +1998,17 @@ NEGATIVE: No photography, no 3D render, no high saturation, no smooth digital gr
     desc: '胶片噪点肌理、暖调柔焦光影、虚化氛围感',
     visual: 'Film photography texture',
     category: 'texture',
-    tags: { temp: 'warm', sat: 'low', scene: ['daily','culture'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'photo', scene: ['daily','culture','solar'] },
+    descType: 'narrative',
+    examples: [
+      'a sunlit park bench with film grain texture, warm faded colors, nostalgic photography',
+      'a street corner at dusk with heavy film noise, soft focus, amber tones',
+    ],
     seasons: {
       Spring: { base: '#EDE5DC', accent: 'tender green' },
       Summer: { base: '#EDE5DC', accent: 'sea blue' },
       Autumn: { base: '#EDE5DC', accent: 'caramel' },
-      Winter: { base: '#EDE5DC', accent: 'cool gray' }
+      Winter: { base: '#EDE5DC', accent: 'cool gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — film grain style
 
@@ -1879,12 +2042,17 @@ NEGATIVE: No digital sharpness, no 3D render, no illustration, no high saturatio
     desc: '深蓝/深灰哑光基底、细金色线条点缀、克制留白',
     visual: 'Black gold minimalist graphic',
     category: 'business',
-    tags: { temp: 'cool', sat: 'mid', scene: ['business','tech'] },
+    tags: { temp: 'cool', sat: 'low', visualType: 'geometric', scene: ['business','tech'] },
+    descType: 'abstract',
+    examples: [
+      'a minimalist black and gold geometric composition, luxury business aesthetic',
+      'an abstract gold line pattern on dark navy, sophisticated and refined',
+    ],
     seasons: {
       Spring: { base: '#0F1923', gold: '#D4AF37' },
       Summer: { base: '#0F1923', gold: '#D4AF37' },
       Autumn: { base: '#0F1923', gold: '#D4AF37' },
-      Winter: { base: '#1A1A2E', gold: '#D4AF37' }
+      Winter: { base: '#1A1A2E', gold: '#D4AF37' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — black gold luxury business style
 
@@ -1918,12 +2086,17 @@ NEGATIVE: No bright colors, no photography, no 3D render, no illustration, no hi
     desc: '蓝灰冷调、浅淡网格几何暗纹、利落细线分割',
     visual: 'Tech business flat graphic',
     category: 'business',
-    tags: { temp: 'cool', sat: 'low', scene: ['business','tech'] },
+    tags: { temp: 'cool', sat: 'low', visualType: 'geometric', scene: ['business','tech'] },
+    descType: 'abstract',
+    examples: [
+      'a clean blue-gray geometric pattern with subtle grid lines, tech business aesthetic',
+      'an abstract data visualization with cool blue tones, flat tech design',
+    ],
     seasons: {
       Spring: { base: '#EDF0F4', accent: 'tender green' },
       Summer: { base: '#EDF0F4', accent: 'ice blue' },
       Autumn: { base: '#EDF0F4', accent: 'warm gray' },
-      Winter: { base: '#EDF0F4', accent: 'silver gray' }
+      Winter: { base: '#EDF0F4', accent: 'silver gray' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — rational tech business style
 
@@ -1957,12 +2130,17 @@ NEGATIVE: No warm tones, no photography, no 3D render, no illustration, no high 
     desc: '米金浅棕柔和底色、细碎微光金箔质感、柔和漫射光影',
     visual: 'Warm gold business flat',
     category: 'business',
-    tags: { temp: 'warm', sat: 'mid', scene: ['business','daily'] },
+    tags: { temp: 'warm', sat: 'low', visualType: 'geometric', scene: ['business','daily'] },
+    descType: 'abstract',
+    examples: [
+      'a warm gold-toned abstract composition with soft micro-light particles',
+      'a minimalist golden line art on a cream background, warm and inviting',
+    ],
     seasons: {
       Spring: { base: '#F0E6D6', gold: '#D4AF37' },
       Summer: { base: '#F0E6D6', gold: '#D4AF37' },
       Autumn: { base: '#F0E6D6', gold: '#D4AF37' },
-      Winter: { base: '#F0E6D6', gold: '#D4AF37' }
+      Winter: { base: '#F0E6D6', gold: '#D4AF37' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — warm gold business style
 
@@ -1996,12 +2174,17 @@ NEGATIVE: No cold tones, no photography, no 3D render, no high saturation, no sh
     desc: '全色系低饱和灰调基底、极简几何细线分区、大量留白',
     visual: 'Premium gray minimalist flat',
     category: 'business',
-    tags: { temp: 'neutral', sat: 'gray', scene: ['business','daily'] },
+    tags: { temp: 'neutral', sat: 'gray', visualType: 'geometric', scene: ['business','daily'] },
+    descType: 'abstract',
+    examples: [
+      'an advanced gray geometric composition with minimal line divisions, calm and professional',
+      'a subtle gray gradient with fine linear elements, understated elegance',
+    ],
     seasons: {
       Spring: { base: '#D0D0D0', accent: 'gray green' },
       Summer: { base: '#D0D0D0', accent: 'gray blue' },
       Autumn: { base: '#D0D0D0', accent: 'gray brown' },
-      Winter: { base: '#D0D0D0', accent: 'silver white' }
+      Winter: { base: '#D0D0D0', accent: 'silver white' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — premium gray minimalist business style
 
@@ -2035,12 +2218,17 @@ NEGATIVE: No high saturation, no warm tones, no photography, no 3D render, no il
     desc: '仿旧纸张、极大留白、极小主体、单点高饱和锚点、印刷瑕疵',
     visual: 'ZINE minimalist illustration',
     category: 'texture',
-    tags: { temp: 'neutral', sat: 'low', scene: ['daily','culture'] },
+    tags: { temp: 'neutral', sat: 'low', visualType: 'illustration', scene: ['daily','culture'] },
+    descType: 'texture',
+    examples: [
+      'a tiny hand-drawn figure on a vast off-white background, photocopy imperfections, single red dot',
+      'a small torn paper fragment on aged paper, 85% whitespace, faint scan lines',
+    ],
     seasons: {
       Spring: { base: '#F0EBE3', accent: 'pear green' },
       Summer: { base: '#F0EBE3', accent: 'cobalt blue' },
       Autumn: { base: '#F0EBE3', accent: 'tomato red' },
-      Winter: { base: '#F0EBE3', accent: 'ultramarine' }
+      Winter: { base: '#F0EBE3', accent: 'ultramarine' },
     },
     prompt: `[PURPOSE]: Brand calendar poster — ZINE minimalist style, quiet independent-ZINE aesthetic
 
@@ -2075,13 +2263,29 @@ NEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-c
     desc: '高饱和撞色、粗糙手作质感、刻意打破排版规则、低保真印刷肌理',
     visual: 'New Ugly rough collage illustration',
     category: 'experimental',
-    tags: { temp: 'warm', sat: 'high', scene: ['daily','culture'] },
+    tags: { temp: 'warm', sat: 'high', visualType: 'collage', scene: ['daily','culture'] },
+    descType: 'mood',
+    examples: [
+      'a rough collage of torn paper fragments with spray-paint shapes and overlapping text in clashing colors',
+      'a deliberately chaotic hand-drawn doodle with offset printing dots and eraser marks',
+    ],
     seasons: {
       Spring: { base: '#FFE500', accent: '#00CC44', pattern: '#FF0099' },
       Summer: { base: '#111111', accent: '#00CCFF', pattern: '#FF8800' },
       Autumn: { base: '#F5F0E8', accent: '#FF3300', pattern: '#9900CC' },
-      Winter: { base: '#999999', accent: '#0044FF', pattern: '#00FF44' }
+      Winter: { base: '#999999', accent: '#0044FF', pattern: '#00FF44' },
     },
+    defaultVariantName: '标准新丑风',
+    variants: [
+      {
+        id: 'japanese-restraint', nameCn: '日式克制', nameEn: 'Japanese Restraint',
+        override: 'STYLE VARIANT — JAPANESE RESTRAINT (Takada Yui school): Lower the chaos to "subtle irregularity" — faint hand-drawn doodle traces instead of rough graffiti, snapshot-collage feel instead of street tearing, slight offsets only, softened color clashes (keep the clash logic but reduce saturation conflict), subtly warped type, unbalanced whitespace instead of full-bleed fill. Art-exhibition poster temperament. All other layout rules unchanged.'
+      },
+      {
+        id: 'chinese-street', nameCn: '中式市井', nameEn: 'Chinese Street',
+        override: 'STYLE VARIANT — CHINESE STREET (aggressive chaos): Street-flyer visual logic — aggressively overlapping text, coarse spray-paint texture, uneven offset-print misregistration, torn-tape collage traces, untrimmed rough edges, low-resolution scan grain. Anti-polish, raw amateur impact. All other layout rules unchanged.'
+      },
+    ],
     prompt: `[PURPOSE]: Brand calendar poster — New Ugly style, anti-design aesthetic, controlled chaos
 
 A 9:16 vertical poster in New Ugly style. Intentional imperfection, deliberately broken grid layout, ignore golden ratio and symmetrical composition, unbalanced framing. Chaotic typography, distorted stretched text, overlapping text layers. Hand-drawn scribble marks, scratch lines, eraser marks, draft sketch traces. Rough collage splicing, uneven cropping, torn paper edges. Photocopy grain noise, offset printing dot texture, low-fidelity scanned texture. Harsh high-saturation clashing color palette, no soft gradient, banded color gradation. Reject minimalist aesthetic, reject clean vector smooth lines, reject perfect symmetrical composition, reject polished commercial aesthetic. Raw hand-made texture, amateur draft visual logic, anti-establishment graphic design style, flat 2D graphic poster style, no realistic lighting, no photorealism.
@@ -2114,13 +2318,29 @@ NEGATIVE: photorealistic, 3d render, smooth vector, minimalist, swiss grid syste
     desc: '早期Word野生排版美学、多字体混用、艺术字标题、自选图形堆叠、填满版面',
     visual: 'Campus newsletter collage illustration',
     category: 'experimental',
-    tags: { temp: 'warm', sat: 'high', scene: ['daily','culture'] },
+    tags: { temp: 'warm', sat: 'high', visualType: 'collage', scene: ['daily','culture'] },
+    descType: 'mood',
+    examples: [
+      'a hand-drawn flat illustration with WordArt-style decoration, multiple fonts, scattered auto-shapes',
+      'a clipart-style illustration with stars and arrows, Office default colors, earnestly cluttered',
+    ],
     seasons: {
       Spring: { base: '#FFFFFF', accent: '#008000', pattern: '#FFFF00' },
       Summer: { base: '#FFFFFF', accent: '#0000FF', pattern: '#FFFF00' },
       Autumn: { base: '#FAFAF5', accent: '#FF8C00', pattern: '#FF0000' },
-      Winter: { base: '#FFFFFF', accent: '#0000FF', pattern: '#800080' }
+      Winter: { base: '#FFFFFF', accent: '#0000FF', pattern: '#800080' },
     },
+    defaultVariantName: '标准校园小报',
+    variants: [
+      {
+        id: 'blackboard', nameCn: '黑板报', nameEn: 'Blackboard Bulletin',
+        override: 'BLACKBOARD BULLETIN VARIANT: Dark green chalkboard base #2D4A3E (or dark gray #3A3A3A). All text and graphics simulate chalk handwriting — white/yellow/pink chalk strokes, slightly rough edges. Auto-shapes become hand-drawn chalk style — wobbly lines, uneven stars. WordArt titles simulate colored chalk handwriting. Keep "sincere clumsiness" core but with handcraft warmth. No laser-print grain, replace with chalk dust texture.'
+      },
+      {
+        id: 'street-flyer', nameCn: '市井传单', nameEn: 'Street Flyer',
+        override: 'STREET FLYER VARIANT: More aggressive WordArt — oversized fonts, bold, tilted, heavy shadows, thick outlines. Stronger table/grid feel — simulate price list or schedule layout. Thick borders around all edges, corner arrows pointing to key info. More "vulgar" color combo — bright red+green+blue, zero whitespace, maximum information density. Simulate dot-matrix/laser print effect — uneven ink, slight misregistration. Anti-high-end, pure street-level commercial.'
+      },
+    ],
     prompt: `[PURPOSE]: Brand calendar poster — campus newsletter / wild Word typography style, sincere clumsiness
 
 A 9:16 vertical poster in campus newsletter style, simulating early PC era (1995-2005) wild Word typography aesthetic. Multi-font mixing (at least 3 different fonts), WordArt-style deformed title (tilted/arc/stretched/shadow), auto-shape decorations (stars, clouds, arrows, ovals, straight lines, dashed lines, wavy lines), information-dense layout with NO whitespace — every empty space filled with decorative elements or text. Office default color palette: uncalibrated pure reds, blues, yellows, greens. Light laser-print grain texture, low-resolution image feel. Sincere clumsiness — the chaos is unconscious, not intentional rebellion. Someone tried very hard but didn't know design theory. Flat 2D, no 3D, no photorealism.
@@ -2154,18 +2374,34 @@ NEGATIVE: photorealistic, 3d render, smooth vector, professional grid system, mi
     desc: '纯ASCII/全角符号排版、零图形对象、等宽字体、终端单色配色、CRT扫描线质感',
     visual: 'ASCII character art pattern',
     category: 'experimental',
-    tags: { temp: 'cool', sat: 'low', scene: ['daily','tech'] },
+    tags: { temp: 'cool', sat: 'low', visualType: 'geometric', scene: ['daily','tech'] },
+    descType: 'character',
+    examples: [
+      'an ASCII art mountain landscape rendered in terminal box-drawing characters',
+      'a character-drawn cat figure with star decorations, green terminal text on black',
+    ],
     seasons: {
       Spring: { base: '#0A0A0A', accent: '#00FF00', pattern: '#FFFFFF' },
       Summer: { base: '#000088', accent: '#FFFFFF', pattern: '#00FFFF' },
       Autumn: { base: '#0A0A0A', accent: '#FFB000', pattern: '#FFFFFF' },
-      Winter: { base: '#F8F8F0', accent: '#000000', pattern: '#444444' }
+      Winter: { base: '#F8F8F0', accent: '#000000', pattern: '#444444' },
     },
+    defaultVariantName: '绿屏终端（默认）',
+    variants: [
+      {
+        id: 'white-document', nameCn: '白底文档', nameEn: 'White Document',
+        override: 'WHITE DOCUMENT VARIANT: White base #F8F8F0 with pure black characters #000000. No CRT scanlines — replace with light laser-print grain (simulates printed Word document). Use full-width CJK box-drawing characters instead of half-width. More refined, gentle, everyday office document feel. Dark gray #444444 for secondary text.'
+      },
+      {
+        id: 'amber-terminal', nameCn: '琥珀终端', nameEn: 'Amber Terminal',
+        override: 'AMBER TERMINAL VARIANT: Pure black base #0A0A0A with amber characters #FFB000. CRT scanlines + warm amber phosphor glow. Simulates early IBM 5153 amber monochrome display. Warmer and more nostalgic than green-screen. White used only for critical emphasis.'
+      },
+    ],
     prompt: `[PURPOSE]: Brand calendar poster — DOS ASCII retro style, pure character typography, terminal aesthetic
 
 A 9:16 vertical poster in DOS ASCII retro style. Pure character typography — ALL visual elements (borders, dividers, decorations, main visual) are made entirely of ASCII characters and CJK box-drawing symbols (┃ ━ ┏ ┓ ┗ ┛ ╋ ═ ≈ ★ ■ ● ◆ ※). Zero graphic objects — no vector shapes, no line tools, no rectangles, no gradients. Monospace font throughout, ALL CAPS English. Perfect character-grid alignment, mechanical order. CRT scanline texture, slight pixel grain, character glow on dark backgrounds. Terminal duochrome color scheme. Flat 2D, no 3D, no photorealism.
 
-CHARACTERS ARE EVERYTHING PRINCIPLE: Every border is ┏━━━━┓, every divider is ═══ or ───, every decoration is ★ or ■ or ● or ◆, and the main visual is an ASCII art pattern formed by characters like /\\()|-+*#. The constraint of "no graphics" IS the aesthetic — order emerges from character grids, beauty from monospace repetition.
+CHARACTERS ARE EVERYTHING PRINCIPLE: Every border is ┏━━━━┓, every divider is ═══ or ───, every decoration is ★ or ■ or ● or ◆, and the main visual is an ASCII art pattern formed by characters like /\()|-+*#. The constraint of "no graphics" IS the aesthetic — order emerges from character grids, beauty from monospace repetition.
 
 BASE: {SEASON} terminal palette — base {BASE_COLOR}, text {ACCENT_COLOR}, accent {PATTERN_COLOR}.
 
@@ -2187,48 +2423,19 @@ MOOD: Geeky, nostalgic, orderly, mechanical, terminal romanticism. The feeling o
 STYLE REFERENCES: DOS terminal screens, ASCII art archives, early Word character-art documents, IBM monochrome displays, BBS bulletin board art, ANSI art, retro computing aesthetics, green-screen/amber-screen terminals.
 
 NEGATIVE: photorealistic, 3d render, smooth vector graphics, vector shapes, line tool, rectangle tool, gradient fill, color photograph, illustration, brush strokes, watercolor, oil painting, non-monospace font, proportional font, colorful palette, pastel colors, morandi palette, soft shadows, depth of field, realistic perspective, promotional banners, emoji, icons in contact area, minimalist whitespace, hand-drawn style.`
-  }
+  },
 ];
+// === END TEMPLATE DATA ===
 
-// === RANDOM COMPANY GENERATOR ===
-const COMPANY_POOLS = {
-  prefixCn: ['星环','宏兹','华瑞','星辰','鼎丰','云图','光启','智远','德信','创联','汇通','天元','明德','嘉和','旭日','领越','卓尔','鹏程','泰安','新纪','融创'],
-  industry: ['航天科技','实业','科技','传媒','设计','文化','数字','智能','创新','互联','数据'],
-  suffix: ['集团有限公司','有限公司'],
-  enWord1: ['SRATG','STAR','RING','HUNTZ','VANGUARD','APEX','NEXUS','ZENITH','CREST','NOVA','AXIS','ORBIT','FLUX','PRISM','HELIX','VERTEX','QUANTUM','SYNTAX','LUMEN','CASCADE','FOUNDRY','BEACON','STRATA'],
-  enWord2: ['AEROSPACE','GROUP','ENTERPRISES','LABS','STUDIO','DYNAMICS','VENTURES','COLLECTIVE','PARTNERS','WORKS','SYSTEMS'],
-  cities: ['地球同步轨道','珠海市','深圳市','广州市','杭州市','上海市','北京市','成都市','武汉市','苏州市','南京市','西安市','长沙市','重庆市','厦门市'],
-  buildings: ['星环空间站集群','科技园','创新大厦','产业孵化园','数字谷','智慧城','创业广场','科技中心','商务广场','产业园','科创走廊','云计算基地'],
-  areaCodes: ['00-SR','0756','0755','020','0571','021','010','028','027','0512','025','029','0731','023','0592'],
-  domains: ['starring-tech.space','company.com','enterprise.cn','studio.io','labs.tech','group.net','works.design','ventures.co']
+// === COMPANY INFO (fixed defaults, editable in UI) ===
+const COMPANY_DEFAULTS = {
+  companyEn: 'STAR RING AEROSPACE TECHNOLOGY GROUP',
+  companyCn: '星环地球航天科技集团',
+  contactAddress: '地球同步轨道星环空间站集群',
+  contactPhone: '00-SR-227300',
+  contactEmail: 'contact@starring-tech.space'
 };
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-function randPhone() {
-  let n = '';
-  for (let i = 0; i < 7; i++) n += randInt(0, 9);
-  return n;
-}
-function generateRandomCompany() {
-  const prefix = pick(COMPANY_POOLS.prefixCn);
-  const industry = pick(COMPANY_POOLS.industry);
-  const suffix = pick(COMPANY_POOLS.suffix);
-  const en1 = pick(COMPANY_POOLS.enWord1);
-  const en2 = pick(COMPANY_POOLS.enWord2);
-  const city = pick(COMPANY_POOLS.cities);
-  const building = pick(COMPANY_POOLS.buildings);
-  const bldgNum = randInt(1, 20);
-  const areaCode = pick(COMPANY_POOLS.areaCodes);
-  const domain = pick(COMPANY_POOLS.domains);
-  const enLower = (en1 + en2).toLowerCase().replace(/\s/g, '');
-  return {
-    companyEn: en1 + ' ' + en2,
-    companyCn: prefix,
-    contactAddress: city + building + bldgNum + '栋',
-    contactPhone: areaCode + '-' + randPhone(),
-    contactEmail: 'hello@' + enLower + '.' + domain
-  };
-}
 function fillCompanyFields(c) {
   document.getElementById('vCompanyEn').value = c.companyEn;
   document.getElementById('vCompanyCn').value = c.companyCn;
@@ -2311,59 +2518,10 @@ const SENTENCE_PATTERNS = {
   ]
 };
 
-// === VISUAL EXAMPLES (风格联动示例) ===
-const VISUAL_EXAMPLES = {
-  'album-minimalist': ['minimalist ink landscape, distant mountains with sparse brushstrokes, vast empty sky','a single crane in flight over still water, traditional sumi-e style'],
-  'geometric-composition': ['geometric architectural composition, rectangles and triangular blocks in precise rhythm','overlapping circular and rectangular forms, bauhaus primary colors on gray plane'],
-  'warm-retro': ['a vintage gramophone on a wooden table, warm amber light, retro flat illustration','an old-fashioned bicycle leaning against a brick wall, golden hour, flat retro style'],
-  'light-shadow': ['minimalist concrete staircase, strong directional light casting geometric shadows','a modern glass facade with sharp light reflections, architectural photography'],
-  'silent-humanist': ['a weathered stone wall with a single shaft of warm light, architectural detail','an empty corridor with arched windows, warm monochrome tones, meditative silence'],
-  'tech-flow': ['a sleek 3D-rendered abstract sphere with ice-blue gradients and particle effects','floating geometric 3D forms with glass-morphism, cool blue volumetric lighting'],
-  'ink-wash': ['misty mountain range with layered ink wash, three-depth perspective, bamboo branch breaking the frame','a solitary boat on a vast empty river, digital ink wash, vast negative space'],
-  'paper-light': ['layered torn paper forming a mountain landscape, golden light filtering through paper gaps','a pressed flower arrangement on layered paper, warm window shadow play'],
-  'vintage-american': ['a classic 1950s diner scene with a jukebox, warm caramel tones, vintage poster style','a retro gasoline pump at sunset, faded paper texture, vintage advertisement aesthetic'],
-  'cyberpunk': ['a neon-lit rainy alley in a futuristic city, holographic signs reflecting in puddles','a lone figure under a glowing cyberpunk sign, blue-purple neon, rain and fog'],
-  'morandi': ['soft muted still life with a vase and fruit, morandi color palette, hazy atmosphere','overlapping geometric shapes in muted gray-pink tones, quiet and contemplative'],
-  'minimal-flat': ['a single potted plant on a clean white surface, soft shadows, minimalist flat design','one bold geometric shape on a pastel background, ultra-clean minimal composition'],
-  'memphis': ['colorful memphis-style geometric shapes, zigzag lines and dots on a bright background','playful composition of circles, triangles and squiggly lines, bold primary colors'],
-  'forest-natural': ['soft-focus green foliage with dappled sunlight, natural bokeh, fresh and serene','a single leaf with morning dew, soft green background, natural photography'],
-  'pop-art': ['a bold pop-art portrait with thick black outlines, halftone dots, high-contrast colors','a retro comic book explosion graphic with primary colors and ben-day dots'],
-  'ukiyo-e': ['a traditional Japanese wave pattern with Mount Fuji in the distance, ukiyo-e woodblock style','a crane flying over a stylized river, traditional morandi-toned ukiyo-e print'],
-  'wabisabi': ['a cracked ceramic bowl on a rough stone surface, earthy tones, wabi-sabi imperfection','a single dried branch in a weathered vase, muted natural tones, quiet beauty'],
-  'republic-retro': ['a vintage Chinese street scene with old-fashioned shop signs, yellowed paper texture','a traditional window lattice pattern with faded ink calligraphy, republican era aesthetic'],
-  'new-guofeng': ['modern Chinese-style ink mountains with subtle green wash, minimalist composition','a single bamboo leaf with ink wash, contemporary guofeng style, clean layout'],
-  'guochao': ['bold Chinese traditional pattern with red and gold, flat guochao graphic design','a stylized dragon motif with geometric cloud patterns, national tide aesthetic'],
-  'vaporwave': ['a vaporwave sunset with palm silhouettes, pink-purple gradient, retro-future aesthetic','a floating classical bust against a grid horizon, pink-cyan neon, vaporwave style'],
-  'baroque': ['ornate baroque scrollwork with gold relief on a dark background, dramatic oil painting texture','a baroque candle holder with warm chiaroscuro lighting, deep shadows, antique gold'],
-  'rococo': ['delicate rococo floral scrollwork in pastel colors, soft relief texture, airy elegance','a rococo-style decorative border with shell motifs, dusty rose and cream tones'],
-  'handdrawn-flat': ['a hand-drawn illustration of a cozy cafe scene, warm earthy tones, paper texture','a simple hand-drawn plant with watercolor spots, healing and warm atmosphere'],
-  'film-grain': ['a sunlit park bench with film grain texture, warm faded colors, nostalgic photography','a street corner at dusk with heavy film noise, soft focus, amber tones'],
-  'blackgold-business': ['a minimalist black and gold geometric composition, luxury business aesthetic','an abstract gold line pattern on dark navy, sophisticated and refined'],
-  'tech-business': ['a clean blue-gray geometric pattern with subtle grid lines, tech business aesthetic','an abstract data visualization with cool blue tones, flat tech design'],
-  'warmgold-business': ['a warm gold-toned abstract composition with soft micro-light particles','a minimalist golden line art on a cream background, warm and inviting'],
-  'gray-business': ['an advanced gray geometric composition with minimal line divisions, calm and professional','a subtle gray gradient with fine linear elements, understated elegance'],
-  'zine-minimal': ['a tiny hand-drawn figure on a vast off-white background, photocopy imperfections, single red dot','a small torn paper fragment on aged paper, 85% whitespace, faint scan lines'],
-  'new-ugly': ['a rough collage of torn paper fragments with spray-paint shapes and overlapping text in clashing colors','a deliberately chaotic hand-drawn doodle with offset printing dots and eraser marks'],
-  'campus-newsletter': ['a hand-drawn flat illustration with WordArt-style decoration, multiple fonts, scattered auto-shapes','a clipart-style illustration with stars and arrows, Office default colors, earnestly cluttered'],
-  'dos-ascii': ['an ASCII art mountain landscape rendered in terminal box-drawing characters','a character-drawn cat figure with star decorations, green terminal text on black']
-};
-
-// === HELPER: Map template to description type ===
+// === HELPER: description type now lives on the template object (data/templates.json) ===
 function getTemplateDescType(templateId) {
-  const typeMap = {
-    'album-minimalist':'narrative','geometric-composition':'abstract','warm-retro':'narrative',
-    'light-shadow':'abstract','silent-humanist':'texture','tech-flow':'abstract',
-    'ink-wash':'narrative','paper-light':'texture','vintage-american':'narrative',
-    'cyberpunk':'mood','morandi':'abstract','minimal-flat':'abstract',
-    'memphis':'abstract','forest-natural':'narrative','pop-art':'mood',
-    'ukiyo-e':'narrative','wabisabi':'texture','republic-retro':'narrative',
-    'new-guofeng':'narrative','guochao':'mood','vaporwave':'mood',
-    'baroque':'narrative','rococo':'narrative','handdrawn-flat':'texture',
-    'film-grain':'narrative','blackgold-business':'abstract','tech-business':'abstract',
-    'warmgold-business':'abstract','gray-business':'abstract','zine-minimal':'texture',
-    'new-ugly':'mood','campus-newsletter':'mood','dos-ascii':'character'
-  };
-  return typeMap[templateId] || 'narrative';
+  const t = TEMPLATES.find(t => t.id === templateId);
+  return (t && t.descType) || 'narrative';
 }
 
 // === VISUAL SCAFFOLD FUNCTIONS ===
@@ -2381,14 +2539,14 @@ function generateRandomVisual() {
   generateVisualDesc();
 }
 
-function generateVisualDesc() {
+function generateVisualDesc(silent) {
   const who = val('visualWho');
   const how = val('visualHow');
   const where = val('visualWhere');
   const vibe = val('visualVibe');
   const extra = val('visualExtra');
   if (!who && !how && !where && !vibe) {
-    showToast('请至少填写一个字段，或点击「随机灵感」');
+    if (!silent) showToast('请至少填写一个字段，或点击「随机灵感」');
     return;
   }
   const descType = selectedTemplate ? getTemplateDescType(selectedTemplate.id) : 'narrative';
@@ -2414,7 +2572,7 @@ function generateVisualDesc() {
   if (extra) desc += ', ' + extra;
   document.getElementById('vMainVisualDesc').value = desc;
   updatePreview();
-  showToast('描述已生成，可自由编辑');
+  if (!silent) showToast('描述已生成，可自由编辑');
 }
 
 function switchSentencePattern() {
@@ -2423,13 +2581,13 @@ function switchSentencePattern() {
     showToast('请先填写字段或点击「随机灵感」');
     return;
   }
-  generateVisualDesc(); // Will pick a different pattern
+  generateVisualDesc(true); // silent: avoid double toast
   showToast('句式已切换');
 }
 
 function renderVisualExamples() {
   if (!selectedTemplate) return;
-  const examples = VISUAL_EXAMPLES[selectedTemplate.id];
+  const examples = selectedTemplate.examples || [];
   const container = document.getElementById('visualExamples');
   const list = document.getElementById('examplesList');
   if (examples && examples.length > 0) {
@@ -2498,7 +2656,7 @@ function toggleSubtitleHidden() {
   updatePreview();
 }
 let activeCategory = 'all';
-let activeFilters = { temp: '', sat: '', scene: '' };
+let activeFilters = { temp: '', sat: '', visual: '', scene: '' };
 
 // === FILTER FUNCTIONS ===
 function filterCategory(cat) {
@@ -2507,13 +2665,16 @@ function filterCategory(cat) {
     b.classList.toggle('active', b.dataset.cat === cat);
   });
   renderStyleGrid();
+  saveState();
 }
 
 function applyFilters() {
   activeFilters.temp = document.getElementById('filterTemp').value;
   activeFilters.sat = document.getElementById('filterSat').value;
+  activeFilters.visual = document.getElementById('filterVisual').value;
   activeFilters.scene = document.getElementById('filterScene').value;
   renderStyleGrid();
+  saveState();
 }
 
 // === RENDER STYLE GRID ===
@@ -2529,18 +2690,25 @@ function renderStyleGrid() {
   if (activeFilters.sat) {
     filtered = filtered.filter(t => t.tags && t.tags.sat === activeFilters.sat);
   }
+  if (activeFilters.visual) {
+    filtered = filtered.filter(t => t.tags && t.tags.visualType === activeFilters.visual);
+  }
   if (activeFilters.scene) {
     filtered = filtered.filter(t => t.tags && t.tags.scene && t.tags.scene.includes(activeFilters.scene));
   }
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:8px 2px;">没有匹配的风格模板，试试放宽筛选条件</p>';
+    return;
+  }
   grid.innerHTML = filtered.map(t => `
-    <div class="style-card" data-id="${t.id}" onclick="selectStyle('${t.id}')">
+    <button type="button" class="style-card" data-id="${t.id}" onclick="selectStyle('${t.id}')" aria-label="选择风格 ${t.nameCn} ${t.nameEn}">
       <div class="checkmark">✓</div>
       <div class="card-num">${t.num}</div>
       <div class="card-name">${t.nameCn}</div>
       <div class="card-name-en">${t.nameEn}</div>
       <div class="card-desc">${t.desc}</div>
       <div class="card-visual">${t.visual}</div>
-    </div>
+    </button>
   `).join('');
 }
 
@@ -2559,8 +2727,38 @@ function selectStyle(id) {
       if (el) el.style.display = 'none';
     });
   }
+  renderVariantSelector();
   renderVisualExamples();
   updatePreview();
+  saveState();
+  // 移动端/平板：引导用户视线到刚展开的第 2 步
+  if (window.innerWidth <= 1024) {
+    document.getElementById('contentSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// === VARIANT SELECTOR ===
+let selectedVariantId = '';
+function renderVariantSelector() {
+  const group = document.getElementById('groupVariant');
+  const select = document.getElementById('vVariant');
+  const t = selectedTemplate;
+  if (!t || !t.variants || !t.variants.length) {
+    group.style.display = 'none';
+    selectedVariantId = '';
+    select.innerHTML = '';
+    return;
+  }
+  select.innerHTML =
+    `<option value="">标准（默认）${t.defaultVariantName ? ' — ' + t.defaultVariantName : ''}</option>` +
+    t.variants.map(v => `<option value="${v.id}">${v.nameCn} · ${v.nameEn}</option>`).join('');
+  selectedVariantId = '';
+  group.style.display = 'block';
+}
+function selectVariant() {
+  selectedVariantId = document.getElementById('vVariant').value;
+  updatePreview();
+  saveState();
 }
 
 // === SEASON ===
@@ -2570,6 +2768,29 @@ function selectSeason(s) {
     b.classList.toggle('active', b.dataset.season === s);
   });
   updatePreview();
+  saveState();
+}
+
+// === DATE / SOLAR-TERM HELPERS ===
+function autoDateLabel(d) {
+  d = d || new Date();
+  return `${calDays[d.getDay()].slice(0,3)} · ${d.getDate()} · ${calMonths[d.getMonth()]}`;
+}
+// 24 节气近似日期表（月, 日, 节气）— 用于新中式水墨风节气框的兜底
+const SOLAR_TERMS = [
+  [1,6,'小寒'],[1,20,'大寒'],[2,4,'立春'],[2,19,'雨水'],[3,6,'惊蛰'],[3,21,'春分'],
+  [4,5,'清明'],[4,20,'谷雨'],[5,6,'立夏'],[5,21,'小满'],[6,6,'芒种'],[6,21,'夏至'],
+  [7,7,'小暑'],[7,23,'大暑'],[8,8,'立秋'],[8,23,'处暑'],[9,8,'白露'],[9,23,'秋分'],
+  [10,8,'寒露'],[10,23,'霜降'],[11,7,'立冬'],[11,22,'小雪'],[12,7,'大雪'],[12,22,'冬至']
+];
+function autoSolarTerm(d) {
+  d = d || new Date();
+  const md = (d.getMonth() + 1) * 100 + d.getDate();
+  let current = SOLAR_TERMS[SOLAR_TERMS.length - 1];
+  for (const [m, day, name] of SOLAR_TERMS) {
+    if (m * 100 + day <= md) current = [m, day, name]; else break;
+  }
+  return current[2];
 }
 
 // === COLLAPSIBLE ===
@@ -2622,7 +2843,7 @@ function generatePrompt() {
   // === Season-specific color variables ===
   const replacements = {
     '{SEASON}': selectedSeason,
-    '{DATE_LABEL}': wallpaper ? '[none]' : (val('vDateLabel') || 'auto'),
+    '{DATE_LABEL}': wallpaper ? '[none]' : (val('vDateLabel') || autoDateLabel()),
     '{WEEKDAY}': wallpaper ? '[none]' : (val('vWeekday') || 'MONDAY'),
     '{DATE_NUMBER}': wallpaper ? '[none]' : (val('vDateNumber') || '28'),
     '{MONTH}': wallpaper ? '[none]' : (val('vMonth') || 'JULY'),
@@ -2634,7 +2855,7 @@ function generatePrompt() {
     '{CONTACT_ADDRESS}': wallpaper ? '[none]' : (val('vContactAddress') || '地球同步轨道星环空间站集群'),
     '{CONTACT_PHONE}': wallpaper ? '[none]' : (val('vContactPhone') || '00-SR-227300'),
     '{CONTACT_EMAIL}': wallpaper ? '[none]' : (val('vContactEmail') || 'contact@starring-tech.space'),
-    '{SOLAR_TERM}': val('vMainTitle') || '立秋',
+    '{SOLAR_TERM}': val('vMainTitle') || autoSolarTerm(),
   };
 
   // Color variables by template
@@ -2683,7 +2904,23 @@ function generatePrompt() {
     p = p.replaceAll(key, value);
   }
 
-  // === LAYOUT OVERRIDE pipeline (wallpaper mode / hidden subtitle) ===
+  // === Wallpaper mode: rewrite purpose + strip branding/date/contact/QR lines ===
+  if (wallpaper) {
+    p = p.replace('[PURPOSE]: Brand calendar poster', '[PURPOSE]: Aesthetic 9:16 phone wallpaper');
+    // Remove lines that reference removed elements (placeholder became [none], or QR/LOGO mentions).
+    // Exception: lines that also carry the main title / subtitle / main visual are kept and sanitized
+    // (e.g. warm-retro mixes the date column and main title on one line).
+    const dropLine = /\[none\]|QR code|二维码|扫码了解更多|\bLOGO\b/i;
+    const keepValues = [mainTitle, subtitleValue, visualValue].filter(v => v && !v.startsWith('['));
+    p = p.split('\n').map(line => {
+      if (!dropLine.test(line)) return line;
+      const keepable = keepValues.some(v => v.length > 2 && line.includes(v)) || line.includes('[AI-composed');
+      if (!keepable) return null;
+      return line.replace(/[^—–.\n]*"\[none\]"[^—–.\n]*/g, '').replace(/ {2,}/g, ' ');
+    }).filter(l => l !== null).join('\n');
+  }
+
+  // === LAYOUT OVERRIDE pipeline (wallpaper mode / hidden subtitle / style variant) ===
   const overrides = [];
   if (wallpaper) {
     overrides.push(
@@ -2705,23 +2942,50 @@ function generatePrompt() {
       '- Keep only the main title; expand whitespace or the main visual to compensate for the missing line.'
     );
   }
+  // Style variant override (from data/templates.json variants)
+  if (selectedVariantId && selectedTemplate && selectedTemplate.variants) {
+    const v = selectedTemplate.variants.find(v => v.id === selectedVariantId);
+    if (v) {
+      overrides.push(
+        `=== STYLE VARIANT — ${v.nameEn.toUpperCase()} (applies over the style descriptions above) ===`,
+        v.override
+      );
+    }
+  }
   if (overrides.length) {
     p = p.trimEnd() + '\n\n' + overrides.join('\n');
   }
   return p;
 }
 
-// === UPDATE PREVIEW ===
+// === UPDATE PREVIEW (debounced) ===
+let _previewTimer = null;
 function updatePreview() {
+  clearTimeout(_previewTimer);
+  _previewTimer = setTimeout(renderPreview, 150);
+  updateCharCounts();
+  saveState();
+}
+function updateCharCounts() {
   const titleEl = document.getElementById('vMainTitle');
   const subtitleEl = document.getElementById('vSubtitle');
-  if (titleEl) {
-    document.getElementById('titleCount').textContent = `${titleEl.value.length} 字`;
+  const titleCount = document.getElementById('titleCount');
+  const subtitleCount = document.getElementById('subtitleCount');
+  const hideSubtitle = document.getElementById('chkHideSubtitle') && document.getElementById('chkHideSubtitle').checked;
+  if (titleEl && titleCount) {
+    const len = titleEl.value.length;
+    const over = len > 8;
+    titleCount.textContent = over ? `${len} 字 · 超出建议 4-8 字` : `${len} 字`;
+    titleCount.classList.toggle('warn', over);
   }
-  if (subtitleEl) {
-    document.getElementById('subtitleCount').textContent = `${subtitleEl.value.length} 字`;
+  if (subtitleEl && subtitleCount && !hideSubtitle) {
+    const len = subtitleEl.value.length;
+    const over = len > 0 && (len < 12 || len > 22);
+    subtitleCount.textContent = over ? `${len} 字 · 建议 12-22 字` : `${len} 字`;
+    subtitleCount.classList.toggle('warn', over);
   }
-
+}
+function renderPreview() {
   if (!selectedTemplate) return;
 
   const prompt = generatePrompt();
@@ -2762,7 +3026,8 @@ function downloadPrompt() {
   const blob = new Blob([prompt], { type: 'text/plain' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = `prompt-${selectedTemplate.id}-${selectedSeason}.txt`;
+  const date = new Date().toISOString().slice(0, 10);
+  a.download = `prompt-${selectedTemplate.id}-${selectedSeason}-${date}.txt`;
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -2790,11 +3055,18 @@ function toggleCalendar() {
   trigger.classList.toggle('active');
   if (popup.classList.contains('show')) {
     renderCalendar();
+    // 下方空间不足时向上弹出，避免被滚动容器/视口裁剪
+    popup.classList.remove('flip-up');
+    const rect = popup.getBoundingClientRect();
+    if (rect.bottom > window.innerHeight - 12) {
+      popup.classList.add('flip-up');
+    }
   }
 }
 
 function closeCalendar() {
   document.getElementById('calendarPopup').classList.remove('show');
+  document.getElementById('calendarPopup').classList.remove('flip-up');
   document.getElementById('calendarTrigger').classList.remove('active');
 }
 
@@ -2836,7 +3108,8 @@ function renderCalendar() {
 
   // Current month's days
   for (let d = 1; d <= daysInMonth; d++) {
-    const el = document.createElement('div');
+    const el = document.createElement('button');
+    el.type = 'button';
     el.className = 'cal-day';
     el.textContent = d;
     
@@ -2909,39 +3182,92 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// === STATE PERSISTENCE (localStorage) ===
+const STORAGE_KEY = 'ppg-state-v1';
+const PERSIST_INPUTS = ['vDateLabel','vWeekday','vDateNumber','vMonth','vMainTitle','vSubtitle','vMainVisualDesc','visualWho','visualHow','visualWhere','visualVibe','visualExtra','vCompanyEn','vCompanyCn','vContactAddress','vContactPhone','vContactEmail'];
+function saveState() {
+  try {
+    const state = {
+      templateId: selectedTemplate ? selectedTemplate.id : null,
+      variantId: selectedVariantId,
+      season: selectedSeason,
+      mode: currentMode,
+      hideSubtitle: document.getElementById('chkHideSubtitle') ? document.getElementById('chkHideSubtitle').checked : false,
+      category: activeCategory,
+      filters: activeFilters,
+      inputs: {}
+    };
+    PERSIST_INPUTS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) state.inputs[id] = el.value;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { /* 隐私模式等场景下静默失败 */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+function clearState() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+}
+
 // === RESET ===
 function resetAll() {
   selectedTemplate = null;
+  selectedVariantId = '';
   selectedSeason = 'Summer';
   document.querySelectorAll('.style-card').forEach(c => c.classList.remove('selected'));
   document.querySelectorAll('.season-btn').forEach(b => b.classList.toggle('active', b.dataset.season === 'Summer'));
   document.getElementById('contentSection').style.display = 'none';
   document.getElementById('companySection').style.display = 'none';
   document.getElementById('visualExamples').style.display = 'none';
+  document.getElementById('groupVariant').style.display = 'none';
+  document.getElementById('vVariant').innerHTML = '';
   currentSentenceIdx = -1;
-  ['vDateLabel','vWeekday','vDateNumber','vMonth','vMainTitle','vSubtitle','vMainVisualDesc','visualWho','visualHow','visualWhere','visualVibe','visualExtra'].forEach(id => {
+  // 模式与副标题开关复位
+  currentMode = 'poster';
+  document.getElementById('modePoster').classList.add('active');
+  document.getElementById('modeWallpaper').classList.remove('active');
+  document.getElementById('modeNote').textContent = '日签模式：完整六区块版式，含 LOGO / 日期 / 企业信息 / 二维码';
+  ['groupDateLabel', 'groupCalendar', 'groupDateRow', 'groupVisual'].forEach(gid => {
+    const el = document.getElementById(gid);
+    if (el) el.style.display = '';
+  });
+  const chk = document.getElementById('chkHideSubtitle');
+  if (chk.checked) { chk.checked = false; }
+  const subInput = document.getElementById('vSubtitle');
+  subInput.disabled = false;
+  subInput.style.opacity = 1;
+  document.getElementById('subtitleAiHint').style.display = '';
+  document.getElementById('subtitleCount').innerHTML = '0 字';
+  // 筛选器复位
+  activeCategory = 'all';
+  activeFilters = { temp: '', sat: '', visual: '', scene: '' };
+  document.querySelectorAll('#categoryFilter .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === 'all');
+  });
+  ['filterTemp', 'filterSat', 'filterVisual', 'filterScene'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  renderStyleGrid();
+  // 输入框清空
+  PERSIST_INPUTS.slice(0, 12).forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
   // Reset calendar display
   calSelectedDate = null;
+  calCurrentDate = new Date();
+  closeCalendar();
   const calDisplay = document.getElementById('calendarDisplayText');
   if (calDisplay) {
     calDisplay.textContent = '选择日期 / Select Date';
     calDisplay.classList.add('placeholder');
   }
-  document.getElementById('vCompanyEn').value = '';
-  document.getElementById('vCompanyCn').value = '';
-  document.getElementById('vContactAddress').value = '';
-  document.getElementById('vContactPhone').value = '';
-  document.getElementById('vContactEmail').value = '';
-  fillCompanyFields({
-    companyEn: 'Star Ring Aerospace Technology Group',
-    companyCn: '星环地球航天科技集团',
-    contactAddress: '地球同步轨道星环空间站集群',
-    contactPhone: '00-SR-227300',
-    contactEmail: 'contact@starring-tech.space'
-  });
+  fillCompanyFields(COMPANY_DEFAULTS);
   document.getElementById('previewContent').innerHTML = `
     <div class="preview-empty">
       <div class="icon">📋</div>
@@ -2949,42 +3275,74 @@ function resetAll() {
     </div>`;
   document.getElementById('previewMeta').textContent = '— chars';
   document.getElementById('btnCopy').disabled = true;
+  clearState();
 }
 
 // === INIT ===
 renderStyleGrid();
+fillCompanyFields(COMPANY_DEFAULTS);
 
-// Generate random company info on load
-fillCompanyFields({
-  companyEn: 'Star Ring Aerospace Technology Group',
-  companyCn: '星环地球航天科技集团',
-  contactAddress: '地球同步轨道星环空间站集群',
-  contactPhone: '00-SR-227300',
-  contactEmail: 'contact@starring-tech.space'
-});
-
-// Auto-detect season
-const month = new Date().getMonth() + 1;
-const autoSeason = month >= 3 && month <= 5 ? 'Spring' : month >= 6 && month <= 8 ? 'Summer' : month >= 9 && month <= 11 ? 'Autumn' : 'Winter';
-selectSeason(autoSeason);
-
-// Auto-fill date
+// Auto-detect season & auto-fill date
 const now = new Date();
-const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
-const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
-const monthsCN = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-document.getElementById('vWeekday').value = days[now.getDay()];
+const _m = now.getMonth() + 1;
+const autoSeason = _m >= 3 && _m <= 5 ? 'Spring' : _m >= 6 && _m <= 8 ? 'Summer' : _m >= 9 && _m <= 11 ? 'Autumn' : 'Winter';
+selectSeason(autoSeason);
+document.getElementById('vWeekday').value = calDays[now.getDay()];
 document.getElementById('vDateNumber').value = now.getDate();
-document.getElementById('vMonth').value = months[now.getMonth()];
-document.getElementById('vDateLabel').value = `${days[now.getDay()].slice(0,3)} · ${now.getDate()} · ${months[now.getMonth()]}`;
+document.getElementById('vMonth').value = calMonths[now.getMonth()];
+document.getElementById('vDateLabel').value = autoDateLabel(now);
 // Sync calendar display with auto-filled date
 calSelectedDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 calCurrentDate = new Date(now.getFullYear(), now.getMonth(), 1);
 const initCalDisplay = document.getElementById('calendarDisplayText');
 if (initCalDisplay) {
-  initCalDisplay.textContent = `${monthsCN[now.getMonth()]}${now.getDate()}日 ${days[now.getDay()]}`;
+  initCalDisplay.textContent = `${calMonthsCN[now.getMonth()]}${now.getDate()}日 ${calDays[now.getDay()]}`;
   initCalDisplay.classList.remove('placeholder');
 }
+
+// Restore persisted state (template / inputs / filters / mode)
+(function restoreState() {
+  const state = loadState();
+  if (!state) return;
+  if (state.inputs) {
+    PERSIST_INPUTS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && typeof state.inputs[id] === 'string') el.value = state.inputs[id];
+    });
+  }
+  if (state.filters) {
+    activeFilters = Object.assign({ temp: '', sat: '', visual: '', scene: '' }, state.filters);
+    document.getElementById('filterTemp').value = activeFilters.temp;
+    document.getElementById('filterSat').value = activeFilters.sat;
+    document.getElementById('filterVisual').value = activeFilters.visual;
+    document.getElementById('filterScene').value = activeFilters.scene;
+  }
+  if (state.category) {
+    activeCategory = state.category;
+    document.querySelectorAll('#categoryFilter .filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === activeCategory);
+    });
+  }
+  renderStyleGrid();
+  if (state.season) selectSeason(state.season);
+  if (state.hideSubtitle) {
+    document.getElementById('chkHideSubtitle').checked = true;
+    toggleSubtitleHidden();
+  }
+  if (state.mode === 'wallpaper') setMode('wallpaper');
+  if (state.templateId && TEMPLATES.some(t => t.id === state.templateId)) {
+    selectStyle(state.templateId);
+    if (state.variantId) {
+      const sel = document.getElementById('vVariant');
+      if ([...sel.options].some(o => o.value === state.variantId)) {
+        sel.value = state.variantId;
+        selectedVariantId = state.variantId;
+        updatePreview();
+      }
+    }
+  }
+  updateCharCounts();
+})();
 </script>
 </body>
 </html>

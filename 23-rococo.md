@@ -123,28 +123,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Rococo macaron soft-pastel scrollwork style
+[PURPOSE]: Brand calendar poster — Rococo style
 
-A 9:16 vertical poster in light Rococo style. Macaron-light soft pastels, graceful curling floral scrollwork, delicate relief texture, gentle decorative line. Six fixed zones with a curling floral relief border.
+A 9:16 vertical poster in Rococo style. Macaron soft pastel palette, gentle curving floral scrollwork, delicate relief texture, ornate yet light. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a soft scrollwork frame next to the English company name "{COMPANY_EN}" in elegant uppercase serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin serif with wide tracking, an oversized elegant serif numeral "{DATE_NUMBER}" (soft, visually dominant), and the month "{MONTH}" below. A vertical curling scrollwork divider runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Rococo decorative illustration: curling floral scrollwork, delicate relief, soft pastel tones. No photography, no neon, no flat vector.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold elegant serif Chinese (soft ink), subtitle "{SUBTITLE}" in thin serif below, followed by a horizontal soft hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-CENTER: A small ornate shell-scroll LOGO beside the English company name "{COMPANY_EN}" in elegant flowing serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in flowing rococo serif.
+- CENTER (large area): The main visual — a Rococo decorative illustration: {MAIN_VISUAL_DESC}. Macaron pastel tones, gentle curving floral scrollwork borders, delicate relief texture, soft and ornate. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Light, airy, decorative.
+- MID-LOWER: Main title "{MAIN_TITLE}" in flowing serif Chinese, subtitle "{SUBTITLE}" in thin serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small serif.
-- FULL FRAME: A graceful curling floral scrollwork relief border.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Light, elegant, romantic, gentle grace. No heavy darkness, no harsh geometric flatness.
+BACKGROUND: Soft macaron pastel ({BASE_COLOR}) with delicate curving floral scrollwork ornaments in corners and subtle relief texture.
 
-STYLE REFERENCES: 18th-century French Rococo decoration, Jean-Honoré Fragonard pastels, curling floral relief, macaron soft palettes.
+MOOD: Elegant, ornate, soft, romantic, decorative. No promotional tone.
 
-NEGATIVE: No heavy darkness, no harsh geometric flatness, no neon, no flat vector, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Rococo decorative art (Jean-Honoré Fragonard), shell and scroll motifs, macaron pastel palettes, delicate relief texture, French court ornament.
+
+NEGATIVE: No photography, no 3D render, no dark heavy tones, no high-saturation clashing colors, no flat geometric design, no modern minimalism, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

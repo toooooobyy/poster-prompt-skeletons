@@ -140,12 +140,12 @@ A 9:16 vertical poster in campus newsletter style, simulating early PC era (1995
 
 SINCERE CLUMSINESS PRINCIPLE: The layout looks cluttered because the maker thought "more fonts = more effort" and "empty space = lazy." Space-bar alignment creates uneven spacing. Auto-shapes are stacked without layer management. WordArt titles are over-deformed. But everything is readable and earnestly made.
 
-BASE: {SEASON} palette — main color {MAIN_COLOR}, decoration colors {DECOR_COLOR_1} and {DECOR_COLOR_2}.
+BASE: {SEASON} palette — main color {ACCENT_COLOR}, decoration colors {BASE_COLOR} and {PATTERN_COLOR}.
 
 LAYOUT (top to bottom, Word document feel):
 - TOP-LEFT: Small LOGO + English company name "{COMPANY_EN}" in small sans-serif, left-aligned.
 - TOP-RIGHT: Large date "{DATE_NUMBER}" + small weekday "{WEEKDAY}" and month "{MONTH}", uneven spacing simulating space-bar alignment.
-- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Hand-drawn flat illustration style, low-resolution insertion feel. Side text boxes with quotes or slogans. Auto-shape decorations (stars ★, clouds ☁, arrows →, small flowers) scattered in corners and empty spaces. Colors: {MAIN_COLOR}, {DECOR_COLOR_1}, {DECOR_COLOR_2} in Office default palette.
+- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Hand-drawn flat illustration style, low-resolution insertion feel. Side text boxes with quotes or slogans. Auto-shape decorations (stars, clouds, arrows, small flowers) scattered in corners and empty spaces. Colors: {ACCENT_COLOR}, {BASE_COLOR}, {PATTERN_COLOR} in Office default palette.
 - MID-LOWER: Main title "{MAIN_TITLE}" in WordArt-style deformed text (tilted/arc/stretched with hard shadow), subtitle "{SUBTITLE}" in bold sans-serif below. Horizontal straight or dashed line divider. Three lines of plain contact text (no icons, tight leading, slight misalignment):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}

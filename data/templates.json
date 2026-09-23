@@ -1,0 +1,1506 @@
+[
+  {
+    "id": "album-minimalist",
+    "num": "01",
+    "nameCn": "极素画册风",
+    "nameEn": "Album Minimalist",
+    "desc": "低饱和度水墨风景、柔和纸张肌理、治愈素雅",
+    "visual": "Ink-wash landscape illustration",
+    "category": "modern",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "solar",
+        "daily"
+      ],
+      "visualType": "ink"
+    },
+    "descType": "narrative",
+    "examples": [
+      "minimalist ink landscape, distant mountains with sparse brushstrokes, vast empty sky",
+      "a single crane in flight over still water, traditional sumi-e style"
+    ],
+    "seasons": {
+      "Spring": {
+        "palette": "pale bean-green, light gosling-yellow"
+      },
+      "Summer": {
+        "palette": "misty teal #A3C1BD, pale lake-blue #9ABBD4"
+      },
+      "Autumn": {
+        "palette": "warm coffee, ochre-rice"
+      },
+      "Winter": {
+        "palette": "gray-blue, charcoal-cream-white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — minimalist art-album style\n\nA 9:16 vertical poster in minimalist art-album style. Low saturation, faint paper texture, soft and elegant. Six fixed zones with safe margins.\n\nBASE: {SEASON} palette — base #F6F2EC, accent palette {PALETTE}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small LOGO mark (concentric-circle line motif) beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in elegant serif (Cormorant Garamond style).\n- CENTER (large area): The main visual — an ink-wash landscape illustration: {MAIN_VISUAL_DESC}. Soft, low-saturation ink wash with faint paper texture. Gentle flat lighting, no strong contrast.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold serif Chinese (Noto Serif SC), subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Cream-rice white (#F6F2EC) with faint paper grain.\n\nMOOD: Gentle, healing, refined, atmospheric. No promotional tone.\n\nSTYLE REFERENCES: Muji catalog aesthetics, Japanese minimalist photography books, low-saturation ink-wash illustration, wabi-sabi.\n\nNEGATIVE: No photography, no 3D render, no high saturation, no strong contrast, no decorative arcs, no complex grid lines, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "geometric-composition",
+    "num": "02",
+    "nameCn": "几何构成风",
+    "nameEn": "Geometric Composition",
+    "desc": "包豪斯美学、硬边块面、黑白强对比、零肌理",
+    "visual": "Geometric composition illustration",
+    "category": "modern",
+    "tags": {
+      "temp": "cool",
+      "sat": "low",
+      "scene": [
+        "business"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "geometric architectural composition, rectangles and triangular blocks in precise rhythm",
+      "overlapping circular and rectangular forms, bauhaus primary colors on gray plane"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#CFD0CE",
+        "accent": "tender green",
+        "block": "#000000"
+      },
+      "Summer": {
+        "base": "#CFD0CE",
+        "accent": "terracotta orange #C97B5A",
+        "block": "#000000"
+      },
+      "Autumn": {
+        "base": "#C8C4BC",
+        "accent": "ochre",
+        "block": "#3A2A1A"
+      },
+      "Winter": {
+        "base": "#D4D4D4",
+        "accent": "ice blue #7BA7C9",
+        "block": "#2A2A2A"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — geometric composition style, Bauhaus aesthetic\n\nA 9:16 vertical poster in strict Bauhaus geometric composition style. Absolutely flat, zero texture, zero gradient, zero shadow. The layout uses a rigid asymmetric grid with six fixed zones and a 1px bottom hairline spanning full width.\n\nBASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}, block color {BLOCK_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A square LOGO block (black background with a thin {ACCENT_COLOR} inner frame) next to the English company name \"{COMPANY_EN}\" in thin uppercase sans-serif with wide letter-spacing.\n- TOP-LEFT (below LOGO): A vertical date column — weekday \"{WEEKDAY}\" in all-caps thin sans-serif with wide tracking, an oversized bold serif numeral \"{DATE_NUMBER}\" (Didot/Bodoni style, visually dominant), and the month \"{MONTH}\" below. A vertical 1px hairline runs through this column.\n- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Pure geometric composition: rectangles, triangles, straight-line divisions, hard edges, no curves, no rounded corners. Colors limited to {BASE_COLOR}, {ACCENT_COLOR}, {BLOCK_COLOR}, and pure black/white. No perspective, no realistic detail, no photography.\n- BOTTOM-LEFT: Main title \"{MAIN_TITLE}\" in bold serif Chinese (thin horizontal strokes, thick vertical strokes), subtitle \"{SUBTITLE}\" in thin sans-serif below, followed by a horizontal 1px hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label \"扫码了解更多\" beneath it in small sans-serif.\n- FULL WIDTH BOTTOM: A single horizontal 1px hairline.\n\nMOOD: Rational, powerful, ordered. Bauhaus discipline. No promotional tone, no warmth, no softness.\n\nSTYLE REFERENCES: Bauhaus poster design, Josef Müller-Brockmann grid systems, Swiss International Typographic Style, hard-edge geometric abstraction.\n\nNEGATIVE: No curves, no rounded corners, no gradients, no shadows, no drop shadows, no 3D effects, no photography, no ink wash, no watercolor, no organic shapes, no decorative ornament, no promotional text, no sale banners, no emoji, no icons in contact area.",
+    "variants": [
+      {
+        "id": "bauhaus-primary",
+        "nameCn": "包豪斯原色",
+        "nameEn": "Bauhaus Primary",
+        "override": "STYLE VARIANT — BAUHAUS PRIMARY COLORS: Replace the block/accent colors with the Bauhaus primary triad — pure red #E63946, pure yellow #F4D35E, pure blue #1D3557 — on the cool gray base #CFD0CE. Bolder primary-color collisions, industrial Bauhaus aesthetics. All other layout rules unchanged."
+      },
+      {
+        "id": "swiss-grid",
+        "nameCn": "瑞士网格",
+        "nameEn": "Swiss Grid",
+        "override": "STYLE VARIANT — SWISS GRID TYPOGRAPHY: Enforce a strict 12-column grid; every element snaps to grid lines. More rigorous alignment, larger whitespace, finer block divisions and denser hairlines. Accent color subdued; typographic order dominates. All other layout rules unchanged."
+      }
+    ],
+    "defaultVariantName": "标准几何构成"
+  },
+  {
+    "id": "warm-retro",
+    "num": "03",
+    "nameCn": "暖光复古风",
+    "nameEn": "Warm Retro",
+    "desc": "做旧纸张质感、双层边框、大地色系扁平插画",
+    "visual": "Flat geometric illustration",
+    "category": "retro",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "daily",
+        "solar"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "a vintage gramophone on a wooden table, warm amber light, retro flat illustration",
+      "an old-fashioned bicycle leaning against a brick wall, golden hour, flat retro style"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F0E6",
+        "main": "tender olive-green",
+        "accent": "pale apricot"
+      },
+      "Summer": {
+        "base": "#F5F0E6",
+        "main": "#C67B4B",
+        "accent": "#8B8B5E"
+      },
+      "Autumn": {
+        "base": "#F5F0E6",
+        "main": "ochre-brown",
+        "accent": "caramel-orange"
+      },
+      "Winter": {
+        "base": "#F5F0E6",
+        "main": "gray-brown",
+        "accent": "warm-white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — warm retro wabi-sabi style\n\nA 9:16 vertical poster in retro-warm wabi-sabi style. Aged-paper texture with fine noise grain and slight edge vignette. A global double-line nested border (outer coffee-brown 1px + inner pale-cream 1px, 8–12px gap). Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, main color {MAIN_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom, all inside the double border):\n- TOP-CENTER: A small geometric LOGO symbol (hexagon outline).\n- UPPER AREA: Left side — weekday \"{WEEKDAY}\" + large serif date numeral \"{DATE_NUMBER}\" (Didot/Bodoni, strong stroke contrast). Right side — label \"今日主题\" + main title \"{MAIN_TITLE}\" in Song/Mincho (thin horizontal, thick vertical).\n- CENTER: The main visual — a flat geometric illustration: {MAIN_VISUAL_DESC}. A thin horizontal line above and below the illustration. Colors limited to {BASE_COLOR}, {MAIN_COLOR}, {ACCENT_COLOR}. No perspective, no realism.\n- BELOW MAIN VISUAL: Subtitle \"{SUBTITLE}\" in thin Song/kai type, poetic feel.\n- BOTTOM-LEFT: Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Aged yellow-cream paper ({BASE_COLOR}) with fine noise grain and slight edge vignette simulating old paper.\n\nMOOD: Warm, poetic, everyday, nostalgic. No cold rigidity, no promotional tone.\n\nSTYLE REFERENCES: Vintage botanical book illustration, wabi-sabi aesthetics, muted earth-tone palettes, aged paper texture, flat geometric illustration.\n\nNEGATIVE: No photography, no 3D render, no ink wash, no cold gray tones, no high saturation, no gradient background, no missing double border, no arc decorations, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "light-shadow",
+    "num": "04",
+    "nameCn": "光影留白风",
+    "nameEn": "Light & Shadow",
+    "desc": "建筑摄影、引线标注、色块介入、极大留白",
+    "visual": "Architectural photography",
+    "category": "texture",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "business",
+        "daily"
+      ],
+      "visualType": "photo"
+    },
+    "descType": "abstract",
+    "examples": [
+      "minimalist concrete staircase, strong directional light casting geometric shadows",
+      "a modern glass facade with sharp light reflections, architectural photography"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F3EF",
+        "block": "tender-green"
+      },
+      "Summer": {
+        "base": "#F5F3EF",
+        "block": "#A8B4C4"
+      },
+      "Autumn": {
+        "base": "#F5F3EF",
+        "block": "ochre-gray"
+      },
+      "Winter": {
+        "base": "#F5F3EF",
+        "block": "ice-gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — light & shadow neo-minimalist architectural style\n\nA 9:16 vertical poster in neo-minimalist light & shadow style. No borders. Pure whitespace-driven layout (~35–40% blank). Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, intervention-block color {BLOCK_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: Company name \"{COMPANY_EN}\" in small sans-serif, left-aligned.\n- TOP-RIGHT: Date numeral \"{DATE_NUMBER}\" inside a 1px thin-line rounded-rectangle frame, right-aligned.\n- CENTER (offset left): The main visual — architectural/spatial photography: {MAIN_VISUAL_DESC}. Low saturation, low contrast, slight faded look. Must include one circular light spot as the sole highlight. The photo occupies ~55% of canvas, does NOT touch any edge (not full-bleed). May include 1–2 architectural leader-line annotations.\n- BOTTOM-LEFT: Main title \"{MAIN_TITLE}\" in bold Song/large-title Song, subtitle \"{SUBTITLE}\" in thin sans-serif below, followed by a short hairline (not full-width). Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: 1–2 low-saturation cold-color geometric blocks ({BLOCK_COLOR}) stacked, with a small 1:1 QR code placeholder (15–18% of zone width) and \"扫码了解更多\" beneath.\n\nBACKGROUND: Warm-tone cream/oat ({BASE_COLOR}) with fine paper noise.\n\nMOOD: Quiet, sophisticated, spatial, de-advertised. No promotional tone, no clutter.\n\nSTYLE REFERENCES: Kinfolk magazine, architectural digest minimalism, faded-film photography, Hélène Binet architectural photography, Swiss whitespace design.\n\nNEGATIVE: No illustration, no 3D render, no ink wash, no borders, no full-bleed photography, no decorative arcs, no gradient background, no high-saturation blocks, no missing light-spot anchor, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "silent-humanist",
+    "num": "05",
+    "nameCn": "静默人文风",
+    "nameEn": "Silent Humanist",
+    "desc": "建筑光影摄影、书法标题、单色暖调三段式",
+    "visual": "Architectural photography",
+    "category": "texture",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "business",
+        "daily"
+      ],
+      "visualType": "photo"
+    },
+    "descType": "texture",
+    "examples": [
+      "a weathered stone wall with a single shaft of warm light, architectural detail",
+      "an empty corridor with arched windows, warm monochrome tones, meditative silence"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F0E8",
+        "tone": "tender-brown",
+        "shadow": "pale-green"
+      },
+      "Summer": {
+        "base": "#F5F0E8",
+        "tone": "caramel-brown",
+        "shadow": "deep-green"
+      },
+      "Autumn": {
+        "base": "#F5F0E8",
+        "tone": "ochre-brown",
+        "shadow": "warm-orange"
+      },
+      "Winter": {
+        "base": "#F5F0E8",
+        "tone": "gray-brown",
+        "shadow": "silver-gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — silent humanist style, architectural light & shadow\n\nA 9:16 vertical poster in silent-humanist style. Strict three-band layout with two horizontal hairline dividers (pale-brown), no enclosing border. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, main tone {MAIN_TONE}, tree-shadow color {SHADOW_COLOR}. Pure monochrome warm — absolutely no cold colors.\n\nLAYOUT (three bands, top to bottom):\n- BAND 1 (HEADER): Left — geometric single-line LOGO + Chinese company name \"{COMPANY_CN}\" + English name \"{COMPANY_EN}\". Right — weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\", no frame, direct typesetting. Below the header: a horizontal hairline spanning the content area.\n- BAND 2 (MAIN VISUAL, ~55%): Architectural/spatial photography: {MAIN_VISUAL_DESC}. Low-saturation warm tone, golden-hour light. Must include diagonal tree-shadow or light projection. Deliberately de-digitalized — no gradient, no drop-shadow, no gloss. Matte art-paper feel.\n- Below main visual: a second horizontal hairline.\n- BAND 3 (FOOTER): Main title \"{MAIN_TITLE}\" in calligraphic Song (thin horizontal, thick vertical, flying-white visible), subtitle \"{SUBTITLE}\" in thin hei below. Three lines of plain contact text (standard hei, no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Warm gray-white/cream ({BASE_COLOR}) simulating matte art paper.\n\nMOOD: Silent, powerful, humanistic, warm. No promotional tone, no visual noise.\n\nSTYLE REFERENCES: Tadao Ando architectural photography, Hélène Binet, golden-hour light studies, matte art-paper printing, calligraphic Chinese typography.\n\nNEGATIVE: No illustration, no 3D render, no cold colors, no borders, no color-block interventions, no leader-line annotations, no gradient, no drop-shadow, no gloss, no missing tree-shadow/light direction, no non-calligraphic title font, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "tech-streamer",
+    "num": "06",
+    "nameCn": "科技流光风",
+    "nameEn": "Tech Streamer",
+    "desc": "3D渲染抽象图形、冰蓝渐变、粒子系统、体积光效",
+    "visual": "3D-rendered abstract graphic",
+    "category": "business",
+    "tags": {
+      "temp": "cool",
+      "sat": "mid",
+      "scene": [
+        "tech",
+        "business"
+      ],
+      "visualType": "3d"
+    },
+    "descType": "abstract",
+    "examples": [
+      "a sleek 3D-rendered abstract sphere with ice-blue gradients and particle effects",
+      "floating geometric 3D forms with glass-morphism, cool blue volumetric lighting"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFFFFF→#F0F4F8",
+        "gradient": "tender emerald-green",
+        "particle": "silver-gray"
+      },
+      "Summer": {
+        "base": "#FFFFFF→#F0F4F8",
+        "gradient": "#0066FF→#00CCFF",
+        "particle": "silver-gray"
+      },
+      "Autumn": {
+        "base": "#FFFFFF→#F0F4F8",
+        "gradient": "amber-gold",
+        "particle": "warm-gray"
+      },
+      "Winter": {
+        "base": "#FFFFFF→#F0F4F8",
+        "gradient": "misty purple-silver",
+        "particle": "ice-white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — tech streamer style, 3D-rendered abstract graphics\n\nA 9:16 vertical poster in tech-streamer style. The layout uses an asymmetric grid with no borders, driven by negative space (~35% whitespace). Six fixed zones.\n\nBASE: {SEASON} palette — base gradient {BASE_COLOR}, 3D graphic gradient {GRADIENT_COLOR}, particle color {PARTICLE_COLOR}, text color #0A2540.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: Company name \"{COMPANY_EN}\" in ultra-thin (Light/Thin) all-caps sans-serif with wide letter-spacing, left-aligned. Small geometric LOGO mark beside it.\n- TOP-RIGHT: Date \"{DATE_LABEL}\" in monospaced numerals, right-aligned, with a short horizontal hairline anchor beneath.\n- CENTER (offset upper-left): The main visual — a 3D-rendered abstract graphic: {MAIN_VISUAL_DESC}. Must include a glass torus/ring with Fresnel reflection and caustics, a floating slab tilted ~25°, glowing volumetric light-track arcs, and a drifting particle system ({PARTICLE_COLOR}). Materials: optical glass, liquid metal, frosted acrylic, condensation droplets, bloom glow. The 3D graphic occupies ~50% of the canvas, offset to the upper-left, leaving a large negative space on the right. NOT centered.\n- BOTTOM-LEFT: Main title \"{MAIN_TITLE}\" in ultra-bold (Heavy/Black) sans-serif with negative-space compression, subtitle \"{SUBTITLE}\" in regular sans-serif below, followed by a short hairline. Below the hairline, three lines of plain contact text in #0A2540 (no icons, no bullets, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label \"扫码了解更多\" beneath it.\n\nBACKGROUND: Cool-white to light-gray gradient ({BASE_COLOR}) with ultra-faint grid lines and slight noise texture.\n\nMOOD: Digital futurism, forward-looking, trustworthy, warm-tech. No promotional tone, no corporate rigidity.\n\nSTYLE REFERENCES: Apple keynote visuals, 3D glassmorphism, Octane/Cycles render aesthetics, volumetric lighting, caustics, particle simulations.\n\nNEGATIVE: No illustration, no photography, no 2D flat design, no warm-toned palette, no high-saturation clashing colors, no centered 3D graphic, no information clutter, no borders, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "ink-wash",
+    "num": "07",
+    "nameCn": "新中式水墨风",
+    "nameEn": "New Chinese Ink Wash",
+    "desc": "数字水墨山水、如意云头框、竹枝破边、禅意留白",
+    "visual": "Digital ink-wash landscape illustration",
+    "category": "guofeng",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "solar",
+        "culture"
+      ],
+      "visualType": "ink"
+    },
+    "descType": "narrative",
+    "examples": [
+      "misty mountain range with layered ink wash, three-depth perspective, bamboo branch breaking the frame",
+      "a solitary boat on a vast empty river, digital ink wash, vast negative space"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F0E8",
+        "hue": "blue-green + tender mineral green + pale apricot slopes"
+      },
+      "Summer": {
+        "base": "#F5F0E8",
+        "hue": "cyan-blue + deep azurite + ochre slopes"
+      },
+      "Autumn": {
+        "base": "#F5F0E8",
+        "hue": "ochre-brown + ochre dominant + caramel slopes"
+      },
+      "Winter": {
+        "base": "#F5F0E8",
+        "hue": "pure ink-wash + indigo cool tone + snow-white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — new Chinese ink wash style, Song-dynasty literati aesthetics\n\nA 9:16 vertical poster in new-Chinese ink-wash style. No enclosing border. Whitespace-driven 3:7 composition with ~50–60% blank space. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, landscape hue {LANDSCAPE_HUE}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small geometric modern LOGO mark.\n- TOP-RIGHT: The solar-term label \"{SOLAR_TERM}\" set in Song/imitation-Song type, enclosed in a ruyi-cloud-head frame (traditional auspicious motif, four corners curling inward, double-line border).\n- TOP-RIGHT EDGE: A bamboo branch slanting in from outside the frame, rendered in white-outline (白描) with pale ink wash. This is a core identity element — must be present.\n- CENTER: The main visual — a digital ink-wash landscape: {MAIN_VISUAL_DESC}. Must have four-layer depth: distant mountains (boneless pale ink, 30–40% opacity) fading into mist, midground (textured strokes, 50–60%), foreground (dense ink, 80–100%), and an ochre slope. Must include a pure-white sun circle as a breathing anchor and a solitary pine on the slope (guest-welcoming pine silhouette). ~55% of canvas area, with ~60% whitespace above.\n- BOTTOM-LEFT: Main title \"{MAIN_TITLE}\" in calligraphic kai/wei-bei script with stroke modulation and flying-white (飞白), subtitle \"{SUBTITLE}\" in thin Song type below. Three lines of plain contact text (modern sans-serif, no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with the label \"扫码了解更多\" beneath it.\n\nBACKGROUND: Xuan-paper rice white ({BASE_COLOR}) with fine texture noise and antique-book atmosphere. Ink-bleed edges with water-stain bleeding effect. Mineral-pigment grain.\n\nMOOD: Song-dynasty literati, Zen, elegant, culturally deep. No folkloric saturation, no promotional tone.\n\nSTYLE REFERENCES: Song-dynasty landscape painting (郭熙, 范宽), digital ink-wash illustration, xuan-paper texture, traditional Chinese auspicious motifs, literati aesthetics.\n\nNEGATIVE: No photography, no 3D render, no flat geometric design, no high-saturation red-green folkloric colors, no full-bleed composition, no full-frame border, no missing bamboo branch, no less than four depth layers, no calligraphy title replaced by modern font, no promotional banners, no emoji, no icons in contact area.",
+    "variants": [
+      {
+        "id": "xieyi",
+        "nameCn": "写意笔触",
+        "nameEn": "Xieyi Freehand",
+        "override": "STYLE VARIANT — XIEYI FREEHAND BRUSHWORK: Switch the ink technique to spontaneous splash-ink (pomo) — bold sweeping strokes, fewer fine texture strokes, stronger void-versus-solid contrast, larger jumps in ink tonal range, whitespace raised to 60-70%. The lone pine and bamboo rendered as loose freehand accents. All other layout rules unchanged."
+      }
+    ],
+    "defaultVariantName": "工笔山水（默认）"
+  },
+  {
+    "id": "paper-light-craft",
+    "num": "08",
+    "nameCn": "晨光纸艺风",
+    "nameEn": "Paper Light Craft",
+    "desc": "层叠纸张撕裂毛边、压花植物、金色光源、窗格阴影",
+    "visual": "Paper-craft collage + pressed flower",
+    "category": "texture",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "solar",
+        "daily"
+      ],
+      "visualType": "collage"
+    },
+    "descType": "texture",
+    "examples": [
+      "layered torn paper forming a mountain landscape, golden light filtering through paper gaps",
+      "a pressed flower arrangement on layered paper, warm window shadow play"
+    ],
+    "seasons": {
+      "Spring": {
+        "top": "#4A5D3A",
+        "mid": "#8B9D6E",
+        "bottom": "#F5F0E6",
+        "light": "#E8C84B",
+        "plant": "tender-green"
+      },
+      "Summer": {
+        "top": "#5D3A1A",
+        "mid": "#6B7B4C",
+        "bottom": "#F5F0E6",
+        "light": "#E8A84B",
+        "plant": "deep-green"
+      },
+      "Autumn": {
+        "top": "#4A2E15",
+        "mid": "#D4854A",
+        "bottom": "#EDE0CC",
+        "light": "#D4943A",
+        "plant": "dry-yellow"
+      },
+      "Winter": {
+        "top": "#3D3D3D",
+        "mid": "#8B9BA8",
+        "bottom": "#F0EDE8",
+        "light": "#D4C88A",
+        "plant": "silver-gray dry branch"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — morning-light paper craft collage style\n\nA 9:16 vertical poster in morning-light paper-craft style. Three-band color-block zoning: dark top (~15%), warm mid (~50%), light bottom (~35%). Six fixed zones. Global paper-fiber texture with torn/feathered edges and fine handmade noise.\n\nBASE: {SEASON} palette — top {TOP_COLOR}, mid {MID_COLOR}, bottom {BOTTOM_COLOR}, light source {LIGHT_COLOR}, plant {PLANT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP BLOCK (~15%, color {TOP_COLOR}): Left — small LOGO. Right — weekday \"{WEEKDAY}\" + large serif date \"{DATE_NUMBER}\" (Didot/Bodoni) + month \"{MONTH}\" in all-caps thin sans-serif.\n- MID BLOCK (~50%, color {MID_COLOR}): The main visual — a paper-craft collage: {MAIN_VISUAL_DESC}. Must include: (1) at least 2–3 layered paper sheets with irregular torn/feathered edges creating z-axis depth; (2) a golden amber circular light source ({LIGHT_COLOR}) casting a window-grid shadow (cross or tic-tac-toe pattern); (3) a pressed/dried flower specimen ({PLANT_COLOR}, slender stems with veins, NOT fresh flower, NOT watercolor); (4) 1–2 pieces of semi-transparent cream washi tape fixing paper layers.\n- BOTTOM BLOCK (~35%, color {BOTTOM_COLOR}): Label \"今日主题\" + main title \"{MAIN_TITLE}\" in Chinese serif/Song (thin horizontal, thick vertical), subtitle \"{SUBTITLE}\" in thin Song/kai. Three lines of plain contact text (standard sans-serif, no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nTEXTURE: Global paper-fiber grain, torn paper edges, fine noise. Handmade feel.\n\nMOOD: Warm, handmade, poetic, slow-living, mindful. No digital slickness, no promotional noise.\n\nSTYLE REFERENCES: Pressed-flower botanical specimens, washi-tape collage art, kraft-paper craft, morning window light, handmade paper texture, Jenny Bowers illustration.\n\nNEGATIVE: No photography, no 3D render, no flat geometric illustration, no smooth gradient, no digital gloss, no fresh flowers, no watercolor, no missing color-block zoning, no arc decorations (except circular light), no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "vintage-poster",
+    "num": "09",
+    "nameCn": "复古美式Vintage画报风",
+    "nameEn": "Vintage Poster",
+    "desc": "暖棕焦糖色调、旧纸张做旧颗粒、复古几何边框",
+    "visual": "Retro poster illustration",
+    "category": "retro",
+    "tags": {
+      "temp": "warm",
+      "sat": "mid",
+      "scene": [
+        "daily",
+        "culture"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "a classic 1950s diner scene with a jukebox, warm caramel tones, vintage poster style",
+      "a retro gasoline pump at sunset, faded paper texture, vintage advertisement aesthetic"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#E8DCC8",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#E8DCC8",
+        "accent": "caramel orange #C67B4B"
+      },
+      "Autumn": {
+        "base": "#E0D4C0",
+        "accent": "ochre brown"
+      },
+      "Winter": {
+        "base": "#E8DCC8",
+        "accent": "gray-brown"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — vintage American poster style\n\nA 9:16 vertical poster in vintage American poster style. Aged-paper grain, warm caramel-brown tones, retro geometric corner frames and double-line border. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom, all inside the double border):\n- TOP-LEFT: A small retro emblem LOGO beside the English company name \"{COMPANY_EN}\" in condensed vintage sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in retro slab-serif with wide tracking.\n- CENTER (large area): The main visual — a retro poster illustration: {MAIN_VISUAL_DESC}. Warm caramel tones, bold flat shapes, vintage halftone dot texture, aged-paper grain overlay. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold condensed serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Aged warm cream ({BASE_COLOR}) with fine noise grain, slight vignette, and faint halftone print marks.\n\nMOOD: Nostalgic, warm, vintage editorial. No promotional tone.\n\nSTYLE REFERENCES: 1950s American travel posters, WPA poster aesthetic, vintage botanical book illustration, aged paper texture, halftone print.\n\nNEGATIVE: No photography, no 3D render, no high-saturation clashing colors, no cold tones, no smooth gradients, no modern flat design, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "cyberpunk",
+    "num": "10",
+    "nameCn": "赛博朋克Cyberpunk",
+    "nameEn": "Cyberpunk",
+    "desc": "蓝紫冷调霓虹光效、雨夜朦胧光影、故障艺术glitch",
+    "visual": "Cyberpunk city illustration",
+    "category": "texture",
+    "tags": {
+      "temp": "cool",
+      "sat": "high",
+      "scene": [
+        "tech",
+        "daily"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "mood",
+    "examples": [
+      "a neon-lit rainy alley in a futuristic city, holographic signs reflecting in puddles",
+      "a lone figure under a glowing cyberpunk sign, blue-purple neon, rain and fog"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#0A0E27",
+        "neon": "neon green #39FF14"
+      },
+      "Summer": {
+        "base": "#0A0E27",
+        "neon": "neon magenta #FF00FF"
+      },
+      "Autumn": {
+        "base": "#0A0E27",
+        "neon": "neon amber #FF9E00"
+      },
+      "Winter": {
+        "base": "#0A0E27",
+        "neon": "neon ice-blue #00FFFF"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — cyberpunk neon city style\n\nA 9:16 vertical poster in cyberpunk style. Dark blue-purple cold tone, neon light effects, rainy-night atmosphere, glitch art elements. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, neon accent {NEON_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small geometric neon-outline LOGO beside the English company name \"{COMPANY_EN}\" in thin futuristic sans-serif with glow effect.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in monospaced neon-glow type.\n- CENTER (large area): The main visual — a cyberpunk city illustration: {MAIN_VISUAL_DESC}. Dark blue-purple base, neon glow accents ({NEON_COLOR}), rain streaks, reflective wet surfaces, holographic light leaks, subtle glitch artifacts. Dramatic high-contrast lighting.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold futuristic sans-serif with neon glow, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Deep dark blue-purple ({BASE_COLOR}) with subtle rain texture, neon bokeh, and faint scan-line glitch.\n\nMOOD: Futuristic, edgy, neon-lit, cinematic. No promotional tone.\n\nSTYLE REFERENCES: Blade Runner aesthetic, cyberpunk game key art, neon signage photography, glitch art, synthwave visuals.\n\nNEGATIVE: No warm-tone palette, no daytime bright scenes, no flat 2D illustration, no soft pastel colors, no cartoon style, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "morandi",
+    "num": "11",
+    "nameCn": "莫兰迪肌理风",
+    "nameEn": "Morandi Texture",
+    "desc": "低饱和灰调柔色、朦胧柔和色块、哑光纸张肌理",
+    "visual": "Morandi abstract blocks",
+    "category": "texture",
+    "tags": {
+      "temp": "neutral",
+      "sat": "gray",
+      "scene": [
+        "daily",
+        "culture"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "soft muted still life with a vase and fruit, morandi color palette, hazy atmosphere",
+      "overlapping geometric shapes in muted gray-pink tones, quiet and contemplative"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#D4CFC9",
+        "accent": "muted gray-green"
+      },
+      "Summer": {
+        "base": "#D4CFC9",
+        "accent": "muted gray-blue"
+      },
+      "Autumn": {
+        "base": "#CCC4BC",
+        "accent": "muted gray-brown"
+      },
+      "Winter": {
+        "base": "#D8D4D0",
+        "accent": "muted gray-white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Morandi muted texture style\n\nA 9:16 vertical poster in Morandi style. Low-saturation muted gray-toned palette, soft hazy color blocks, matte paper texture. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small soft-edged LOGO mark beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in elegant light serif.\n- CENTER (large area): The main visual — Morandi abstract blocks: {MAIN_VISUAL_DESC}. Muted gray-toned soft color blocks, hazy edges, matte texture, gentle diffused lighting. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. No sharp contrast.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in soft-weight serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Muted warm gray ({BASE_COLOR}) with fine matte paper grain and soft haze.\n\nMOOD: Quiet, elegant, understated, poetic. No promotional tone.\n\nSTYLE REFERENCES: Giorgio Morandi still-life paintings, muted gray-tone palettes, matte paper texture, minimalist soft color block design.\n\nNEGATIVE: No high saturation, no strong contrast, no neon colors, no photography, no 3D render, no sharp edges, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "minimal",
+    "num": "12",
+    "nameCn": "极简主义Minimal风",
+    "nameEn": "Minimal",
+    "desc": "大面积留白、单一主视觉、柔和干净底色",
+    "visual": "Minimalist flat blocks",
+    "category": "modern",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "business",
+        "daily"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "a single potted plant on a clean white surface, soft shadows, minimalist flat design",
+      "one bold geometric shape on a pastel background, ultra-clean minimal composition"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FAFAF8",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#FAFAF8",
+        "accent": "pale blue"
+      },
+      "Autumn": {
+        "base": "#FAFAF8",
+        "accent": "warm brown"
+      },
+      "Winter": {
+        "base": "#FAFAF8",
+        "accent": "cool gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — minimalist style\n\nA 9:16 vertical poster in strict minimalist style. Large-scale whitespace (~45–50% blank), single dominant visual, clean soft base color. Six fixed zones. No decorative borders.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: Company name \"{COMPANY_EN}\" in ultra-thin sans-serif, left-aligned.\n- TOP-RIGHT: Date numeral \"{DATE_NUMBER}\" in large light sans-serif, right-aligned, with weekday \"{WEEKDAY}\" and month \"{MONTH}\" in small caps below.\n- CENTER (offset, single element): The main visual — a minimalist flat block composition: {MAIN_VISUAL_DESC}. One single clean visual element, maximum negative space, subtle accent color ({ACCENT_COLOR}) used sparingly. No clutter.\n- BOTTOM-LEFT: Main title \"{MAIN_TITLE}\" in light-weight sans-serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Clean soft off-white ({BASE_COLOR}) with no texture.\n\nMOOD: Calm, clean, spacious, refined. No promotional tone.\n\nSTYLE REFERENCES: Dieter Rams design principles, Apple minimalist aesthetic, Swiss whitespace design, Muji catalog layout.\n\nNEGATIVE: No decoration, no patterns, no gradients, no textures, no multiple visual elements, no borders, no photography, no 3D render, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "memphis",
+    "num": "13",
+    "nameCn": "孟菲斯Memphis风",
+    "nameEn": "Memphis",
+    "desc": "高饱和撞色几何、圆点波浪线条、自由趣味构图",
+    "visual": "Memphis geometric collage",
+    "category": "modern",
+    "tags": {
+      "temp": "warm",
+      "sat": "high",
+      "scene": [
+        "daily",
+        "festival"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "colorful memphis-style geometric shapes, zigzag lines and dots on a bright background",
+      "playful composition of circles, triangles and squiggly lines, bold primary colors"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFFFFF",
+        "accent": "pink #FF6B9D",
+        "pattern": "green #4CAF50"
+      },
+      "Summer": {
+        "base": "#FFFFFF",
+        "accent": "blue #2196F3",
+        "pattern": "orange #FF9800"
+      },
+      "Autumn": {
+        "base": "#FFFFFF",
+        "accent": "red #F44336",
+        "pattern": "brown #795548"
+      },
+      "Winter": {
+        "base": "#FFFFFF",
+        "accent": "blue #3F51B5",
+        "pattern": "purple #9C27B0"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Memphis design style\n\nA 9:16 vertical poster in Memphis design style. High-saturation clashing geometric shapes, polka dots, wavy lines, zigzag patterns, free playful composition. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}, pattern {PATTERN_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small bold geometric LOGO (triangle or circle) beside the English company name \"{COMPANY_EN}\" in bold rounded sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in bold playful sans-serif with mixed colors.\n- CENTER (large area): The main visual — a Memphis geometric collage: {MAIN_VISUAL_DESC}. Bold clashing shapes (triangles, circles, squiggles, zigzags, polka dots), high-saturation colors ({ACCENT_COLOR}, {PATTERN_COLOR}), playful asymmetrical composition. Flat design, no shadows.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold rounded sans-serif Chinese, subtitle \"{SUBTITLE}\" in regular sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Clean white ({BASE_COLOR}) scattered with small geometric pattern dots and lines in {PATTERN_COLOR}.\n\nMOOD: Playful, energetic, bold, fun. No promotional tone.\n\nSTYLE REFERENCES: Memphis Group (Ettore Sottsass), 1980s postmodern design, bold geometric patterns, clashing color palettes.\n\nNEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no realistic illustration, no gradients, no shadows, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "forest",
+    "num": "14",
+    "nameCn": "自然森系简约风",
+    "nameEn": "Forest Minimal",
+    "desc": "虚化绿植柔光背景、低饱和草木色系、清新自然",
+    "visual": "Nature plant photography",
+    "category": "modern",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "solar",
+        "daily"
+      ],
+      "visualType": "photo"
+    },
+    "descType": "narrative",
+    "examples": [
+      "soft-focus green foliage with dappled sunlight, natural bokeh, fresh and serene",
+      "a single leaf with morning dew, soft green background, natural photography"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F0F2EC",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#F0F2EC",
+        "accent": "deep green"
+      },
+      "Autumn": {
+        "base": "#F0F2EC",
+        "accent": "withered yellow"
+      },
+      "Winter": {
+        "base": "#F0F2EC",
+        "accent": "silver gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — forest natural minimalist style\n\nA 9:16 vertical poster in forest-natural minimalist style. Blurred soft-focus greenery background, low-saturation plant-tone palette, fresh and natural atmosphere. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small leaf-outline LOGO beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in light serif.\n- CENTER (large area): The main visual — nature plant photography: {MAIN_VISUAL_DESC}. Soft-focus blurred greenery background, gentle natural light, low saturation, fresh atmosphere. Accent color ({ACCENT_COLOR}) in subtle plant details. Shallow depth of field.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in light serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Soft pale green-gray ({BASE_COLOR}) with faint blurred plant shadows and natural light diffusion.\n\nMOOD: Fresh, natural, calm, healing. No promotional tone.\n\nSTYLE REFERENCES: Nature photography, botanical minimalist design, soft-focus bokeh, Muji natural aesthetic, slow-living lifestyle.\n\nNEGATIVE: No high saturation, no strong contrast, no urban scenes, no illustration, no 3D render, no sharp focus, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "popart",
+    "num": "15",
+    "nameCn": "波普Pop Art风",
+    "nameEn": "Pop Art",
+    "desc": "粗黑轮廓线、高对比撞色、丝网印刷网点肌理",
+    "visual": "Pop art illustration",
+    "category": "retro",
+    "tags": {
+      "temp": "warm",
+      "sat": "high",
+      "scene": [
+        "daily",
+        "festival"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "mood",
+    "examples": [
+      "a bold pop-art portrait with thick black outlines, halftone dots, high-contrast colors",
+      "a retro comic book explosion graphic with primary colors and ben-day dots"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFD23F",
+        "accent": "pink #FF6B9D",
+        "outline": "black"
+      },
+      "Summer": {
+        "base": "#FFD23F",
+        "accent": "blue #2196F3",
+        "outline": "black"
+      },
+      "Autumn": {
+        "base": "#FFD23F",
+        "accent": "orange #FF5722",
+        "outline": "black"
+      },
+      "Winter": {
+        "base": "#FFFFFF",
+        "accent": "blue #3F51B5",
+        "outline": "black"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Pop Art style\n\nA 9:16 vertical poster in Pop Art style. Bold black outline, high-contrast clashing colors, silkscreen halftone dot texture. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}, outline {OUTLINE_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small bold pop-art LOGO (speech-bubble or star shape with thick black outline) beside the English company name \"{COMPANY_EN}\" in bold condensed sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in bold comic-book style type with black outline.\n- CENTER (large area): The main visual — a pop art illustration: {MAIN_VISUAL_DESC}. Thick black outlines ({OUTLINE_COLOR}), flat high-contrast colors ({BASE_COLOR}, {ACCENT_COLOR}), Ben-Day dot halftone pattern overlay, bold and graphic. No soft edges.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold black-outlined Chinese, subtitle \"{SUBTITLE}\" in bold sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Bold flat color ({BASE_COLOR}) with Ben-Day dot pattern overlay.\n\nMOOD: Bold, energetic, graphic, pop-culture. No promotional tone.\n\nSTYLE REFERENCES: Andy Warhol silkscreen prints, Roy Lichtenstein comic art, Ben-Day dot halftone, bold pop-culture color palettes.\n\nNEGATIVE: No photography, no 3D render, no soft edges, no muted tones, no gradients, no realistic illustration, no thin lines, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "ukiyo-e",
+    "num": "16",
+    "nameCn": "日式和风浮世绘",
+    "nameEn": "Ukiyo-e",
+    "desc": "浮世绘版画、莫兰迪传统色、云纹纹样、大量留白",
+    "visual": "Ukiyo-e woodblock illustration",
+    "category": "retro",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "culture",
+        "daily",
+        "solar"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "a traditional Japanese wave pattern with Mount Fuji in the distance, ukiyo-e woodblock style",
+      "a crane flying over a stylized river, traditional morandi-toned ukiyo-e print"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F0E8",
+        "accent": "cherry pink"
+      },
+      "Summer": {
+        "base": "#F5F0E8",
+        "accent": "cyan-blue"
+      },
+      "Autumn": {
+        "base": "#F5F0E8",
+        "accent": "ochre brown"
+      },
+      "Winter": {
+        "base": "#F5F0E8",
+        "accent": "indigo blue"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Japanese Ukiyo-e woodblock style\n\nA 9:16 vertical poster in Ukiyo-e woodblock print style. Traditional Morandi-toned palette, cloud-pattern motifs, large whitespace, flat color planes with woodblock texture. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small traditional seal-style LOGO beside the English company name \"{COMPANY_EN}\" in thin serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in vertical Japanese-style serif.\n- CENTER (large area): The main visual — a Ukiyo-e woodblock illustration: {MAIN_VISUAL_DESC}. Flat color planes, traditional cloud-pattern (雲紋) borders, woodblock grain texture, large whitespace above and below. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in Mincho/Song serif Chinese, subtitle \"{SUBTITLE}\" in thin kai style below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Warm rice-paper white ({BASE_COLOR}) with faint woodblock grain and traditional cloud-pattern motifs in corners.\n\nMOOD: Traditional, elegant, serene, culturally deep. No promotional tone.\n\nSTYLE REFERENCES: Hokusai and Hiroshige Ukiyo-e woodblock prints, traditional Japanese cloud patterns, Morandi-toned traditional colors, washi paper texture.\n\nNEGATIVE: No photography, no 3D render, no high-saturation modern colors, no gradients, no modern flat design, no sharp geometric shapes, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "wabisabi",
+    "num": "17",
+    "nameCn": "侘寂Wabi-sabi风",
+    "nameEn": "Wabi-sabi",
+    "desc": "大地低饱和色系、哑光粗糙肌理、极简自然元素",
+    "visual": "Wabi-sabi natural abstract",
+    "category": "retro",
+    "tags": {
+      "temp": "warm",
+      "sat": "gray",
+      "scene": [
+        "solar",
+        "culture"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "texture",
+    "examples": [
+      "a cracked ceramic bowl on a rough stone surface, earthy tones, wabi-sabi imperfection",
+      "a single dried branch in a weathered vase, muted natural tones, quiet beauty"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#E8E2D9",
+        "accent": "moss green"
+      },
+      "Summer": {
+        "base": "#E8E2D9",
+        "accent": "dried green"
+      },
+      "Autumn": {
+        "base": "#E8E2D9",
+        "accent": "ochre"
+      },
+      "Winter": {
+        "base": "#E8E2D9",
+        "accent": "silver gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Wabi-sabi style\n\nA 9:16 vertical poster in Wabi-sabi style. Earth-tone low-saturation palette, matte rough texture, minimal natural elements, imperfect beauty. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small imperfect hand-drawn LOGO beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in light serif with slight irregularity.\n- CENTER (large area, offset): The main visual — a wabi-sabi natural abstract: {MAIN_VISUAL_DESC}. Earth-tone low-saturation colors, matte rough texture, minimal natural elements (a branch, a stone, a crack), imperfect asymmetrical composition. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Large whitespace.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in calligraphic kai/Song Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Earth-tone warm gray ({BASE_COLOR}) with rough matte texture, irregular grain, and faint natural stains.\n\nMOOD: Serene, imperfect, natural, contemplative. No promotional tone.\n\nSTYLE REFERENCES: Japanese Wabi-sabi aesthetics, rough matte texture, earth-tone palettes, natural imperfection, Zen minimalism.\n\nNEGATIVE: No high saturation, no smooth surfaces, no perfect symmetry, no photography, no 3D render, no modern flat design, no gradients, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "republic",
+    "num": "18",
+    "nameCn": "民国复古风",
+    "nameEn": "Republic Era",
+    "desc": "泛黄宣纸、老式印刷颗粒、窗棂边框、竖排文字",
+    "visual": "Republic-era newspaper illustration",
+    "category": "retro",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "culture",
+        "daily"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "a vintage Chinese street scene with old-fashioned shop signs, yellowed paper texture",
+      "a traditional window lattice pattern with faded ink calligraphy, republican era aesthetic"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#EDE4D0",
+        "accent": "ink green"
+      },
+      "Summer": {
+        "base": "#EDE4D0",
+        "accent": "indigo blue"
+      },
+      "Autumn": {
+        "base": "#EDE4D0",
+        "accent": "ochre"
+      },
+      "Winter": {
+        "base": "#EDE4D0",
+        "accent": "gray ink"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Republic-era vintage style\n\nA 9:16 vertical poster in Republic-of-China-era vintage style. Yellowed xuan-paper base, old letterpress grain, window-lattice border frame, vertical typesetting elements. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom, all inside the window-lattice border):\n- TOP-CENTER: A small traditional seal LOGO beside the English company name \"{COMPANY_EN}\" in old-style serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in vertical old-style serif type.\n- CENTER (large area): The main visual — a Republic-era newspaper illustration: {MAIN_VISUAL_DESC}. Vintage line-engraving style, old letterpress grain, muted earth-tone colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Nostalgic aged feel.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in vertical Mincho/Song serif Chinese, subtitle \"{SUBTITLE}\" in horizontal thin kai below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Yellowed xuan-paper ({BASE_COLOR}) with old letterpress noise grain and faint ink-bleed stains.\n\nMOOD: Nostalgic, scholarly, vintage, cultural. No promotional tone.\n\nSTYLE REFERENCES: Republic-of-China-era newspaper illustration, old letterpress printing, window-lattice frame motifs, vintage xuan-paper texture, traditional Chinese seal design.\n\nNEGATIVE: No photography, no 3D render, no high saturation, no modern flat design, no smooth gradients, no neon colors, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "newguofeng",
+    "num": "19",
+    "nameCn": "新中式国风",
+    "nameEn": "New Guofeng",
+    "desc": "水墨晕染淡彩、简约山水竹叶祥云浅元素、青绿色系",
+    "visual": "New Chinese ink light elements",
+    "category": "guofeng",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "solar",
+        "culture"
+      ],
+      "visualType": "ink"
+    },
+    "descType": "narrative",
+    "examples": [
+      "modern Chinese-style ink mountains with subtle green wash, minimalist composition",
+      "a single bamboo leaf with ink wash, contemporary guofeng style, clean layout"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#EFF2EC",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#EFF2EC",
+        "accent": "cyan-blue"
+      },
+      "Autumn": {
+        "base": "#EFF2EC",
+        "accent": "ochre yellow"
+      },
+      "Winter": {
+        "base": "#EFF2EC",
+        "accent": "flower blue"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — New Chinese Guofeng style\n\nA 9:16 vertical poster in New Chinese Guofeng style. Ink-wash light-color diffusion, minimal landscape elements (mountains, bamboo, auspicious clouds), blue-green tone palette, large whitespace. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small modern Chinese-style LOGO beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in Song/imitation-Song serif.\n- CENTER (large area, offset): The main visual — New Chinese ink light elements: {MAIN_VISUAL_DESC}. Soft ink-wash diffusion, minimal landscape motifs (distant mountains, bamboo leaves, auspicious cloud outlines), pale watercolor tints in {ACCENT_COLOR}. Large whitespace above. Gentle, no heavy ink.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in calligraphic kai/Song Chinese, subtitle \"{SUBTITLE}\" in thin Song below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Pale blue-green rice-paper white ({BASE_COLOR}) with faint ink-wash diffusion and xuan-paper grain.\n\nMOOD: Elegant, fresh, culturally modern, serene. No promotional tone.\n\nSTYLE REFERENCES: New Chinese ink-wash illustration, modern Guofeng design, traditional blue-green landscape (青绿山水), xuan-paper texture, minimal auspicious motifs.\n\nNEGATIVE: No photography, no 3D render, no high-saturation folkloric red-gold, no heavy dense ink, no full-bleed composition, no modern flat geometric design, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "guochao",
+    "num": "20",
+    "nameCn": "国潮风",
+    "nameEn": "Guochao",
+    "desc": "传统纹样+粗几何色块、红金撞色、扁平化国风图案",
+    "visual": "Guochao flat pattern",
+    "category": "guofeng",
+    "tags": {
+      "temp": "warm",
+      "sat": "high",
+      "scene": [
+        "festival",
+        "culture"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "mood",
+    "examples": [
+      "bold Chinese traditional pattern with red and gold, flat guochao graphic design",
+      "a stylized dragon motif with geometric cloud patterns, national tide aesthetic"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#C8102E",
+        "gold": "#D4AF37",
+        "pattern": "pink green"
+      },
+      "Summer": {
+        "base": "#C8102E",
+        "gold": "#D4AF37",
+        "pattern": "cyan blue"
+      },
+      "Autumn": {
+        "base": "#C8102E",
+        "gold": "#D4AF37",
+        "pattern": "ochre yellow"
+      },
+      "Winter": {
+        "base": "#C8102E",
+        "gold": "#D4AF37",
+        "pattern": "ink black"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Guochao (Chinese trend) style\n\nA 9:16 vertical poster in Guochao style. Traditional patterns combined with bold geometric color blocks, red-gold clashing palette, flat national-style design. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}, pattern {PATTERN_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small bold traditional-style LOGO beside the English company name \"{COMPANY_EN}\" in bold sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in bold serif with gold accent.\n- CENTER (large area): The main visual — a Guochao flat pattern illustration: {MAIN_VISUAL_DESC}. Bold traditional motifs (cloud patterns, wave patterns, folk elements) rendered in flat geometric style, red base ({BASE_COLOR}) with gold details ({GOLD_COLOR}) and pattern accents ({PATTERN_COLOR}). High-impact, bold, graphic.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold serif Chinese with gold accent, subtitle \"{SUBTITLE}\" in sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Bold traditional red ({BASE_COLOR}) with flat traditional pattern motifs in {PATTERN_COLOR} and gold trim ({GOLD_COLOR}).\n\nMOOD: Bold, festive, cultural, trendy. No promotional tone.\n\nSTYLE REFERENCES: Chinese trend (国潮) graphic design, traditional auspicious patterns, red-gold color schemes, flat national-style illustration, modern Chinese poster art.\n\nNEGATIVE: No photography, no 3D render, no muted tones, no soft pastels, no ink wash, no realistic illustration, no gradients, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "vaporwave",
+    "num": "21",
+    "nameCn": "蒸汽波Vaporwave",
+    "nameEn": "Vaporwave",
+    "desc": "粉紫青蓝霓虹渐变、复古柔焦光效、赛博复古肌理",
+    "visual": "Vaporwave gradient graphic",
+    "category": "euro",
+    "tags": {
+      "temp": "cool",
+      "sat": "high",
+      "scene": [
+        "tech",
+        "daily"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "mood",
+    "examples": [
+      "a vaporwave sunset with palm silhouettes, pink-purple gradient, retro-future aesthetic",
+      "a floating classical bust against a grid horizon, pink-cyan neon, vaporwave style"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFE0F0",
+        "gradient": "#FF71CE→#39FF14"
+      },
+      "Summer": {
+        "base": "#E0F0FF",
+        "gradient": "#FF71CE→#01CDFE"
+      },
+      "Autumn": {
+        "base": "#FFF0E0",
+        "gradient": "#FF71CE→#FF9E00"
+      },
+      "Winter": {
+        "base": "#F0F0FF",
+        "gradient": "#FF71CE→#FFFFFF"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Vaporwave style\n\nA 9:16 vertical poster in Vaporwave style. Pink-purple-cyan-blue neon gradient, retro soft-focus light effects, cyber-retro texture, 80s/90s aesthetic. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, gradient {GRADIENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small retro-digital LOGO beside the English company name \"{COMPANY_EN}\" in thin retro sans-serif with neon glow.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in retro digital/monospaced type with glow.\n- CENTER (large area): The main visual — a Vaporwave gradient graphic: {MAIN_VISUAL_DESC}. Pink-purple-cyan neon gradient ({GRADIENT_COLOR}), retro soft-focus glow, scan lines, grid horizon, Greek statue or palm silhouette elements, 80s/90s cyber-retro aesthetic. Dreamy, hazy, nostalgic.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold retro sans-serif Chinese with neon glow, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Soft pastel gradient base ({BASE_COLOR}) with neon gradient overlay ({GRADIENT_COLOR}), scan lines, and retro grid.\n\nMOOD: Dreamy, nostalgic, retro-futuristic, hazy. No promotional tone.\n\nSTYLE REFERENCES: Vaporwave aesthetic, 80s/90s retro digital art, Miami Vice color palette, synthwave gradients, retro Japanese city pop visuals.\n\nNEGATIVE: No photography, no 3D render, no earth tones, no muted palette, no realistic illustration, no sharp clean lines, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "baroque",
+    "num": "22",
+    "nameCn": "巴洛克风",
+    "nameEn": "Baroque",
+    "desc": "暗金浮雕卷草纹样、强烈光影对比、深色华贵基底",
+    "visual": "Baroque oil painting texture",
+    "category": "euro",
+    "tags": {
+      "temp": "warm",
+      "sat": "mid",
+      "scene": [
+        "culture",
+        "festival"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "ornate baroque scrollwork with gold relief on a dark background, dramatic oil painting texture",
+      "a baroque candle holder with warm chiaroscuro lighting, deep shadows, antique gold"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#2A1F14",
+        "gold": "#8B7355"
+      },
+      "Summer": {
+        "base": "#2A1F14",
+        "gold": "#8B7355"
+      },
+      "Autumn": {
+        "base": "#2A1F14",
+        "gold": "#8B7355"
+      },
+      "Winter": {
+        "base": "#2A1F14",
+        "gold": "#8B7355"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Baroque style\n\nA 9:16 vertical poster in Baroque style. Dark gold relief scrollwork, strong chiaroscuro light-shadow contrast, deep luxurious dark base. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-CENTER: A small ornate crest LOGO beside the English company name \"{COMPANY_EN}\" in elegant classical serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in classical serif with gold accent.\n- CENTER (large area): The main visual — a Baroque oil painting texture: {MAIN_VISUAL_DESC}. Dark dramatic background, strong directional light (chiaroscuro), gold relief scrollwork and acanthus-leaf ornament ({GOLD_COLOR}), rich deep tones. Opulent, theatrical, dramatic.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in elegant serif Chinese with gold accent, subtitle \"{SUBTITLE}\" in thin serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Deep dark brown-black ({BASE_COLOR}) with gold relief scrollwork ornaments ({GOLD_COLOR}) in corners and edges. Dramatic vignette.\n\nMOOD: Opulent, dramatic, luxurious, theatrical. No promotional tone.\n\nSTYLE REFERENCES: Baroque oil painting (Caravaggio, Rembrandt chiaroscuro), gold relief ornament, acanthus-leaf scrollwork, deep dark luxurious palettes, classical European poster design.\n\nNEGATIVE: No photography, no 3D render, no bright pastel colors, no flat design, no modern minimalism, no high-saturation neon, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "rococo",
+    "num": "23",
+    "nameCn": "洛可可风",
+    "nameEn": "Rococo",
+    "desc": "马卡龙浅柔色系、柔婉卷曲花纹、细腻浮雕质感",
+    "visual": "Rococo decorative illustration",
+    "category": "euro",
+    "tags": {
+      "temp": "warm",
+      "sat": "mid",
+      "scene": [
+        "daily",
+        "festival"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "narrative",
+    "examples": [
+      "delicate rococo floral scrollwork in pastel colors, soft relief texture, airy elegance",
+      "a rococo-style decorative border with shell motifs, dusty rose and cream tones"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#E8D5E0",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#D5E8E0",
+        "accent": "soft pink"
+      },
+      "Autumn": {
+        "base": "#E8DCC8",
+        "accent": "warm brown"
+      },
+      "Winter": {
+        "base": "#E0E8F0",
+        "accent": "silver blue"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — Rococo style\n\nA 9:16 vertical poster in Rococo style. Macaron soft pastel palette, gentle curving floral scrollwork, delicate relief texture, ornate yet light. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-CENTER: A small ornate shell-scroll LOGO beside the English company name \"{COMPANY_EN}\" in elegant flowing serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in flowing rococo serif.\n- CENTER (large area): The main visual — a Rococo decorative illustration: {MAIN_VISUAL_DESC}. Macaron pastel tones, gentle curving floral scrollwork borders, delicate relief texture, soft and ornate. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Light, airy, decorative.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in flowing serif Chinese, subtitle \"{SUBTITLE}\" in thin serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Soft macaron pastel ({BASE_COLOR}) with delicate curving floral scrollwork ornaments in corners and subtle relief texture.\n\nMOOD: Elegant, ornate, soft, romantic, decorative. No promotional tone.\n\nSTYLE REFERENCES: Rococo decorative art (Jean-Honoré Fragonard), shell and scroll motifs, macaron pastel palettes, delicate relief texture, French court ornament.\n\nNEGATIVE: No photography, no 3D render, no dark heavy tones, no high-saturation clashing colors, no flat geometric design, no modern minimalism, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "handdrawn",
+    "num": "24",
+    "nameCn": "肌理手绘扁平风",
+    "nameEn": "Hand-drawn Flat",
+    "desc": "柔和手绘笔触、纸张噪点肌理、低饱和色块",
+    "visual": "Hand-drawn flat illustration",
+    "category": "texture",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "daily",
+        "solar"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "texture",
+    "examples": [
+      "a hand-drawn illustration of a cozy cafe scene, warm earthy tones, paper texture",
+      "a simple hand-drawn plant with watercolor spots, healing and warm atmosphere"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F5F0E8",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#F5F0E8",
+        "accent": "pale blue"
+      },
+      "Autumn": {
+        "base": "#F5F0E8",
+        "accent": "ochre orange"
+      },
+      "Winter": {
+        "base": "#F5F0E8",
+        "accent": "gray blue"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — hand-drawn flat texture style\n\nA 9:16 vertical poster in hand-drawn flat illustration style. Soft hand-drawn brush strokes, paper noise grain texture, low-saturation flat color blocks. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small hand-drawn LOGO beside the English company name \"{COMPANY_EN}\" in hand-drawn-style sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in hand-drawn serif.\n- CENTER (large area): The main visual — a hand-drawn flat illustration: {MAIN_VISUAL_DESC}. Soft hand-drawn brush outlines, paper noise grain overlay, flat low-saturation color blocks. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Warm, tactile, organic feel.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in hand-drawn-style Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Warm cream ({BASE_COLOR}) with paper noise grain and faint hand-drawn texture marks.\n\nMOOD: Warm, tactile, organic, friendly. No promotional tone.\n\nSTYLE REFERENCES: Hand-drawn illustration, paper texture grain, low-saturation flat color blocks, organic brush strokes, picture-book illustration.\n\nNEGATIVE: No photography, no 3D render, no high saturation, no smooth digital gradients, no sharp geometric vector, no glossy effects, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "filmgrain",
+    "num": "25",
+    "nameCn": "胶片颗粒风",
+    "nameEn": "Film Grain",
+    "desc": "胶片噪点肌理、暖调柔焦光影、虚化氛围感",
+    "visual": "Film photography texture",
+    "category": "texture",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "daily",
+        "culture",
+        "solar"
+      ],
+      "visualType": "photo"
+    },
+    "descType": "narrative",
+    "examples": [
+      "a sunlit park bench with film grain texture, warm faded colors, nostalgic photography",
+      "a street corner at dusk with heavy film noise, soft focus, amber tones"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#EDE5DC",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#EDE5DC",
+        "accent": "sea blue"
+      },
+      "Autumn": {
+        "base": "#EDE5DC",
+        "accent": "caramel"
+      },
+      "Winter": {
+        "base": "#EDE5DC",
+        "accent": "cool gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — film grain style\n\nA 9:16 vertical poster in film-grain photography style. Film noise grain texture, warm-tone soft-focus light, blurred atmospheric depth. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small minimal LOGO beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in light serif.\n- CENTER (large area): The main visual — film photography texture: {MAIN_VISUAL_DESC}. Warm-tone soft focus, film grain noise, light leaks, shallow depth of field, faded vintage feel. Accent color ({ACCENT_COLOR}) in subtle highlights. Atmospheric, dreamy, nostalgic.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in light serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Warm cream ({BASE_COLOR}) with film grain noise, subtle light leaks, and soft vignette.\n\nMOOD: Nostalgic, atmospheric, dreamy, warm. No promotional tone.\n\nSTYLE REFERENCES: 35mm film photography, faded vintage film tones, light leaks, film grain texture, analog photography aesthetic, Lomography.\n\nNEGATIVE: No digital sharpness, no 3D render, no illustration, no high saturation, no modern clean look, no flat vector design, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "blackgold",
+    "num": "26",
+    "nameCn": "轻奢极简黑金商务",
+    "nameEn": "Black Gold",
+    "desc": "深蓝/深灰哑光基底、细金色线条点缀、克制留白",
+    "visual": "Black gold minimalist graphic",
+    "category": "business",
+    "tags": {
+      "temp": "cool",
+      "sat": "low",
+      "scene": [
+        "business",
+        "tech"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "a minimalist black and gold geometric composition, luxury business aesthetic",
+      "an abstract gold line pattern on dark navy, sophisticated and refined"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#0F1923",
+        "gold": "#D4AF37"
+      },
+      "Summer": {
+        "base": "#0F1923",
+        "gold": "#D4AF37"
+      },
+      "Autumn": {
+        "base": "#0F1923",
+        "gold": "#D4AF37"
+      },
+      "Winter": {
+        "base": "#1A1A2E",
+        "gold": "#D4AF37"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — black gold luxury business style\n\nA 9:16 vertical poster in black-gold luxury minimalist business style. Deep blue/dark gray matte base, fine gold line accents, restrained whitespace, premium feel. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small fine-line gold LOGO beside the English company name \"{COMPANY_EN}\" in ultra-thin all-caps sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in thin serif with gold accent, right-aligned.\n- CENTER (offset, restrained): The main visual — a black gold minimalist graphic: {MAIN_VISUAL_DESC}. Dark matte background ({BASE_COLOR}), fine gold line elements ({GOLD_COLOR}), minimal composition, large negative space. Premium, understated, luxurious.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in ultra-thin sans-serif Chinese with gold accent line, subtitle \"{SUBTITLE}\" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Deep dark blue-gray ({BASE_COLOR}) matte finish with subtle fine gold line accents ({GOLD_COLOR}) and minimal decoration.\n\nMOOD: Premium, luxurious, restrained, sophisticated. No promotional tone.\n\nSTYLE REFERENCES: Luxury brand minimalism, black-gold premium design, fine-line gold detailing, dark matte finishes, high-end business aesthetics.\n\nNEGATIVE: No bright colors, no photography, no 3D render, no illustration, no high saturation, no decorative patterns, no gradients, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "techbiz",
+    "num": "27",
+    "nameCn": "理性科技商务风",
+    "nameEn": "Tech Business",
+    "desc": "蓝灰冷调、浅淡网格几何暗纹、利落细线分割",
+    "visual": "Tech business flat graphic",
+    "category": "business",
+    "tags": {
+      "temp": "cool",
+      "sat": "low",
+      "scene": [
+        "business",
+        "tech"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "a clean blue-gray geometric pattern with subtle grid lines, tech business aesthetic",
+      "an abstract data visualization with cool blue tones, flat tech design"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#EDF0F4",
+        "accent": "tender green"
+      },
+      "Summer": {
+        "base": "#EDF0F4",
+        "accent": "ice blue"
+      },
+      "Autumn": {
+        "base": "#EDF0F4",
+        "accent": "warm gray"
+      },
+      "Winter": {
+        "base": "#EDF0F4",
+        "accent": "silver gray"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — rational tech business style\n\nA 9:16 vertical poster in rational tech-business style. Blue-gray cool tone, faint grid geometric watermark, clean thin-line divisions, orderly layout. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small geometric tech LOGO beside the English company name \"{COMPANY_EN}\" in thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in monospaced sans-serif, right-aligned.\n- CENTER (large area): The main visual — a tech business flat graphic: {MAIN_VISUAL_DESC}. Blue-gray cool palette, faint grid lines, geometric data-visualization elements, clean thin-line divisions. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Orderly, rational, precise.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in bold sans-serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Thin horizontal divider line. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Light blue-gray ({BASE_COLOR}) with faint grid geometric watermark pattern and clean thin-line divisions.\n\nMOOD: Rational, precise, trustworthy, professional. No promotional tone.\n\nSTYLE REFERENCES: Tech corporate design, data-visualization aesthetics, Swiss grid systems, blue-gray cool palettes, clean professional layout.\n\nNEGATIVE: No warm tones, no photography, no 3D render, no illustration, no high saturation, no decorative ornaments, no hand-drawn elements, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "warmgold",
+    "num": "28",
+    "nameCn": "暖金温馨商务风",
+    "nameEn": "Warm Gold",
+    "desc": "米金浅棕柔和底色、细碎微光金箔质感、柔和漫射光影",
+    "visual": "Warm gold business flat",
+    "category": "business",
+    "tags": {
+      "temp": "warm",
+      "sat": "low",
+      "scene": [
+        "business",
+        "daily"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "a warm gold-toned abstract composition with soft micro-light particles",
+      "a minimalist golden line art on a cream background, warm and inviting"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F0E6D6",
+        "gold": "#D4AF37"
+      },
+      "Summer": {
+        "base": "#F0E6D6",
+        "gold": "#D4AF37"
+      },
+      "Autumn": {
+        "base": "#F0E6D6",
+        "gold": "#D4AF37"
+      },
+      "Winter": {
+        "base": "#F0E6D6",
+        "gold": "#D4AF37"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — warm gold business style\n\nA 9:16 vertical poster in warm-gold business style. Beige-gold light-brown soft base, scattered micro-glint gold-foil texture, soft diffused lighting. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small warm-tone LOGO beside the English company name \"{COMPANY_EN}\" in thin serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in light serif with gold accent.\n- CENTER (large area): The main visual — a warm gold business flat graphic: {MAIN_VISUAL_DESC}. Beige-gold soft base ({BASE_COLOR}), scattered gold-foil micro-glints ({GOLD_COLOR}), soft diffused lighting, warm and inviting. Minimal, elegant, warm.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in elegant serif Chinese with gold accent, subtitle \"{SUBTITLE}\" in thin serif below. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Warm beige-gold ({BASE_COLOR}) with scattered gold-foil micro-glint texture ({GOLD_COLOR}) and soft diffused light.\n\nMOOD: Warm, elegant, inviting, premium. No promotional tone.\n\nSTYLE REFERENCES: Warm gold business design, gold-foil texture, soft diffused lighting, premium beige palettes, elegant corporate aesthetics.\n\nNEGATIVE: No cold tones, no photography, no 3D render, no high saturation, no sharp geometric vector, no dark heavy backgrounds, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "graybiz",
+    "num": "29",
+    "nameCn": "高级灰极简商务",
+    "nameEn": "Premium Gray",
+    "desc": "全色系低饱和灰调基底、极简几何细线分区、大量留白",
+    "visual": "Premium gray minimalist flat",
+    "category": "business",
+    "tags": {
+      "temp": "neutral",
+      "sat": "gray",
+      "scene": [
+        "business",
+        "daily"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "abstract",
+    "examples": [
+      "an advanced gray geometric composition with minimal line divisions, calm and professional",
+      "a subtle gray gradient with fine linear elements, understated elegance"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#D0D0D0",
+        "accent": "gray green"
+      },
+      "Summer": {
+        "base": "#D0D0D0",
+        "accent": "gray blue"
+      },
+      "Autumn": {
+        "base": "#D0D0D0",
+        "accent": "gray brown"
+      },
+      "Winter": {
+        "base": "#D0D0D0",
+        "accent": "silver white"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — premium gray minimalist business style\n\nA 9:16 vertical poster in premium-gray minimalist business style. All-tone low-saturation gray base, minimal geometric thin-line divisions, large whitespace. Six fixed zones.\n\nBASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A small minimal LOGO beside the English company name \"{COMPANY_EN}\" in ultra-thin sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" + month \"{MONTH}\" in light sans-serif, right-aligned.\n- CENTER (offset, minimal): The main visual — a premium gray minimalist flat graphic: {MAIN_VISUAL_DESC}. Low-saturation gray palette, minimal geometric thin-line elements, large negative space (~50% whitespace). Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. Sophisticated, understated, refined.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in ultra-thin sans-serif Chinese, subtitle \"{SUBTITLE}\" in thin sans-serif below. Thin geometric divider. Three lines of plain contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nBACKGROUND: Premium low-saturation gray ({BASE_COLOR}) with minimal geometric thin-line divisions and large whitespace.\n\nMOOD: Sophisticated, understated, refined, premium. No promotional tone.\n\nSTYLE REFERENCES: Premium gray minimalist design, high-end business aesthetics, Swiss whitespace design, low-saturation gray palettes, refined corporate layout.\n\nNEGATIVE: No high saturation, no warm tones, no photography, no 3D render, no illustration, no decorative ornaments, no gradients, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "zine-minimal",
+    "num": "30",
+    "nameCn": "ZINE极简风",
+    "nameEn": "ZINE Minimal",
+    "desc": "仿旧纸张、极大留白、极小主体、单点高饱和锚点、印刷瑕疵",
+    "visual": "ZINE minimalist illustration",
+    "category": "texture",
+    "tags": {
+      "temp": "neutral",
+      "sat": "low",
+      "scene": [
+        "daily",
+        "culture"
+      ],
+      "visualType": "illustration"
+    },
+    "descType": "texture",
+    "examples": [
+      "a tiny hand-drawn figure on a vast off-white background, photocopy imperfections, single red dot",
+      "a small torn paper fragment on aged paper, 85% whitespace, faint scan lines"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#F0EBE3",
+        "accent": "pear green"
+      },
+      "Summer": {
+        "base": "#F0EBE3",
+        "accent": "cobalt blue"
+      },
+      "Autumn": {
+        "base": "#F0EBE3",
+        "accent": "tomato red"
+      },
+      "Winter": {
+        "base": "#F0EBE3",
+        "accent": "ultramarine"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — ZINE minimalist style, quiet independent-ZINE aesthetic\n\nA 9:16 vertical poster in ZINE minimalist style. Aged paper surface with paper texture noise. 65–85% of the canvas is quiet paper whitespace. A single tiny visual subject occupies only 8–25% of the canvas — a fragment, object, torn photo clipping, silhouette, or old printed illustration. One high-saturation color anchor ({ACCENT_COLOR}) occupies 0.8–2.5% of the canvas, visible at thumbnail size. Reproduction imperfections: xerox softening, halftone, scan lines, risograph grain, ink bleed, slight misregistration. Matte absorbent paper, diffuse light, low-to-medium contrast, no hard shadows, no 3D depth.\n\nBASE: {SEASON} palette — aged paper base {BASE_COLOR}, high-saturation anchor {ACCENT_COLOR}.\n\nLAYOUT (top to bottom):\n- TOP-LEFT: A minimal line LOGO (small, placed in whitespace) next to the English company name \"{COMPANY_EN}\" in small serif/typewriter face.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" in small serif/monospace (low contrast, quietly receding), date numeral \"{DATE_NUMBER}\" (small), and month \"{MONTH}\" below.\n- CENTER-UPPER (tiny zone): The main visual — {MAIN_VISUAL_DESC}. A single visual metaphor, NOT a full scene. The subject is treated with reproduction imperfections (xerox softening, halftone, scan lines, torn edges, risograph grain) to make it \"belong to the paper.\" Surrounded by vast paper whitespace.\n- CENTER-LOWER: Main title \"{MAIN_TITLE}\" in serif/typewriter (restrained strokes, may drift or press to edge), subtitle \"{SUBTITLE}\" in thin serif/monospace below. Keep in-image text SHORT.\n- BOTTOM-LEFT: Three lines of plain contact text (no icons, no bullets, tiny font, tight leading 1.1–1.2×):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it in tiny sans-serif.\n\nMOOD: Quiet, poetic, archival, diary-like. Japanese/Korean independent ZINE aesthetic. No commercial advertising hierarchy, no promotional noise.\n\nCOLOR LOGIC: Paper color {BASE_COLOR} + grey/black support + ONE high-saturation anchor {ACCENT_COLOR}. The anchor must be visible at thumbnail size. Only one main high-saturation hue per image. Do NOT describe the overall image as low-saturation or monochrome — the paper and secondary ink are low-contrast, but the anchor is fully saturated.\n\nSTYLE REFERENCES: Japanese/Korean independent ZINE design, risograph print culture, xerox art, archival scan aesthetics, quiet editorial design, found-object collage.\n\nNEGATIVE: No full-bleed scenes, no subject larger than 25% of canvas, no multi-color high saturation, no commercial advertising hierarchy, no product advertising, no 3D render, no neon, no cartoon style, no dense collage, no glossy mockup, no hard shadows, no near-monochrome overall description, no pale/muted/pastel overall description, no promotional banners, no emoji, no icons in contact area."
+  },
+  {
+    "id": "new-ugly",
+    "num": "31",
+    "nameCn": "新丑风",
+    "nameEn": "New Ugly",
+    "desc": "高饱和撞色、粗糙手作质感、刻意打破排版规则、低保真印刷肌理",
+    "visual": "New Ugly rough collage illustration",
+    "category": "experimental",
+    "tags": {
+      "temp": "warm",
+      "sat": "high",
+      "scene": [
+        "daily",
+        "culture"
+      ],
+      "visualType": "collage"
+    },
+    "descType": "mood",
+    "examples": [
+      "a rough collage of torn paper fragments with spray-paint shapes and overlapping text in clashing colors",
+      "a deliberately chaotic hand-drawn doodle with offset printing dots and eraser marks"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFE500",
+        "accent": "#00CC44",
+        "pattern": "#FF0099"
+      },
+      "Summer": {
+        "base": "#111111",
+        "accent": "#00CCFF",
+        "pattern": "#FF8800"
+      },
+      "Autumn": {
+        "base": "#F5F0E8",
+        "accent": "#FF3300",
+        "pattern": "#9900CC"
+      },
+      "Winter": {
+        "base": "#999999",
+        "accent": "#0044FF",
+        "pattern": "#00FF44"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — New Ugly style, anti-design aesthetic, controlled chaos\n\nA 9:16 vertical poster in New Ugly style. Intentional imperfection, deliberately broken grid layout, ignore golden ratio and symmetrical composition, unbalanced framing. Chaotic typography, distorted stretched text, overlapping text layers. Hand-drawn scribble marks, scratch lines, eraser marks, draft sketch traces. Rough collage splicing, uneven cropping, torn paper edges. Photocopy grain noise, offset printing dot texture, low-fidelity scanned texture. Harsh high-saturation clashing color palette, no soft gradient, banded color gradation. Reject minimalist aesthetic, reject clean vector smooth lines, reject perfect symmetrical composition, reject polished commercial aesthetic. Raw hand-made texture, amateur draft visual logic, anti-establishment graphic design style, flat 2D graphic poster style, no realistic lighting, no photorealism.\n\nCONTROLLED CHAOS PRINCIPLE: Six zone positions are fixed, but elements within each zone may deliberately misalign, overlap, stretch, distort, or spill across boundaries. Brand information (date, title, contact) must remain readable — \"it looks like random layout, but you can still read it.\"\n\nBASE: {SEASON} palette — base {BASE_COLOR}, clashing colors {ACCENT_COLOR} and {PATTERN_COLOR}.\n\nLAYOUT (top to bottom, positions fixed, internal chaos allowed):\n- TOP-LEFT: A LOGO (may tilt/stretch slightly) beside the English company name \"{COMPANY_EN}\" in distorted sans-serif.\n- TOP-RIGHT: Weekday \"{WEEKDAY}\" + date \"{DATE_NUMBER}\" (may stretch/compress, zero letter-spacing, slight misalignment) + month \"{MONTH}\".\n- CENTER (~45-55%): The main visual — {MAIN_VISUAL_DESC}. Rough collage, hand-drawn scribble, low-fidelity xerox quality. Elements may spill across zone boundaries. Colors: {BASE_COLOR}, {ACCENT_COLOR}, {PATTERN_COLOR} in harsh clashing pairs. Photocopy grain, offset dot texture, scan noise throughout.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in distorted sans-serif (may stretch/overlap but MUST be readable), subtitle \"{SUBTITLE}\" below. Hand-drawn scribble marks and scratch lines may interleave. Three lines of plain contact text (no icons, tight leading, slight misalignment allowed but readable):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n\nMOOD: Rebellious, raw, anti-establishment, amateur-but-intentional. Controlled chaos. No polished commercial feel.\n\nSTYLE REFERENCES: Takada Yui / Allright Graphics, New Ugly design movement, anti-design, street flyer aesthetic, photocopy zine culture, rough collage, intentionally imperfect typography.\n\nNEGATIVE: photorealistic, 3d render, smooth vector, minimalist, swiss grid system, international typographic style, moiré soft colors, morandi palette, perfect composition, neat alignment, clean edges, symmetrical, polished commercial design, luxury aesthetic, sleek UI, glitchcore, weirdcore, vaporwave, pop art, bauhaus, clean sketch, professional refined artwork, soft shadow, depth of field, realistic perspective, soft gradient, promotional banners, emoji, icons in contact area.",
+    "variants": [
+      {
+        "id": "japanese-restraint",
+        "nameCn": "日式克制",
+        "nameEn": "Japanese Restraint",
+        "override": "STYLE VARIANT — JAPANESE RESTRAINT (Takada Yui school): Lower the chaos to \"subtle irregularity\" — faint hand-drawn doodle traces instead of rough graffiti, snapshot-collage feel instead of street tearing, slight offsets only, softened color clashes (keep the clash logic but reduce saturation conflict), subtly warped type, unbalanced whitespace instead of full-bleed fill. Art-exhibition poster temperament. All other layout rules unchanged."
+      },
+      {
+        "id": "chinese-street",
+        "nameCn": "中式市井",
+        "nameEn": "Chinese Street",
+        "override": "STYLE VARIANT — CHINESE STREET (aggressive chaos): Street-flyer visual logic — aggressively overlapping text, coarse spray-paint texture, uneven offset-print misregistration, torn-tape collage traces, untrimmed rough edges, low-resolution scan grain. Anti-polish, raw amateur impact. All other layout rules unchanged."
+      }
+    ],
+    "defaultVariantName": "标准新丑风"
+  },
+  {
+    "id": "campus-newsletter",
+    "num": "32",
+    "nameCn": "校园小报风",
+    "nameEn": "Campus Newsletter",
+    "desc": "早期Word野生排版美学、多字体混用、艺术字标题、自选图形堆叠、填满版面",
+    "visual": "Campus newsletter collage illustration",
+    "category": "experimental",
+    "tags": {
+      "temp": "warm",
+      "sat": "high",
+      "scene": [
+        "daily",
+        "culture"
+      ],
+      "visualType": "collage"
+    },
+    "descType": "mood",
+    "examples": [
+      "a hand-drawn flat illustration with WordArt-style decoration, multiple fonts, scattered auto-shapes",
+      "a clipart-style illustration with stars and arrows, Office default colors, earnestly cluttered"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#FFFFFF",
+        "accent": "#008000",
+        "pattern": "#FFFF00"
+      },
+      "Summer": {
+        "base": "#FFFFFF",
+        "accent": "#0000FF",
+        "pattern": "#FFFF00"
+      },
+      "Autumn": {
+        "base": "#FAFAF5",
+        "accent": "#FF8C00",
+        "pattern": "#FF0000"
+      },
+      "Winter": {
+        "base": "#FFFFFF",
+        "accent": "#0000FF",
+        "pattern": "#800080"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — campus newsletter / wild Word typography style, sincere clumsiness\n\nA 9:16 vertical poster in campus newsletter style, simulating early PC era (1995-2005) wild Word typography aesthetic. Multi-font mixing (at least 3 different fonts), WordArt-style deformed title (tilted/arc/stretched/shadow), auto-shape decorations (stars, clouds, arrows, ovals, straight lines, dashed lines, wavy lines), information-dense layout with NO whitespace — every empty space filled with decorative elements or text. Office default color palette: uncalibrated pure reds, blues, yellows, greens. Light laser-print grain texture, low-resolution image feel. Sincere clumsiness — the chaos is unconscious, not intentional rebellion. Someone tried very hard but didn't know design theory. Flat 2D, no 3D, no photorealism.\n\nSINCERE CLUMSINESS PRINCIPLE: The layout looks cluttered because the maker thought \"more fonts = more effort\" and \"empty space = lazy.\" Space-bar alignment creates uneven spacing. Auto-shapes are stacked without layer management. WordArt titles are over-deformed. But everything is readable and earnestly made.\n\nBASE: {SEASON} palette — main color {ACCENT_COLOR}, decoration colors {BASE_COLOR} and {PATTERN_COLOR}.\n\nLAYOUT (top to bottom, Word document feel):\n- TOP-LEFT: Small LOGO + English company name \"{COMPANY_EN}\" in small sans-serif, left-aligned.\n- TOP-RIGHT: Large date \"{DATE_NUMBER}\" + small weekday \"{WEEKDAY}\" and month \"{MONTH}\", uneven spacing simulating space-bar alignment.\n- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Hand-drawn flat illustration style, low-resolution insertion feel. Side text boxes with quotes or slogans. Auto-shape decorations (stars, clouds, arrows, small flowers) scattered in corners and empty spaces. Colors: {ACCENT_COLOR}, {BASE_COLOR}, {PATTERN_COLOR} in Office default palette.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" in WordArt-style deformed text (tilted/arc/stretched with hard shadow), subtitle \"{SUBTITLE}\" in bold sans-serif below. Horizontal straight or dashed line divider. Three lines of plain contact text (no icons, tight leading, slight misalignment):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it.\n- DECORATIONS: Straight-line borders around sections, stars/arrows/clouds in corners, dashed or wavy dividers between sections. Fill ALL empty spaces — no whitespace allowed.\n\nMOOD: Nostalgic, campus, sincerely clumsy, earnestly over-decorated. The feeling of a student making their best effort with limited tools. Not anti-design, but pre-design.\n\nSTYLE REFERENCES: Early Microsoft Word documents (Office 97/2000/XP era), school newspaper layouts, classroom bulletin board drafts, WordArt clip art aesthetic, auto-shape decorations, print shop flyers, 1990s-2000s campus culture materials.\n\nNEGATIVE: photorealistic, 3d render, smooth vector, professional grid system, minimalist whitespace, morandi palette, low saturation, polished commercial design, luxury aesthetic, single font, clean alignment, swiss design, international typographic style, gradients, soft shadows, depth of field, realistic perspective, promotional banners, emoji, icons in contact area.",
+    "variants": [
+      {
+        "id": "blackboard",
+        "nameCn": "黑板报",
+        "nameEn": "Blackboard Bulletin",
+        "override": "BLACKBOARD BULLETIN VARIANT: Dark green chalkboard base #2D4A3E (or dark gray #3A3A3A). All text and graphics simulate chalk handwriting — white/yellow/pink chalk strokes, slightly rough edges. Auto-shapes become hand-drawn chalk style — wobbly lines, uneven stars. WordArt titles simulate colored chalk handwriting. Keep \"sincere clumsiness\" core but with handcraft warmth. No laser-print grain, replace with chalk dust texture."
+      },
+      {
+        "id": "street-flyer",
+        "nameCn": "市井传单",
+        "nameEn": "Street Flyer",
+        "override": "STREET FLYER VARIANT: More aggressive WordArt — oversized fonts, bold, tilted, heavy shadows, thick outlines. Stronger table/grid feel — simulate price list or schedule layout. Thick borders around all edges, corner arrows pointing to key info. More \"vulgar\" color combo — bright red+green+blue, zero whitespace, maximum information density. Simulate dot-matrix/laser print effect — uneven ink, slight misregistration. Anti-high-end, pure street-level commercial."
+      }
+    ],
+    "defaultVariantName": "标准校园小报"
+  },
+  {
+    "id": "dos-ascii",
+    "num": "33",
+    "nameCn": "DOS字符画复古风",
+    "nameEn": "DOS ASCII Retro",
+    "desc": "纯ASCII/全角符号排版、零图形对象、等宽字体、终端单色配色、CRT扫描线质感",
+    "visual": "ASCII character art pattern",
+    "category": "experimental",
+    "tags": {
+      "temp": "cool",
+      "sat": "low",
+      "scene": [
+        "daily",
+        "tech"
+      ],
+      "visualType": "geometric"
+    },
+    "descType": "character",
+    "examples": [
+      "an ASCII art mountain landscape rendered in terminal box-drawing characters",
+      "a character-drawn cat figure with star decorations, green terminal text on black"
+    ],
+    "seasons": {
+      "Spring": {
+        "base": "#0A0A0A",
+        "accent": "#00FF00",
+        "pattern": "#FFFFFF"
+      },
+      "Summer": {
+        "base": "#000088",
+        "accent": "#FFFFFF",
+        "pattern": "#00FFFF"
+      },
+      "Autumn": {
+        "base": "#0A0A0A",
+        "accent": "#FFB000",
+        "pattern": "#FFFFFF"
+      },
+      "Winter": {
+        "base": "#F8F8F0",
+        "accent": "#000000",
+        "pattern": "#444444"
+      }
+    },
+    "prompt": "[PURPOSE]: Brand calendar poster — DOS ASCII retro style, pure character typography, terminal aesthetic\n\nA 9:16 vertical poster in DOS ASCII retro style. Pure character typography — ALL visual elements (borders, dividers, decorations, main visual) are made entirely of ASCII characters and CJK box-drawing symbols (┃ ━ ┏ ┓ ┗ ┛ ╋ ═ ≈ ★ ■ ● ◆ ※). Zero graphic objects — no vector shapes, no line tools, no rectangles, no gradients. Monospace font throughout, ALL CAPS English. Perfect character-grid alignment, mechanical order. CRT scanline texture, slight pixel grain, character glow on dark backgrounds. Terminal duochrome color scheme. Flat 2D, no 3D, no photorealism.\n\nCHARACTERS ARE EVERYTHING PRINCIPLE: Every border is ┏━━━━┓, every divider is ═══ or ───, every decoration is ★ or ■ or ● or ◆, and the main visual is an ASCII art pattern formed by characters like /\\()|-+*#. The constraint of \"no graphics\" IS the aesthetic — order emerges from character grids, beauty from monospace repetition.\n\nBASE: {SEASON} terminal palette — base {BASE_COLOR}, text {ACCENT_COLOR}, accent {PATTERN_COLOR}.\n\nLAYOUT (top to bottom, all in character borders):\n- OUTER BORDER: Full canvas wrapped in ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓ character border.\n- TOP-LEFT (inside border): English company name \"{COMPANY_EN}\" in monospace ALL CAPS, small size.\n- TOP-RIGHT (inside border): Date \"{DATE_NUMBER}\" in monospace + weekday \"{WEEKDAY}\" + month \"{MONTH}\", with ═══ underline divider.\n- CENTER (~40-50%): The main visual — {MAIN_VISUAL_DESC}. Entirely made of ASCII characters forming a pattern/image. Surrounded by character-drawn frame. Colors: {ACCENT_COLOR} and {PATTERN_COLOR} on {BASE_COLOR} background.\n- MID-LOWER: Main title \"{MAIN_TITLE}\" wrapped in character border (┏━━━━━━━━┓), subtitle \"{SUBTITLE}\" in monospace below. ──── divider line. Three lines of plain monospace contact text (no icons, tight leading):\n  地址：{CONTACT_ADDRESS}\n  电话：{CONTACT_PHONE}\n  邮箱：{CONTACT_EMAIL}\n- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with \"扫码了解更多\" beneath it in monospace.\n- DIVIDERS: Internal section dividers using ┠─────────────┨ or ═══ patterns.\n- DECORATIONS: ★ ■ ● ◆ ※ symbols at section corners and empty grid positions.\n\nMOOD: Geeky, nostalgic, orderly, mechanical, terminal romanticism. The feeling of an early PC user crafting beauty from character constraints. Retro-tech nostalgia, code poetry.\n\nSTYLE REFERENCES: DOS terminal screens, ASCII art archives, early Word character-art documents, IBM monochrome displays, BBS bulletin board art, ANSI art, retro computing aesthetics, green-screen/amber-screen terminals.\n\nNEGATIVE: photorealistic, 3d render, smooth vector graphics, vector shapes, line tool, rectangle tool, gradient fill, color photograph, illustration, brush strokes, watercolor, oil painting, non-monospace font, proportional font, colorful palette, pastel colors, morandi palette, soft shadows, depth of field, realistic perspective, promotional banners, emoji, icons in contact area, minimalist whitespace, hand-drawn style.",
+    "variants": [
+      {
+        "id": "white-document",
+        "nameCn": "白底文档",
+        "nameEn": "White Document",
+        "override": "WHITE DOCUMENT VARIANT: White base #F8F8F0 with pure black characters #000000. No CRT scanlines — replace with light laser-print grain (simulates printed Word document). Use full-width CJK box-drawing characters instead of half-width. More refined, gentle, everyday office document feel. Dark gray #444444 for secondary text."
+      },
+      {
+        "id": "amber-terminal",
+        "nameCn": "琥珀终端",
+        "nameEn": "Amber Terminal",
+        "override": "AMBER TERMINAL VARIANT: Pure black base #0A0A0A with amber characters #FFB000. CRT scanlines + warm amber phosphor glow. Simulates early IBM 5153 amber monochrome display. Warmer and more nostalgic than green-screen. White used only for critical emphasis."
+      }
+    ],
+    "defaultVariantName": "绿屏终端（默认）"
+  }
+]

@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — Morandi low-saturation texture style
+[PURPOSE]: Brand calendar poster — Morandi muted texture style
 
-A 9:16 vertical poster in Morandi low-saturation grey-tone style. Hazy soft color blocks, matte paper grain texture, gentle blur, no gloss, no neon, no hard black contrast. Six fixed zones with a soft muted divider hairline.
+A 9:16 vertical poster in Morandi style. Low-saturation muted gray-toned palette, soft hazy color blocks, matte paper texture. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, accent color {ACCENT_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, accent {ACCENT_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a muted frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized soft serif numeral "{DATE_NUMBER}" (muted tone, visually dominant), and the month "{MONTH}" below. A vertical soft hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Morandi abstract color-block composition: low-saturation grey tones, hazy gentle gradations, matte paper texture. No high saturation, no neon, no hard-edge vector, no photography.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (softened grey ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal soft hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small soft-edged LOGO mark beside the English company name "{COMPANY_EN}" in thin sans-serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in elegant light serif.
+- CENTER (large area): The main visual — Morandi abstract blocks: {MAIN_VISUAL_DESC}. Muted gray-toned soft color blocks, hazy edges, matte texture, gentle diffused lighting. Colors limited to {BASE_COLOR} and {ACCENT_COLOR}. No sharp contrast.
+- MID-LOWER: Main title "{MAIN_TITLE}" in soft-weight serif Chinese, subtitle "{SUBTITLE}" in thin sans-serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal muted hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Quiet, restrained, poetic, gentle stillness. No high-saturation clash, no hard commercial edge.
+BACKGROUND: Muted warm gray ({BASE_COLOR}) with fine matte paper grain and soft haze.
 
-STYLE REFERENCES: Giorgio Morandi still-life palette, muted grey-tone interiors, soft matte paper art, low-saturation contemporary illustration.
+MOOD: Quiet, elegant, understated, poetic. No promotional tone.
 
-NEGATIVE: No high-saturation colors, no neon, no hard black contrast, no glossy reflections, no photography, no hard-edge vector, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Giorgio Morandi still-life paintings, muted gray-tone palettes, matte paper texture, minimalist soft color block design.
+
+NEGATIVE: No high saturation, no strong contrast, no neon colors, no photography, no 3D render, no sharp edges, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---

@@ -122,28 +122,29 @@ Replace each placeholder before generating:
 ## 7. Full Prompt Template (copy into GenerateImage)
 
 ```
-[PURPOSE]: Brand calendar poster — warm-gold cozy business style with gold-foil micro-light
+[PURPOSE]: Brand calendar poster — warm gold business style
 
-A 9:16 vertical poster in warm-gold cozy business style. Beige-gold light-brown soft ground, fine scattered gold-foil micro-light texture, soft diffused lighting, matte-warm. Six fixed zones with a fine gold divider hairline.
+A 9:16 vertical poster in warm-gold business style. Beige-gold light-brown soft base, scattered micro-glint gold-foil texture, soft diffused lighting. Six fixed zones.
 
-BASE: {SEASON} color palette — base color {BASE_COLOR}, gold color {GOLD_COLOR}.
+BASE: {SEASON} palette — base {BASE_COLOR}, gold {GOLD_COLOR}.
 
 LAYOUT (top to bottom):
-- TOP-LEFT: A square LOGO block with a soft gold frame next to the English company name "{COMPANY_EN}" in thin uppercase sans-serif with wide letter-spacing.
-- TOP-LEFT (below LOGO): A vertical date column — weekday "{WEEKDAY}" in all-caps thin sans-serif with wide tracking, an oversized soft serif numeral "{DATE_NUMBER}" (warm gold, visually dominant), and the month "{MONTH}" below. A vertical fine gold hairline runs through this column.
-- TOP-RIGHT (large area): The main visual — {MAIN_VISUAL_DESC}. Warm-gold business graphic: soft abstract forms, scattered gold-foil micro-light, diffused light. No photography, no neon, no harsh 3D.
-- BOTTOM-LEFT: Main title "{MAIN_TITLE}" in bold serif Chinese (warm gold-ink), subtitle "{SUBTITLE}" in thin sans-serif below, followed by a horizontal gold hairline. Below the hairline, three lines of plain contact text (no icons, no bullets, tight leading):
+- TOP-LEFT: A small warm-tone LOGO beside the English company name "{COMPANY_EN}" in thin serif.
+- TOP-RIGHT: Weekday "{WEEKDAY}" + date "{DATE_NUMBER}" + month "{MONTH}" in light serif with gold accent.
+- CENTER (large area): The main visual — a warm gold business flat graphic: {MAIN_VISUAL_DESC}. Beige-gold soft base ({BASE_COLOR}), scattered gold-foil micro-glints ({GOLD_COLOR}), soft diffused lighting, warm and inviting. Minimal, elegant, warm.
+- MID-LOWER: Main title "{MAIN_TITLE}" in elegant serif Chinese with gold accent, subtitle "{SUBTITLE}" in thin serif below. Three lines of plain contact text (no icons, tight leading):
   地址：{CONTACT_ADDRESS}
   电话：{CONTACT_PHONE}
   邮箱：{CONTACT_EMAIL}
-- BOTTOM-RIGHT: A small 1:1 QR code placeholder occupying 15–18% of the zone width, with the label "扫码了解更多" beneath it in small sans-serif.
-- FULL WIDTH BOTTOM: A single horizontal fine gold hairline.
+- BOTTOM-RIGHT: A small 1:1 QR code placeholder (15–18% of zone width) with "扫码了解更多" beneath it.
 
-MOOD: Warm, inviting, quietly premium, gentle hospitality. No cold sterility, no gaudy shine.
+BACKGROUND: Warm beige-gold ({BASE_COLOR}) with scattered gold-foil micro-glint texture ({GOLD_COLOR}) and soft diffused light.
 
-STYLE REFERENCES: Warm premium hospitality branding, gold-foil micro-light textures, soft diffused beige-gold palettes, matte-warm business design.
+MOOD: Warm, elegant, inviting, premium. No promotional tone.
 
-NEGATIVE: No cold sterility, no gaudy shine, no neon, no harsh contrast, no photography, no promotional text, no sale banners, no emoji, no icons in contact area.
+STYLE REFERENCES: Warm gold business design, gold-foil texture, soft diffused lighting, premium beige palettes, elegant corporate aesthetics.
+
+NEGATIVE: No cold tones, no photography, no 3D render, no high saturation, no sharp geometric vector, no dark heavy backgrounds, no promotional banners, no emoji, no icons in contact area.
 ```
 
 ---
